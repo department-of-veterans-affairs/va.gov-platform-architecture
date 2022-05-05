@@ -1,0 +1,8 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedencE.
+
+*       @department-of-veterans-affairs/platform-leadership-engineering
+
+# This section isnt required but showing an example of how we can specify certain teams as codeowners of certain folders
+# Restrict RFC merging
+rfc/*                        @department-of-veterans-affairs/platform-leadership-engineering
