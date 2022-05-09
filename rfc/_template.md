@@ -41,6 +41,7 @@ List the alternative approaches
 
 * There are always alternatives. What other alternative solutions were considered? Not considered?
 * What are their strengths, weaknesses, risks? Why weren’t they chosen?
+* Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
 
 ## References
 
@@ -50,3 +51,5 @@ When linking to other documents in this repository, ensure to link to their stat
 -->
 
 * [RFC XYZ](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/blob/<FULL_COMMIT_HASH>/rfc/<FILENAME>.md): <RFC_TITLE>
+
+
