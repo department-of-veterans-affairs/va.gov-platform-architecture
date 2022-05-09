@@ -12,10 +12,10 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
 
 1. Author the RFC document.
     * The RFC's Primary Author creates a new branch in [this repository](https://github.com/department-of-veterans-affairs/va.gov-platform-arch), sourced from the `main` branch.
-    * The Primary Author starts the RFC document in MarkDown by copying [the RFC template](_template.md) to a new meaningful filename in the `/rfc/` directory  (e.g. "`<team_name> - <id> - <decision statement>.md`").
+    * The Primary Author starts the RFC document in MarkDown by copying [the RFC template](_template.md) to a new meaningful filename in the `/rfc/YYYY` directory where `YYYY` is the year of the RFC commenting deadline (e.g. "`/rfc/2022/<team_name> - <id> - <decision_statement>.md`").
     * All necessary authors collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
-1. The Primary Author opens a Pull Request from the dedicated branch into `main`.
-    * The title of the PR _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
+1. The Primary Author opens a new Pull Request from the dedicated branch into `main`.
+    * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
     * The `CODEOWNERS` mechanism will automatically add some default assignees, these must remain in place.
     * Add the `RFC` label to the PR.
     * Update the RFC document with a link to the PR representing this process.
