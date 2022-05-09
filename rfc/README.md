@@ -11,9 +11,9 @@ Whenever your team is making a decision that could affect the platform, write th
 An RFC's lifecycle is managed through the GitHub Pull Request process and via these outlined, ordered steps:
 
 1. Author the RFC document.
-    1. The RFC's Primary Author creates a new branch in [this repository](https://github.com/department-of-veterans-affairs/va.gov-platform-arch), sourced from the `main` branch.
-    1. The Primary Author starts the RFC document in MarkDown by copying [the RFC template](_template.md) to a new meaningful filename in the `/rfc/` directory  (e.g. "`<team_name> - <id> - <decision statement>.md`").
-    1. All necessary authors collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
+    * The RFC's Primary Author creates a new branch in [this repository](https://github.com/department-of-veterans-affairs/va.gov-platform-arch), sourced from the `main` branch.
+    * The Primary Author starts the RFC document in MarkDown by copying [the RFC template](_template.md) to a new meaningful filename in the `/rfc/` directory  (e.g. "`<team_name> - <id> - <decision statement>.md`").
+    * All necessary authors collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
 1. The Primary Author opens a Pull Request from the dedicated branch into `main`.
     * The title of the PR _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
     * The `CODEOWNERS` mechanism will automatically add some default assignees, these must remain in place.
@@ -32,7 +32,7 @@ Upon finalization of the RFC, if further discussion should be needed, then a new
 
 ## Roles and Responsibilities
 
-This sections outlines the different roles and their responsibilities in this process.
+This section outlines the different roles and their responsibilities in this process.
 
 ### Primary Author
 
@@ -47,7 +47,7 @@ The Primary Author is responsible and accountable for the majority of the activi
 * Ensuring all comments are appropriately addressed and when appropriately addressed, that they are subsequently resolved in the PR.
 * Enforcing adherence to the stipulated timeline(s) for the RFC, including enforcement of the Commenting Period.
     * If necessitated by lively commenting, managing this timeline by extending the Commenting Period.
-* On conclusion and stabilization of the RFC, attaining approval[1] from at least one of the registered `CODEOWNERS` of the RFC and subsequently merging the PR into the `main` branch and communicating this merge to the same channels as where the PR's existence was announced.
+* On conclusion and stabilization of the RFC, obtaining approval[1] from at least one of the registered `CODEOWNERS` of the RFC and subsequently merging the PR into the `main` branch and communicating this merge to the same channels as where the PR's existence was announced.
 
 The Primary Author has the prerogative to ignore, discard, or include comments that were registered outside the stated Commenting Period, into the record.
 
@@ -86,3 +86,4 @@ An RFC may 'graduate', potentially in combination with other RFCs, into an ADR. 
 ## Footnotes
 
 * [1]: Note that this approval is _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_ as outlined in this document.
+* 
