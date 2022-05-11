@@ -18,7 +18,9 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
 1. The Primary Author opens a new Pull Request from the dedicated branch into `main`.
     * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
     * The `CODEOWNERS` mechanism will automatically add some default assignees, these must remain in place.
-    * Add the `RFC` label to the PR.
+    * Add these labels to the PR:
+        * [`RFC`](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pulls?q=is%3Apr+is%3Aclosed+label%3ARFC)
+        * [`platform-architecture-working-group`](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pulls?q=is%3Apr+is%3Aclosed+label%3Aplatform-architecture-working-group)
     * Update the RFC document with a link to the PR representing this process.
 1. Share the location of the PR widely (including a direct link), via at least the following mechanisms:
     * Slack Channel: `#platform-architecture`
