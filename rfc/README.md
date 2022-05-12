@@ -19,7 +19,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
     * The `CODEOWNERS` mechanism will automatically add some default assignees, these must remain in place.
     * Add these labels to the PR:
-        * [`RFC`](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pulls?q=is%3Apr+is%3Aclosed+label%3ARFC)
+        * [`RFC`](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pulls?q=is%3Apr+is%3Aclosed+label%3ARFC): this label ensures that the RFC will be appear on the [Platform Project board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1)
         * [`platform-architecture-working-group`](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pulls?q=is%3Apr+is%3Aclosed+label%3Aplatform-architecture-working-group)
     * Update the RFC document with a link to the PR representing this process.
 1. Share the location of the PR widely (including a direct link), via at least the following mechanisms:
@@ -44,7 +44,7 @@ The Primary Author is responsible and accountable for the majority of the activi
 * Bringing the RFC into existence via a new branch, containing the RFC document populated with all necessary information.
 * Ensuring that the content of the RFC document meets quality standards and represents a meaningful RFC.
 * Creation of the PR _once the RFC document is ready to receive comments_.
-* Ensuring that the PR is properly labeled and appears/is tracked on the [Platform Architecture Board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
+* Ensuring that the PR is properly labeled to ensure it is tracked appropriately on the [Platform Architecture Project Board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
 * Soliciting participation in the RFC via (at least) the required channels, and any additionally necessary or desired ones.
 * Ensuring all necessary actors are included in the commenting period, including following up with included, but mute, actors.
 * Ensuring all comments are appropriately addressed and when appropriately addressed, that they are subsequently resolved in the PR.
