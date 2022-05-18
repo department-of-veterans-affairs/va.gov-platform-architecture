@@ -43,6 +43,17 @@ List the alternative approaches
 * What are their strengths, weaknesses, risks? Why weren’t they chosen?
 * Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
 
+## Diagrams
+
+Try to visually represent the proposal using a [diagram](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). [Live editor](https://mermaid.live/)
+```mermaid
+graph TD
+    A[Public] -->|TIC| B(AWS)
+    B --> C{Reverse Proxy}
+    C --> D[vets-api]
+    C --> F[fa:fa-chess-rook Kong]
+```
+
 ## References
 
 <!--
