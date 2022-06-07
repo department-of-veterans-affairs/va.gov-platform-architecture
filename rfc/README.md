@@ -16,7 +16,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
         * e.g. "`/rfc/1970/1970-01-01 - <team_name> - <id> - <decision_statement>.md`"
     * All necessary authors collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
 1. The Primary Author opens a new Pull Request from the dedicated branch into `main`.
-    * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
+    * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <decision_statement>`").
     * Update the RFC document with a link to the PR representing this process.
 1. PR creation will automatically trigger:
     * Announcement in the `#platform-architecture` Slack channel.
