@@ -11,25 +11,21 @@ Whenever your team is making a decision that could affect the platform, write th
 An RFC's lifecycle is managed through the GitHub Pull Request process and via these outlined, ordered steps:
 
 1. Author the RFC document.
-    * The RFC's Primary Author creates a new branch in [this repository](https://github.com/department-of-veterans-affairs/va.gov-platform-arch), sourced from the `main` branch.
-    * The Primary Author starts the RFC document in MarkDown by copying [the RFC template](_template.md) to a new meaningful filename in the `/rfc/YYYY/` directory where `YYYY` is the year of the RFC commenting deadline. Ideally include the commenting deadline as part of the file name, if the team tracks RFCs feel free to include that RFC in the file name.
+    * The RFC's Primary Author creates a new branch in [this repository](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture), sourced from the `main` branch.
+    * The Primary Author starts the RFC document in MarkDown by copying [the RFC template](_template.md) to a new file in the `/rfc/YYYY/` directory where `YYYY` is the year of the RFC creation.
         * e.g. "`/rfc/1970/1970-01-01 - <team_name> - <id> - <decision_statement>.md`"
     * All necessary authors collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
 1. The Primary Author opens a new Pull Request from the dedicated branch into `main`.
-    * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
-    * The `CODEOWNERS` mechanism will automatically add some default assignees, these must remain in place.
-    * Add these labels to the PR:
-        * [`RFC`](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pulls?q=is%3Apr+is%3Aclosed+label%3ARFC): this label ensures that the RFC will be appear on the [Platform Project board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1)
-        * [`platform-architecture-working-group`](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pulls?q=is%3Apr+is%3Aclosed+label%3Aplatform-architecture-working-group)
+    * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <decision_statement>`").
     * Update the RFC document with a link to the PR representing this process.
-1. Share the location of the PR widely (including a direct link), via at least the following mechanisms:
-    * Slack Channel: `#platform-architecture`
-1. Collect comments via the Pull Request (see also [How do I comment on an RFC](#how-do-i-comment-on-an-rfc)) until the Comment Deadline.
-1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`. Every comment must receive a response by the author(s) and this response can be:
-    * Acknowledgment of the comment, combined with updating the RFC document based on the provided comment. It is desirable for this acknowledgment to contain the links to the subsequent commits that address the specific comment and to include how the original comment was addressed by the content updates.
-    * Explicitly declining the comment's suggestion; in this it is strongly desired to provide a justification for the declining.
-1. Enable meaningful dissent on the addressed comments, potentially necessitating an additional commenting period restricted to only those comments with a substantive dissent on the stated response.
-1. Once all comments are addressed & resolved, and all discussion has ended, the Primary Author will request approval from the necessary `CODEOWNER`s and the PR will become mergeable, the Primary Author merges the RFC into the `main` branch, thus solidifying and completing this RFC.
+1. PR creation will automatically trigger:
+    * Announcement in the `#platform-architecture` Slack channel.
+    * Default assignees based on `CODEOWNERS`, these must remain in place.
+    * Attach default labels (e.g. `RFC`), these must remain in place.
+    * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column.
+1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
+1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
+1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNER` will approve the PR and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
 
 Upon finalization of the RFC, if further discussion should be needed, then a new RFC must be created to facilitate this discussion.
 
@@ -44,13 +40,10 @@ The Primary Author is responsible and accountable for the majority of the activi
 * Bringing the RFC into existence via a new branch, containing the RFC document populated with all necessary information.
 * Ensuring that the content of the RFC document meets quality standards and represents a meaningful RFC.
 * Creation of the PR _once the RFC document is ready to receive comments_.
-* Ensuring that the PR is properly labeled to ensure it is tracked appropriately on the [Platform Architecture Project Board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
-* Soliciting participation in the RFC via (at least) the required channels, and any additionally necessary or desired ones.
-* Ensuring all necessary actors are included in the commenting period, including following up with included, but mute, actors.
+* Soliciting participation in the RFC via announcement in relevant channels and discussions.
 * Ensuring all comments are appropriately addressed and when appropriately addressed, that they are subsequently resolved in the PR.
 * Enforcing adherence to the stipulated timeline(s) for the RFC, including enforcement of the Commenting Period.
-    * If necessitated by lively commenting, managing this timeline by extending the Commenting Period.
-* On conclusion and stabilization of the RFC, obtaining approval[1] from at least one of the registered `CODEOWNERS` of the RFC and subsequently merging the PR into the `main` branch and communicating this merge to the same channels as where the PR's existence was announced.
+* On conclusion of the RFC, after approval[1] from at least one of the registered `CODEOWNERS` of the RFC subsequently merging the PR into the `main` branch.
 
 The Primary Author has the prerogative to ignore, discard, or include comments that were registered outside the stated Commenting Period, into the record.
 
