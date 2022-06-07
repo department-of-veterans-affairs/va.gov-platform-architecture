@@ -21,7 +21,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
 1. PR creation will automatically trigger:
     * Announcement in the `#platform-architecture` Slack channel.
     * Default assignees based on `CODEOWNERS`, these must remain in place.
-    * Addition of the `RFC` label, this must remain in place.
+    * Attach default labels (e.g. `RFC`), these must remain in place.
     * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column.
 1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
 1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
