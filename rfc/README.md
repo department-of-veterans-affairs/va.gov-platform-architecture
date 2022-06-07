@@ -17,10 +17,12 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * All necessary authors collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
 1. The Primary Author opens a new Pull Request from the dedicated branch into `main`.
     * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <statement>`").
-    * The `CODEOWNERS` mechanism will automatically add some default assignees, these must remain in place.
-    * Github Actions will automatically add the `RFC` label, this must remain in place.
     * Update the RFC document with a link to the PR representing this process.
-1. PR creation will automatically be announced in the `#platform-architecture` Slack channel.
+1. PR creation will automatically trigger:
+    * Announcement in the `#platform-architecture` Slack channel.
+    * Default assignees based on `CODEOWNERS`, these must remain in place.
+    * Addition of the `RFC` label, this must remain in place.
+    * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column.
 1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
 1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
 1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNER` will approve the PR and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
