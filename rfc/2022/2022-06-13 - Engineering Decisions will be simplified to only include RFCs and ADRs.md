@@ -31,7 +31,7 @@ This is about 1 ADR every two months, and 1 RFC per month. With two sprints per 
 
 ## Design
 
-* **Simplify the process**. The current process involves four artifacts that team members are required to understand and choose between: ADRs, Idea Docs, Design Docs, and RFCs. Practically, ADRs are the only one of these are are commonly requested. 
+* **Simplify the process**. The current process involves four artifacts that team members are required to understand and choose between: ADRs, Idea Docs, Design Docs, and RFCs. Practically, ADRs are the only one of these that are commonly requested. 
 Idea docs and design docs are removed from the process for simplicity. Teams of course may still generate idea docs and design docs. But if the work they are doing affects multiple teams, has architectural impacts, or there are alternatives that the Platform should consider, then an RFC should be created in addition to these docs.
 
 * **Author and track RFCs as github PRs**. RFC stands for Request for Comments, and the medium where an RFC is published should be optimized for discussion. PRs provide a framework for collecting suggestions, questions, and thoughts about code, until that code is in a state where everyoine involved agrees that it is ready for production. This same framework should be used for RFCs: the work plan (RFC text) is published, comments/suggestions are collected, answers to questions are incorporated into the text, then the RFC is “approved” via merge into the repo. Interested parties can easily “subscribe” to the RFC PR to get updates sent to their inbox.
