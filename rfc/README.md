@@ -17,7 +17,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * Copy [the RFC template](_template.md) content into the new file.
     * Click "Propose new file"
     * Title the Pull Request with this format: `<Team-Name>_<Id>_<Decision-Statement>`
-    * Update the RFC to link to the newly opened pull request
+    * Update the RFC file to link to the newly opened pull request
 1. PR creation will automatically trigger:
     * Announcement in the `#platform-architecture` Slack channel.
     * Default assignees based on `CODEOWNERS`, these must remain in place.
