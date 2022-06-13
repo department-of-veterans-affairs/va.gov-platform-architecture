@@ -24,7 +24,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * Attachment of default labels (e.g. `RFC`), these must remain in place.
     * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column. 
 1. Contributing Authors:
-    * Collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
+    * Collaborate on the RFC document in its dedicated branch until it is in a state where it can receive comments.
 1. Primary Author:
     * When collaborators have finished updating the RFC and it is ready for public comment, move the RFC from the "Draft" column to "Ready" on the [Platform Architecture project board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
     * Update the Comment Deadline in the RFC document to be 30 days from when the RFC is moved to "Ready" state.
