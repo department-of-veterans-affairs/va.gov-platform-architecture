@@ -10,19 +10,24 @@ Whenever your team is making a decision that could affect the platform, write th
 
 An RFC's lifecycle is managed through the GitHub Pull Request process and via these outlined, ordered steps:
 
-1. Author the RFC document.
-    * The RFC's Primary Author creates a new branch in [this repository](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture), sourced from the `main` branch.
-    * The Primary Author starts the RFC document in MarkDown by copying [the RFC template](_template.md) to a new file in the `/rfc/YYYY/` directory where `YYYY` is the year of the RFC creation.
-        * e.g. "`/rfc/1970/1970-01-01 - <team_name> - <id> - <decision_statement>.md`"
-    * All necessary authors collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
-1. The Primary Author opens a new Pull Request from the dedicated branch into `main`.
-    * The title of the Pull Request _must contain the comment deadline_ and must reflect the decision statement from the RFC (e.g. "`RFC - YYYY-MM-DD - <decision_statement>`").
-    * Update the RFC document with a link to the PR representing this process.
+1. Primary Author: create the RFC document and Pull Request.
+    * Go to the [RFC directory](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/tree/main/rfc) and navigate to the subdirectory for the current year. Click "Add new file" and select "Create new file" dropdown. [Convenience shortcut for 2022](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/new/main/rfc/2022)
+    * Set the file name in this format: `2022-01-01_<Team-Name>_<Id>_<Decision-Statement>.md`
+      * `id` is an optional number for the team's usage such as "Team-A_02"
+    * Copy [the RFC template](_template.md) content into the new file.
+    * Click "Propose new file"
+    * Title the Pull Request with this format: `<Team-Name>_<Id>_<Decision-Statement>`
+    * Update the RFC to link to the newly opened pull request
 1. PR creation will automatically trigger:
     * Announcement in the `#platform-architecture` Slack channel.
     * Default assignees based on `CODEOWNERS`, these must remain in place.
-    * Attach default labels (e.g. `RFC`), these must remain in place.
-    * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column.
+    * Attachment of default labels (e.g. `RFC`), these must remain in place.
+    * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column. 
+1. Contributing Authors:
+    * Collaborate on the RFC document in the dedicated branch until it is in a state where it can receive comments.
+1. Primary Author:
+    * When collaborators have finished updating the RFC and it is ready for public comment, move the RFC from the "Draft" column to "Ready" on the [Platform Architecture project board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
+    * Update the Comment Deadline in the RFC document to be 30 days from when the RFC is moved to "Ready" state.
 1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
 1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
 1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNER` will approve the PR and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
