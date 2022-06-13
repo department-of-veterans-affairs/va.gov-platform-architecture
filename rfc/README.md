@@ -17,7 +17,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * Copy [the RFC template](_template.md) content into the new file.
     * Click "Propose new file"
     * Title the Pull Request with this format: `<Team-Name>_<Id>_<Decision-Statement>`
-    * Update the RFC file to link to the newly opened pull request
+    * Update the RFC document to link to the newly opened pull request
 1. PR creation will automatically trigger:
     * Announcement in the `#platform-architecture` Slack channel.
     * Default assignees based on `CODEOWNERS`, these must remain in place.
@@ -27,7 +27,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * Collaborate on the RFC document in its dedicated branch until it is in a state where it can receive comments.
 1. Primary Author:
     * When collaborators have finished updating the RFC and it is ready for public comment, move the RFC from the "Draft" column to "Ready" on the [Platform Architecture project board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
-    * Update the Comment Deadline in the RFC document to be 30 days from when the RFC is moved to "Ready" state.
+    * Update the Comment Deadline in the RFC document to an appropriate deadline. 30 days from when the RFC is moved into the "Ready" state is recommended.
 1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
 1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
 1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNERS` will approve the PR and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
