@@ -11,8 +11,8 @@ Whenever your team is making a decision that could affect the platform, write th
 An RFC's lifecycle is managed through the GitHub Pull Request process and via these outlined, ordered steps:
 
 1. Primary Author: create the RFC document and Pull Request.
-    * Go to the [RFC directory](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/tree/main/rfc) and navigate to the subdirectory for the current year. Click "Add new file" and select "Create new file" dropdown. [Convenience shortcut for 2022](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/new/main/rfc/2022)
-    * Set the file name in this format: `2022-01-01_<Team-Name>_<Id>_<Decision-Statement>.md`
+    * Create a [new file](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/new/main/rfc/2022) in the repository.
+    * Name the file in the format: `2022-01-01_<Team-Name>_<Id>_<Decision-Statement>.md`
       * `id` is optional, it can be used to indicate a unique ID to enable a team to precisely and easily refer to a specific RFC (e.g. "`TeamX_1248_Decision-Statement-Here`")
     * Copy [the RFC template](_template.md) content into the new file.
     * Click "Propose new file"
