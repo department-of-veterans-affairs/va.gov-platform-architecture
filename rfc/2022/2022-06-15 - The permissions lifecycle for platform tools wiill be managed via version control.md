@@ -21,7 +21,6 @@ Currently, no holistic process has been defined to direct the flow from permissi
 Though AMT has defined a schema for describing permissions, there is no prescribed process for the managing the lifecycle of a platform tool's permissions. Because of the lack of a permissions lifecycle management process, integrations with Keycloak have led to lengthy manual integrations. Defining and implementing a process using existing and popular tooling will reduce confusion, streamline the process, and pave the way for automation opportunities in the near future. 
 
 ## Design
-### General Process
 ```mermaid
 %%{init: {'theme': 'neutral'}}%%
 flowchart TD
@@ -29,12 +28,30 @@ flowchart TD
   impl --> apply(2: Apply permissions)
   apply --> use(3: Use permissions)
   use --> revise(4: Revise permissions)
-  revise --> is_del{Removal?}
-  is_del --> |Yes| retire(5: Retire permissions)
-  is_del --> |No| impl
   revise --> impl
-  retire --> impl
 ```
+
+### 0: Authorization Desired 
+This step handles the cases:
+1. The application has not been integrated into Keycloak
+2. The application has been integrated into Keycloak, but has not configured authorization
+
+### 1: Describe Permissions
+This step encompasses the process of detailing a platform tool's permissions in JSON format<sub>[[RFC6]](https://vfs.atlassian.net/wiki/spaces/AMT/pages/2142011842/RFC+6+AMT+integrators+can+describe+fine-grained+permissions+using+JSON)</sub>, including any support from AMT.
+
+### 2: Apply Permissions
+The permissions application step includes the source control integration process. It also includes the automation required to apply the permissions configuration to the platform tool previously integrated into Keycloak. This is described in more detail below
+
+### 3: Use Permissions
+This step represents some amount of time where the integrated and configured platform tool's users interact with the tool under the scope of permissions they have been provided
+
+### 4: Revise Permissions
+Revising permissions could occur when:
+1. An authorization bug has been found and must be corrected
+2. A role must permanently or temporarily promote or demote its access to resources
+3. An endpoint/resource of a platform tool has been deprecated
+4. A platform tool has been deprecated or phased out
+   
 ### Source code process
 ```mermaid
 %%{init: { 'theme':'neutral' } }%%
