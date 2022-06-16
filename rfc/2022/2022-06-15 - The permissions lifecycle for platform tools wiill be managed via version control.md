@@ -23,7 +23,7 @@ Though AMT has defined a schema for describing permissions, t1xhere is no prescr
 ## Design
 test
 ```mermaid
-%%{init: { 'theme':'neutral', 'flowchart': {'useMaxWidth':true} } }%%
+%%{init: { 'theme':'neutral' } }%%
 flowchart
     subgraph permissions_lifecycle[ ]
         direction LR
