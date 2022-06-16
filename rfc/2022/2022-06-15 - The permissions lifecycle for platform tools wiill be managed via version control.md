@@ -41,26 +41,31 @@ flowchart
         subgraph amt[Access Management Team]
             direction LR
             review(Review PR)
-            suggests{Improvements suggested?}
+            suggests{Suggestions?}
             approve(Approve PR)
             review --> suggests
             suggests --> |Yes| pr
             suggests --> |No| approve
             approve --> gen_tf
-        end
 
-        %% amt --> auto
+            subgraph auto[Automation]
+                direction TB
+                subgraph gha[Github Actions Workflow]
+                    gen_tf[Generate TF config from perms.json] --> gha_pr(Create PR for TF config)
+                end
+                
 
-        subgraph auto[Keycloak permissions update]
-            direction TB
-            gen_tf[Generate TF config from perms.json] --> gha_pr(Create PR for TF config)
+                subgraph tf[Terraform/Keycloak]
+                    tf_apply[Terraform apply] --> kc_client_updated[Keycloak client permissions updated]
+                end
+            end
+           
             gha_pr --> amt_tf_review[AMT review]
             amt_tf_review --> suggests2{Suggestions?}
-            suggests2 --> |Yes| pr
             suggests2 --> |No| merge[AMT merge]
-            merge --> tf_apply[Terraform apply]
-            tf_apply --> kc_client_updated[Keycloak client permissions updated]
-        end
+            suggests2 --> |Yes| pr
+            merge --> tf_apply
+      end
     end
 ```
 
