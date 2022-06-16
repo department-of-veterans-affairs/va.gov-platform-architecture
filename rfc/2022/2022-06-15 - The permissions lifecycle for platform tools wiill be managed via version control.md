@@ -18,10 +18,24 @@ In order to fully leverage the powerful authorization services of Keycloak, the 
 Currently, no holistic process has been defined to direct the flow from permissions generation to permissions integration. The intent of this RFC is to gather feedback and criticism of a proposed process for managing the lifecycle of permissions of a platform tool.
 
 ## Motivation
-Though AMT has defined a schema for describing permissions, t1xhere is no prescribed process for the managing the lifecycle of a platform tool's permissions. Because of the lack of a permissions lifecycle management process, integrations with Keycloak have led to lengthy manual integrations. Defining and implementing a process using existing and popular tooling will reduce confusion, streamline the process, and pave the way for automation opportunities in the near future. 
+Though AMT has defined a schema for describing permissions, there is no prescribed process for the managing the lifecycle of a platform tool's permissions. Because of the lack of a permissions lifecycle management process, integrations with Keycloak have led to lengthy manual integrations. Defining and implementing a process using existing and popular tooling will reduce confusion, streamline the process, and pave the way for automation opportunities in the near future. 
 
 ## Design
-test
+### General Process
+```mermaid
+%%{init: {'theme': 'neutral'}}%%
+flowchart TD
+  init(0: AuthZ desired) --> impl(1: Describe permissions)
+  impl --> apply(2: Apply permissions)
+  apply --> use(3: Use permissions)
+  use --> revise(4: Revise permissions)
+  revise --> is_del{Removal?}
+  is_del --> |Yes| retire(5: Retire permissions)
+  is_del --> |No| impl
+  revise --> impl
+  retire --> impl
+```
+### Source code process
 ```mermaid
 %%{init: { 'theme':'neutral' } }%%
 flowchart
