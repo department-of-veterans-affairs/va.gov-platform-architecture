@@ -2,7 +2,7 @@
 
 This document explains why: 
 1. Authentication and authorization for microservices should be done on the Kubernetes ingress controller. 
-2. A mature solution with enterpise support such as Traefik Enterprise Edition should be used. 
+2. A mature solution with enterprise support such as Traefik Enterprise Edition should be used. 
 3. We should make this solution available for development teams early in the microservices lifecycle. 
 
 
