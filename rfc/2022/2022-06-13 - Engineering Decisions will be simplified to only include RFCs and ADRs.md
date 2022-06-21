@@ -49,6 +49,8 @@ Idea docs and design docs are removed from the process for simplicity. Teams of 
 
 * The omission of design docs and idea docs will lead to less documentation
 
+* Using a PR process may introduce a barrier to commenting for those not familiar with Github's pull request system and process.
+
 ## Alternatives
 
 * The existing process could be socialized and enforced by platform leadership, requiring no changes.
