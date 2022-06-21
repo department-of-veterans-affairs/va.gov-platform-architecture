@@ -1,9 +1,12 @@
 # IET RFC 002: TraefikEE + Keycloak SSO on Kubernetes Ingress
 
-**Proposal to upgrade Traefik Open Source to Traefik Enterprise Edition and integrate with Keycloak** 
+This document explains why: 
+1. Authentication and authorization for microservices should be done on the Kubernetes ingress controller. 
+2. A mature solution with enterpise support such as Traefik Enterprise Edition should be used. 
+3. We should make this solution available for development teams early in the microservices lifecycle. 
 
-This document explains why TraefikEE is the optimal location for Keycloak integration, alternative options are also listed.
 
+Details
 * Comment Deadline: `2022-07-14`
 * Team Crew and Name: Platform/Spike - Integration Experience Team
 * Authors:
