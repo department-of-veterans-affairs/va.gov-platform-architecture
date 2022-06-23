@@ -1,11 +1,5 @@
 # RFC: The permissions lifecycle for platform tools will be managed via version control
 
-<!--
-The title is what you want comments on. Use the active voice in a future tense.
-Example:
-    - The website will be built using the XZY framework
--->
-
 * Comment Deadline: `2022-07-15`
 * Team Crew and Name: [Platform/Access Management Team](https://dsva.slack.com/archives/C02GQ27HXQW)
 * Authors:
@@ -102,19 +96,10 @@ flowchart
 ```
 
 ## Risks
-
-List the risks of this approach
-
-* There are always risks. What are the risks of this solution?
-* These are the things people will bring up in opposition to your idea or plans. Acknowledge them.
+Adding permissions in plain text (JSON) format to a repo has some security implications. A malicious actor could see and potentially do harm with role, resource, and scope information if they were given access to the Github organization.
 
 ## Alternatives
-
-List the alternative approaches
-
-* There are always alternatives. What other alternative solutions were considered? Not considered?
-* What are their strengths, weaknesses, risks? Why weren’t they chosen?
-* Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
+Instead of committing permissions information to source control, we could store this information in a document database, e.g. AWS DocumentDB. A database like this would be a good fit for JSON data, thus continuing to provide a common and schematized format for users. It adds the additional benefit of not storing permissions in plain text by offering (electable) encryption at rest for a DocDB cluster.
 
 ## References
 * [RFC 6](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/blob/<FULL_COMMIT_HASH>/rfc/<FILENAME>.md): AMT integrators can describe fine-grained permissions using JSON
