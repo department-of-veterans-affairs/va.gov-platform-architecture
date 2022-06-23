@@ -1,18 +1,19 @@
 # IET RFC 002: TraefikEE + Keycloak SSO on Kubernetes Ingress
 
-This document explains why: 
-1. Authentication and authorization for microservices should be done on the Kubernetes ingress controller. 
-2. A mature solution with enterprise support such as Traefik Enterprise Edition should be used. 
+This document explains why:
+
+1. Authentication and authorization for microservices should be done on the Kubernetes ingress controller.  
+2. A mature solution with enterprise support such as Traefik Enterprise Edition should be used.  
 3. We should make this solution available for development teams early in the microservices lifecycle. 
 
-
 Details
-* Comment Deadline: `2022-07-14`
-* Team Crew and Name: Platform/Spike - Integration Experience Team
-* Authors:
-  * [Igor Yegorov](https://github.com/considerable)
-  * [Emily Wilson](https://github.com/ewilson-adhoc)
-* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/25)
+  
+* Comment Deadline: `2022-07-14`  
+* Team Crew and Name: Platform/Spike - Integration Experience Team   
+* Authors: 
+  * [Igor Yegorov](https://github.com/considerable)  
+  * [Emily Wilson](https://github.com/ewilson-adhoc)  
+* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/25)  
 
 ## Background
 
@@ -208,6 +209,48 @@ To control this kind of risk of not following the established practices, it migh
 Another risk is what if the system capacity will not be sufficient to meet the production workloads?
 
 To control the kind of performance saturation risk, it is good to have an experienced vendor, think Traefik Labs, to support our OIDC integration starting from the trial period and system design time following through the production monitoring and necessary upgrades or patches over time. 
+
+Approximate load considerations:
+
+* We don't know yet for sure what the load on the OpenID-Connect (TraefikEE-to-Keycloak) would be, so it is good to have a vendor for enterprise-grade support, such as Traefik Labs.
+* We are targeting the new version of VETS-API that is coming to EKS, in some part as monolith, in some part as a collection of microserviecs. 
+* In the new system, in the spirit of ZTA, we expect some auth & authz activities between the microservices every time a user comes in with a new session plus a possibility of scheduled API calls w/o a user. 
+
+IET in-house research of the production monolith VETS-API can be found [here](https://docs.google.com/spreadsheets/d/14iNeWOyaMe0aqVtgfCqTE7cl3xAfQ7YJDsjRbADOXCk/edit#gid=1482742543). If you have no access to that google doc, here is the data sampling from Grafana, which might have some Lighthouse activities mixed in.
+
+Top 10 endpoints as of Winter 2022 sampling:
+
+|Daily Hits|Ruby Rails Controller (Winter workday 2022)
+|:--       |:-- 
+|28,393,133|openid_auth/v2/validation
+|5,707,644 |v0/feature_toggles
+|1,177,183 |v0/users
+|846,537	 |v1/sessions
+|581,374	 |v0/backend_statuses
+|467,941	 |v0/evss_claims\_async
+|354,112	 |v0/disability_compensation\_in\_progress\_forms
+|277,237	 |v0/maintenance_windows
+|239,064	 |v0/in_progress\_forms
+|215,398	 |v0/search_typeahead
+
+Top 10 endpoints as of Summer 2022 sampling:
+
+|Daily Hits|Ruby Rails Controller (Summer weekend 2022)
+|:--       |:-- 
+|3,707,087 |openid_auth/v2/validation
+|1,571,110 |v0/feature_toggles
+|480,614	 |v0/backend_statuses
+|404,328	 |v0/users
+|205,859	 |v1/sessions
+|151,986	 |v0/evss_claims\_async
+|126,369	 |v0/disability_compensation\_in\_progress\_forms
+|107,309	 |mobile/v0/claims_and\_appeals
+|97,532	 |v0/in_progress\_forms
+|88,327	 |mobile/v0/disability_rating
+|74,807	 |v0/maintenance_windows
+
+Veterans will not auth directly, but the number of veterans online (600k registered veterans with 50k logging in daily) might indicate the load level on the microservices and the software-to-software auth activities hapining behind the scene.
+
 
 ## Alternatives
 
