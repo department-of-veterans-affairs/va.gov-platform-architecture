@@ -53,6 +53,28 @@ Traefik also supports SSL termination and can be used with an ACME provider (lik
  
 Traefik Enterprise Edition (TraefikEE) is a commercial platform built on top of Traefik, designed for mission-critical deployments. TraefikEE authentication middleware for OpenID Connect (OIDC) is known to integrate with Keycloak server on the Kubernetes ingress level.
 
+Traefik is a cloud-native application deployed as a [DaemonSet via ArgoCD](https://github.com/department-of-veterans-affairs/vsp-infra-application-manifests/blob/main/apps/vsp-operations/traefik/dev/values-dev.yaml), meaning Traefik daemon gets deployed to each worker node in the EKS cluster. It does capture all communications in the EKS cluster.
+P1 and P2 are pods of the same replicaSet RS1 of the deployment D1 in the NameSpace NS1 (application NS1) while P3 and P4 a pods of another replicaSet RS2 of the same deployment D1 of NameSpace NS1 (same application NS1).
+Most applications the teams deployed look like deployment D2 in Namespace NS2 (application NS2) with only one replicaSet RS3 and only one pod in it P5. The following mermaid diagram is best viewed in Chrome browser:
+
+```mermaid
+graph TD;
+  NS1[ NameSpace-NS1 ] --- D1[ Deployment-D1 ];
+  D1[ Deployment1-D1 ] --- RS1[ ReplicaSet-RS1 ];
+  RS1[ ReplicaSet-RS1 ] --- P1[ Pod-P1 ];
+  RS1[ ReplicaSet-RS1 ] --- P2[ Pod-P2 ];
+
+  D1[ Deployment-D1 ] --- RS2[ ReplicaSet-RS2 ];
+  RS2[ ReplicaSet-RS2 ] --- P3[ Pod-P3 ];
+  RS2[ ReplicaSet-RS2 ] --- P4[ Pod-P4 ];
+
+  NS2[ NameSpace-NS2 ] --- D2[ Deployment-D2 ];
+  D2[ Deployment-D2 ] --- RS3[ ReplicaSet-RS3 ];
+  RS3[ ReplicaSet-RS3 ] --- P5[ Pod-P5 ];
+```
+
+Being in different namespaces, pods of different applications don't talk to each other directly, their communication is routed via DNS first and then via Traefik, the ingress controller.
+
 ### Keycloak 1.0.1 - OIDC Identity Broker (IdB) and Identity Provider (IdP)
 
 OpenID Connect (OIDC) is the third generation of OpenID technology. It is an authentication layer on top of the OAuth 2.0 authorization framework. It allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain the basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OIDC specifies a RESTful HTTP API, using JSON as a data format. OIDC also makes heavy use of the Json Web Token (JWT) set of standards. OIDC allows a range of parties, including web-based, mobile and JavaScript clients, to request and receive information about authenticated sessions and end users. 
