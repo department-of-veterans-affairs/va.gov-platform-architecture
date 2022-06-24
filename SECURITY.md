@@ -4,4 +4,4 @@ The Department of Veterans Affairs participates in a Responsible Vulnerability D
 
 If your Bugcrowd submission is related to an open GH issue, please include that issue ID in the description field of your disclosure. 
 
-But, please do not open new security-related issues. If you are a developer and have concerns, you can reach out on our internal Slack channel [#platform-security](https://dsva.slack.com/archives/C02LYP26JTT).
+But, please do not open new security-related issues. If you are a developer and have concerns, you can reach out on our internal Slack channel [#platform-security](https://dsva.slack.com/archives/C01CJV0L9PS).
