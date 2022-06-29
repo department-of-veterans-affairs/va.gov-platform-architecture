@@ -8,6 +8,8 @@ For documenting and discussing the architecture of the VA.gov Platform.
 - [ADR Process](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/blob/main/adr/README.md)
 - [RFC Process](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/blob/main/rfc/README.md)
 
+## Security
+- Please do not share details that could provide a threat actor with architectural or technical insights that could be used in an attack scenario.
 
 ## References
 - [Architecture Working Group Confluence](https://vfs.atlassian.net/wiki/spaces/ECP/pages/1872363553/Platform+Architecture+Working+Group)
