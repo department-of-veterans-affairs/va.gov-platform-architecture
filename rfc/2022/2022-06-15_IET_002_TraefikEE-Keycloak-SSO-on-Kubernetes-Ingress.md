@@ -286,7 +286,7 @@ Veterans will not auth directly, but the number of veterans online (600k registe
     - Weaknesses: moderately hard to manage how each team would use this sidecar for their microservice 
     - Risks: Gatekeeper is not a very big open sources project 
     - Why not chosen: Gatekeeper is second best after TraefikEE  
-2. [OIDC with Keyckloack baked into Application](https://github.com/department-of-veterans-affairs/vets-api-sidekiq-ui/blob/43a79ac30428290f6920e3a95c1b3d312984b6fa/app/config.ru#L32)
+2. [OIDC with Keycloak baked into Application](https://github.com/department-of-veterans-affairs/vets-api-sidekiq-ui/blob/43a79ac30428290f6920e3a95c1b3d312984b6fa/app/config.ru#L32)
     - Strengths: full control of the implementation baked in the app by Platform own developers
     - Weaknesses: requires to maintain the skill in every team, complicates security audit and change managenet
     - Risks: every team to start coding it would lack the maturity of existing tried and tested implementations
