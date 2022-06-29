@@ -281,7 +281,7 @@ Veterans will not auth directly, but the number of veterans online (600k registe
 > * What are their strengths, weaknesses, risks? Why weren’t they chosen?  
 > * Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
 
-1. [OIDC with Keyckloack and Target App with Gatekeeper sidecar](https://github.com/department-of-veterans-affairs/vets-api-file-upload/blob/main/oidc-poc/README.md)
+1. [OIDC with Keycloak and Target App with Gatekeeper sidecar](https://github.com/department-of-veterans-affairs/vets-api-file-upload/blob/main/oidc-poc/README.md)
     - Strengths: [Gatekeeper](https://github.com/gogatekeeper/gatekeeper) is a mature sidecar software project that can be used in front of any microservice
     - Weaknesses: moderately hard to manage how each team would use this sidecar for their microservice 
     - Risks: Gatekeeper is not a very big open sources project 
