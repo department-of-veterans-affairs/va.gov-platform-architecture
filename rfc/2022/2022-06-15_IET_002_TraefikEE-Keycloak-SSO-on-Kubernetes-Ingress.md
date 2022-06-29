@@ -122,7 +122,7 @@ VA's workload of 50,000 veterans online per day demands a strong vendor in OIDC 
 
 **When to do this?**
 
-An upgrage like this fits at the beginning of the development circle to support ongoing operations with production-grade infrastructure.
+An upgrade like this fits at the beginning of the development circle to support ongoing operations with production-grade infrastructure.
 
 ## Design
 
