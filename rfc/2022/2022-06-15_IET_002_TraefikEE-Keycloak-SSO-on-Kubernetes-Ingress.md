@@ -281,9 +281,9 @@ Veterans will not auth directly, but the number of veterans online (600k registe
 > * What are their strengths, weaknesses, risks? Why weren’t they chosen?  
 > * Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
 
-1. The view from 10,000 feet of the indormation flow in the proposed TraefikEE "middleware" solution is pictured below:
+1. The view from 10,000 feet of the information flow in the proposed TraefikEE "middleware" solution is pictured below:
 ![2022-06-15-oidc-traefikee-diagram.png](images/2022-06-15-oidc-traefikee-diagram.png)  
-    - Strengths: ownership of the integration is closer to the Security team to monitor it against [live stream of MITRE records](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=Keycloak)
+    - Strengths: ownership of the integration is closer to the Security team to monitor it against [live stream of MITRE records](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=Keycloak), etc.
     - Weaknesses: for purpose of stability, authorization techniques might need to be narrowed to traefik.http.middlewares .plugin.oidcAuth.claims, i.e. those provided by [TraefikEE implementation of OIDC claims](https://traefik.io/glossary/openid-connect-everything-you-need-to-know/)
     - Risks: as captured above in the "Risks" chapter 
 2. Alternatively, [OIDC with Keyckloack and Target App with Gatekeeper sidecar](https://github.com/department-of-veterans-affairs/vets-api-file-upload/blob/main/oidc-poc/README.md) provides a "sidecar" solution.
@@ -294,7 +294,7 @@ Veterans will not auth directly, but the number of veterans online (600k registe
 3. Yet another alternative is [OIDC with Keyckloack baked into Application](https://github.com/department-of-veterans-affairs/vets-api-sidekiq-ui/blob/43a79ac30428290f6920e3a95c1b3d312984b6fa/app/config.ru#L32) with all the steps being responsibility of application teams.
     - Strengths: full control of the implementation baked in the app by Platform own developers
     - Weaknesses: requires to maintain the skill in every team, complicates security audit and change managenet
-    - Risks: every team to strart coding it would lack the maturity of existing tried and tested implementations
+    - Risks: every team to start coding it would lack the maturity of existing tried and tested implementations
     - Why not chosen: third best after TraefikEE or Gatekeeper
 
 ## References
