@@ -104,8 +104,10 @@ resource "keycloak_users_permissions" "users_permissions" {
 A risk of using terraform is if the developer misconfigures terraform modules which could lead to deploying resources with security vulnerabilities inadvertently. Prevention of misconfiguration must be a significant part of the development. This issue could be avoided if there is constant and increased security scanning of Terraform modules and developers upgraded Terraform’s latest module versions with security patches.
 
 ## Alternatives
+The Keycloak resources also could be managed by k8s manifests files. Kubernetes has Keycloak operators that can create resources like realms, clients, and users. However, the Keycloak resources are the grey area between application and infrastructure management therefore, the team decided to go with Terraform.
+
 Like other tools, there are several other alternatives to terraform implementing infrastructure as code (IaC) with tools like CloudFormation (an AWS service) and Ansible.
 
-CloudFormation is managed AWS service. It uses similar configuration files to set up infrastructure and deploys only via AWS. It also has limited third-party provider support and only works with a single provider, unlike Terraform.
+CloudFormation is the best alternative to Terraform but it is managed AWS service. The most significant benefit of CloudFormation is the service integration with AWS cloud services. It uses similar configuration files to set up infrastructure and deploys only via AWS so the downside is it is not cloud-agnostic. It also has limited third-party provider support and only works with a single provider, unlike Terraform.
 
-Ansible is an open-source configuration management tool. it is also capable of provisioning the cloud resources but it is not comprehensive enough compare to Terraform.
+Ansible is an open-source configuration management tool. The benefit of the Ansible is that it is very simple to learn. It's written in python language and the playbooks are written in YAML. It is also capable of provisioning the cloud resources but it is not comprehensive enough compare to Terraform.
