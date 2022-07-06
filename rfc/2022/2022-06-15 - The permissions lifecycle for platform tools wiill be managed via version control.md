@@ -101,5 +101,9 @@ Adding permissions in plain text (JSON) format to a repo has some security impli
 ## Alternatives
 Instead of committing permissions information to source control, we could store this information in a document database, e.g. AWS DocumentDB. A database like this would be a good fit for JSON data, thus continuing to provide a common and schematized format for users. It adds the additional benefit of not storing permissions in plain text by offering (electable) encryption at rest for a DocDB cluster.
 
+Similarly, a protected S3 bucket could be used to store the actual permissions data, while source control could leverage a manifest file to point to the permissions data.
+
+Finally, the permissions data could be stored in a protected repository in source control. An option could be the `va.gov-team-sensitive` repo.
+
 ## References
 * [RFC 6](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/blob/<FULL_COMMIT_HASH>/rfc/<FILENAME>.md): AMT integrators can describe fine-grained permissions using JSON
