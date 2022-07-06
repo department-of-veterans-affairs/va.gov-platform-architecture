@@ -14,7 +14,7 @@ Example:
 * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/14)
 
 ## Background
-The Infrastructure as Code (IaC) is managing and provisioning the infrastructure as a code instead of doing it manually. Configurations are created as a code containing specifications of resources, which makes it easier to create, update, manage and distribute the configurations. There are several IaC solutions available currently but we will implement Terraform as IaC to configure Keycloak resources automatically because it is cloud-agnostic and provides a flexible abstraction of resources and providers
+Infrastructure as Code (IaC) is the practice of managing and provisioning infrastructure programmatically instead of doing it manually. Configurations are created as code containing resource specifications, making them easier to create, update, manage and distribute. Several IaC solutions are currently available, but we will implement Terraform as IaC to configure Keycloak resources automatically because it is cloud-agnostic and provides a flexible abstraction of resources and providers.
 
 ## Motivation
 1. To make the process of creating/managing Keycloak resources automated so less manual intervention is needed.
