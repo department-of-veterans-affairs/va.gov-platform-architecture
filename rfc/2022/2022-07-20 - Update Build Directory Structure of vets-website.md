@@ -39,7 +39,7 @@ Restructuring the `build/generated` directory involves updating the `vets-websit
 
 Updating the `build/generated` directory to follow this structure means that *full builds* will need to exclude the entry files of isolated applications, which ultimately excludes their bundles from being generated. The Webpack config will need to be updated to account for this, along with knowing when and where to store bundles and assets from isolated application builds.
 
-In the future, the subdirectories of isolated application bundles can be moved to `build/dist` to follow a more standard naming convention. 
+In the future, the subdirectories of isolated application bundles can be moved to `build/dist` to follow a more standard naming convention.
 
 ### Updating the content build for the new directory structure
 
@@ -58,6 +58,16 @@ Another risk of this approach is a negative performance impact on the site. Curr
 
 ## Alternatives
 
+### Test isolated app commits with global bundles/assets in deployment bucket
+
 An alternative approach to the outlined solution is to continue storing isolated application bundles in the `build/generated` directory with other application bundles, and add logic to CI that can dertmine when isolated application bundles can be synced. This would invlolve testing isolated application bundles with the global bundles that are in the deployment buckets before deploying isolated applications. This would require downloading the bundles and assets from the deployment buckets, syncing the recently built isolated application bundles with the downloaded assets, and running the application's Cypress tests to validate functionality in CI. Downloading the assets would only need to happen in the `main` branch, since other branches aren't deployed to any environments other than review instances. This means that in feature branches with isolated application changes, Cypress tests would run against the assets from the isolated application build as they currently do. If Cypress tests for isolated applications succeed in feature branches but fail when merged to `main`, there's a good chance that the global assets downloaded from the bucket are out of sync with the current state of `main`. This means isolated applications won't be able to be continuously deployed until the next daily production deployment happens, which isn't ideal for continuous deployments.
 
 The approach of storing isolated application bundles with full build bundles and assets wasn't chosen because it complicates CI/CD. We would need to work around the constraint of validating functionality of the synced assets. Even if Cypress tests succeed after syncing the bundles and assets, we would need to determine a process for handling when Cypress tests do fail for the synced assets, since there wouldn't be anything that could be done until the global assets on `main` are in sync with the assets in the deployment buckets. It's not clear what that process would look like, and would probably be convoluted.
+
+### Upload hashed files to the same directory
+
+Another alternative solution is to continue storing all application bundles/assets in the same directory, but have the filenames of bundles contain hashes. If the global bundles have a `contenthash` in their filenames, isolated application deployments could upload the global bundles/assets from their build to the deployment bucket without affecting other applications. If an isolated application deployment generated bundles with the same hashes as the bundles that are already in the deployment bucket, the deployment would overwrite the file with the same contents, which is fine because the contents of the bundles would be the same if they have the same hash in their filenames. This means other applications depending on those bundles won't be impacted. Alternatively, if an isolated application deployment generated bundles with different hashes than those in the deployment bucket, it would simply upload the new versions of the global bundles to the deployment bucket, leaving the hashed bundles from previous deployments untouched. 
+
+One issue with this approach is deployments won't be able to delete hashed bundles from previous deployments. Eventually, deployment buckets would become cluttered with outdated versions of global bundles that aren't used by applications. To prevent this from happening, a cleanup script could be created for removing unused global assets. This script could run daily at a time when no deployments are happening.
+
+This approach is the best alternative to separating the bundles/assets from isolated application deployments in subdirectories. It would allow us to keep all application bundles at the root of the `generated` directory in the deployment bucket, while allowing isolated applications to use specific versions of global bundles from their builds if they need to. Additionally, different versions of global bundles would be shared among all applications, so the browser can use the same cached global files across applications on the site.
