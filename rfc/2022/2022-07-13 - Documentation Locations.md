@@ -1,4 +1,4 @@
-# RFC: _decision statement_
+# RFC: Platform-wide VFS developer documentation will be viewed on the VA Platform Website; component-specific technical documentation will be viewed on the Console UI
 
 <!--
 The title is what you want comments on. Use the active voice in a future tense.
@@ -6,61 +6,56 @@ Example:
     - The website will be built using the XZY framework
 -->
 
-* Comment Deadline: `YYYY-MM-DD`
-* Team Crew and Name: <!--e.g. Platform/AMT-->
+* Comment Deadline: `2022-08-31`
+* Team Crew and Name: [Platform/Spike Teams/Console UI](https://github.com/orgs/department-of-veterans-affairs/teams/platform-pst-console-ui)
 * Authors:
-  * [Primary Author Github Handle](https://github.com/PrimaryAuthorHandle)
-  * [Contributing Author 1 Github Handle](https://github.com/ContributingAuthor1Handle)
-  * [Contributing Author 2 Github Handle](https://github.com/ContributingAuthor2Handle)
-* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/-1)
+  * [Thomas Ferrin](https://github.com/TPurple)
+  * [John Chapin](https://github.com/jchapin)
+  * [Susanna Kline](https://github.com/sdk-irl)
+* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/33)
 
 ## Background
 
-Explain the current state. What is the problem? What needs to happen? Provide enough background for someone new to the problem space to understand this decision. Use active voice, present tense, and decisive language.
-Example: We need to choose how the website will render in the browser. There are several competing frameworks to choose from.
+The Platform currently has two centralized locations for documentation:
+* The Platform website, which uses Scroll Viewport to display specific content hosted in Confluence. This website hosts the following types of content:
+    * “Getting started” content for onboarding VFS team members to working on the Platform
+    * “Developer docs” content about writing and submitting code for review
+    * “Research and design” content for adhering to the Platform’s guidance for research and design
+    * “Analytics and insights” content, such as for analytics, KPI dashboards, and monitoring
+    * “Collaboration cycle” content
+    * “Support” policies and incident management
+* Operational documentation throughout Confluence, which includes internal content such as “meeting notes, roles and responsibilities documentation, decision documentation, [and] initiative outlines.”
+
+While Confluence and the Platform website do contain a lot of helpful documentation for VFS (and Platform) teams, a lot of documentation—specifically more technical documentation that is specific to a software component, service, or infrastructure resource—is found throughout various GitHub repositories. This type of documentation is vital to developers who are trying to troubleshoot or set up software dependencies, but it is much harder to find. Developers typically find it by asking around, receiving a few different answers, and sometimes finding different versions of the documentation. When they find the documentation, it is often difficult to know whether the documentation is complete or up to date.
 
 ## Motivation
 
-Which problem(s) does this solve? Why? Use active voice, present tense, and decisive language.
-Example: Framework XYZ is a modern, well-known, web rendering framework. It is easy to learn, easy to use, and provides high-performance web rendering. etc
+If we can make it easy for developers to locate technical documentation, we can save them hours (or even days) of extra work. Having a consistent method and location for finding this documentation is a crucial part of improving the experience and efficiency of VFS teams.
 
 ## Design
 
-Explain the proposed design in enough detail so that a team member will fully understand the implementation. Include a diagram (in the `images` dir) as needed to convey your plans. Use active voice, present tense, and decisive language.
+The ideal solution to this problem requires four things:
+1. A clear definition of what counts as “component-specific technical documentation.” This definition will help teams know what documentation should be added to the Platform Website, what documentation should be in Confluence, and what documentation should be found in GitHub and ingested into the Console catalog.
+1. Storing documentation close to the software project/component. Documentation written in a separate system from the product's source code runs the risk that the connection between these assets is not maintained. This situation risks stakeholders losing either of these two assets, diminishing the ability to care for the software/component or systems that depend upon that software/component. Alternatively, if we store the documentation in the same source code repository, we can ensure that the documentation is never separated from the source code. Additionally we can use tools like the TechInsights plugin to implement checks that the documentation has been recently edited or verified to be current.
+1. A self-service process for adding documentation. Teams who own software components, services, and resources will register these entities in the catalog. They will include references to their technical documentation and spell out both upstream and downstream dependencies.
+1. A central place for finding documentation stored close to software projects/components. We propose that the central location for component-specific technical documentation—particularly APIs and infrastructure—should be the Console catalog. The catalog makes it easy for users to navigate an org chart-type view of the VA ecosystem (including VFS apps, Platform services, and user groups) and quickly find documentation about any part of it.
+
+### Defining Component-Specific Technical Documentation
+
+The types of component-specific technical documentation that should be findable in the Console catalog include:
+
+* Documentation which is internal to a VFS team and not intended for other VFS teams.
+* Documentation for Platform teams that may inform Platform or VFS teams, but is not required by VFS teams to accomplish their development tasks.
+* Documentation of underlying infrastructure that isn’t a common concern to VFS teams.
+* API Documentation for Platform teams and outside systems that tie together the platform, but aren’t commonly used by VFS teams.
 
 ## Risks
 
-List the risks of this approach
+* A risk of this strategy is that platform-wide documentation intended for all VFS developers is not added to the Platform Website but instead to TechDocs component-specific technical documentation, making it harder to find.
+* If the Console UI system is retired, all dispersed component-specific documentation loses its central location for being found. This scenario would be a sub-optimal situation but still better than storing documentation in a central system separate from the source code of assets. Elimination of such a system may permanently separate software from the documentation.
 
-* There are always risks. What are the risks of this solution?
-* These are the things people will bring up in opposition to your idea or plans. Acknowledge them.
 
 ## Alternatives
 
-List the alternative approaches
-
-* There are always alternatives. What other alternative solutions were considered? Not considered?
-* What are their strengths, weaknesses, risks? Why weren’t they chosen?
-* Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
-
-## Diagrams
-
-Try to visually represent the proposal using a [diagram](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). [Live editor](https://mermaid.live/)
-```mermaid
-graph TD
-    A[Public] -->|TIC| B(AWS)
-    B --> C{Reverse Proxy}
-    C --> D[vets-api]
-    C --> F[fa:fa-chess-rook Kong]
-```
-
-## References
-
-<!--
-This section /may/ be eliminated if it is not applicable.
-When linking to other documents in this repository, ensure to link to their state at a particular commit (hence the usage of .../blob/<FULL_COMMIT_HASH>/...) as opposed to their current state (i.e. 'currently in main').
--->
-
-* [RFC XYZ](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/blob/<FULL_COMMIT_HASH>/rfc/<FILENAME>.md): <RFC_TITLE>
-
-
+* We could drive people to add documentation for their components/projects to the Platform Website. The risk associated with this alternative is that it may add irrelevant documentation to the VFS developer audience.
+* We could encourage developers to use a system like Confluence for all component-specific technical documentation. But that may incur additional licensing costs and the possibility that all documentation is lost if Confluence, or a similar system, is retired.
