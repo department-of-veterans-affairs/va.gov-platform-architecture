@@ -11,7 +11,7 @@ Example:
 * Authors:
   * [Troy Mosher](https://github.com/troymosher)
   
- * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/-1)
+ * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/35)
 
 ## Background
 
