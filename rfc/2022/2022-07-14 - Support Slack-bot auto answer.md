@@ -28,6 +28,7 @@ The proposed workflow is as follows:
 1. The platform user submits a ticket through the Platform Support Slack-bot
 2. The application filters through the documentation mappings based on the tickets message, using keywords, or topic
 3. If there is a documentation mapping, the application will send back a threaded response to the ticket listing the documentation mappings
+4. The threaded response will contain a "Did this help?" Yes/No question for determining the usefulness of documentation mappings
 
 For more information see: https://vfs.atlassian.net/wiki/spaces/SRE/pages/2241396873/Automatic+Answers+and+Replies
 Documentation mappings: https://vfs.atlassian.net/wiki/spaces/SRE/pages/2260336690/Auto-Answer+Mappings
