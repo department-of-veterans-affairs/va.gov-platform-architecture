@@ -6,7 +6,7 @@ Example:
     - The website will be built using the XZY framework
 -->
 
-* Comment Deadline: `2022-07-13`
+* Comment Deadline: `2022-08-13`
 * Team Crew and Name: Platform/Access Management Team
 * Authors:
   * [Ritesh Patel](https://github.com/iriteshp)
