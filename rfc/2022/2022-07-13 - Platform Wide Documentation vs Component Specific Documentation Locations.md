@@ -18,13 +18,13 @@ Example:
 
 The Platform currently has two centralized locations for documentation:
 * The (Platform website)[https://depo-platform-documentation.scrollhelp.site/index.html], which uses (Scroll Viewport)[https://www.k15t.com/software/scroll-viewport/scroll-viewport-for-confluence-cloud] to display specific content hosted in Confluence. This website hosts the following types of content:
-    * “Getting started” content for onboarding VFS team members to working on the Platform
-    * “Developer docs” content about writing and submitting code for review
-    * “Research and design” content for adhering to the Platform’s guidance for research and design
-    * “Analytics and insights” content, such as for analytics, KPI dashboards, and monitoring
-    * “Collaboration cycle” content
-    * “Support” policies and incident management
-    * “User guides, how-to instructions, tutorials, or reference documents for VFS teams” ((source)[https://vfs.atlassian.net/wiki/spaces/CUI/pages/2186543112/RFC+DRAFT+Documentation+Locations+-+Console+UI])
+    * **“Getting started”** content for onboarding VFS team members to working on the Platform
+    * **“Developer docs”** content about writing and submitting code for review
+    * **“Research and design”** content for adhering to the Platform’s guidance for research and design
+    * **“Analytics and insights”** content, such as for analytics, KPI dashboards, and monitoring
+    * **“Collaboration cycle”** content
+    * **“Support”** policies and incident management
+    * **“User guides, how-to instructions, tutorials, or reference documents for VFS teams”** ((source)[https://vfs.atlassian.net/wiki/spaces/CUI/pages/2186543112/RFC+DRAFT+Documentation+Locations+-+Console+UI])
 * (Operational documentation)[https://vfs.atlassian.net/wiki/spaces/AP/pages/1287782439] throughout Confluence, which includes internal content such as “(meeting notes, roles and responsibilities documentation, decision documentation, [and] initiative outlines.)[https://vfs.atlassian.net/wiki/spaces/AP/pages/1287782439]”
 
 While Confluence and the Platform website do contain a lot of helpful documentation for VFS (and Platform) teams, a lot of documentation—specifically more technical documentation that is specific to a software component, service, or infrastructure resource—is found throughout various GitHub repositories. This type of documentation is vital to developers who are trying to troubleshoot or set up software dependencies, but it is much harder to find. Developers typically find it by asking around, receiving a few different answers, and sometimes finding different versions of the documentation. When they find the documentation, it is often difficult to know whether the documentation is complete or up to date. Additionally, some VFS teams rely on systems that are external to the VA and have had difficulty finding or maintaining documentation about these systems.
