@@ -34,7 +34,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
 
 Upon finalization of the RFC, if further discussion should be needed, then a new RFC must be created to facilitate this discussion.
 
-### Guidance on Sensitive Information
+## Guidance on Sensitive Information
 
 Be mindful that **RFCs are public**. The content in this repository follows [the same guidance and policy that applies to the va.gov-team repository](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/working-with-vsp/policies-work-norms/sensitive-guidance.md).
 Authors of RFCs must **not** include sensitive information in RFCs. In most cases, it is possible to write the RFC without including such sensitive data (there are _parallels_ to be drawn for what would be sensitive or not using "encryption algorithm vs encryption key": it is _fine_ for the _algorithm_ to be public, they _key_ must never be public). Be mindful that writing an RFC may involve multiple commits: it is not only the final state of the RFC that is available, but every commit (until merged); in other words, your mindfulness around sensitive information should extend over the entirety of the authoring of the RFC.
