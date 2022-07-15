@@ -42,7 +42,7 @@ Be mindful that **RFCs are public**. The content in this repository follows [the
 Authors of RFCs **must not** include sensitive information in RFCs. In almost all cases, it will be possible to write the RFC without including sensitive information (there are _parallels_ to be drawn for what would be sensitive or not using "encryption algorithm vs encryption key": it is _fine_ for the _algorithm_ to be public, they _key_ must never be public).
 
 If it is not possible to exclude the sensitive information from the RFC, first try again, and if this remains the case, use the sensitive repository instead of this repository. There will always be an opportunity to move it from the sensitive repo back into a public repo, but never the other way around.
-All that being said: the utmost effort should be applied to adhere to our "Default to Open" stance, and specifically: try to author the RFC in such a way that it does not contain any information that would be considered sensitive.
+All that being said: the utmost effort should be applied to adhere to our "Default to Open" stance, and specifically: try to author the RFC in such a way that it does not contain any information that would be considered sensitive, thus enabling it to live in this repository.
 
 Be mindful that writing an RFC may involve multiple commits: it is not only the final state of the RFC that is available, but every commit (until merged); in other words, your mindfulness around sensitive information should extend over the entirety of the authoring of the RFC.
 
