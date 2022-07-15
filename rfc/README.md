@@ -46,7 +46,7 @@ All that being said: the utmost effort should be applied to adhere to our "Defau
 
 Be mindful that writing an RFC may involve multiple commits: it is not only the final state of the RFC that is available, but every commit (until merged); in other words, your mindfulness around sensitive information should extend over the entirety of the authoring of the RFC.
 
-Similarly, RFCs will inherently attract comments; do not include sensitive information in comments added to the RFC. If truly sensitive matters must be discussed, discuss those via other mechanisms and come a conclusion with the author(s) of the RFC on how to incorporate the comment while excluding the sensitive part of the comment.
+Similarly, RFCs will inherently attract comments; do not include sensitive information in comments added to the RFC. If comments involve sensitive information, provide those via other mechanisms and come a conclusion with the author(s) of the RFC on how to incorporate the comment(s) while excluding the sensitive part of the comment.
 
 
 ## Roles and Responsibilities
