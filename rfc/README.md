@@ -26,12 +26,12 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * Attachment of default labels (e.g. `RFC`), these must remain in place.
     * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column.
 1. Contributing Authors:
-    * Collaborate on the RFC document in its dedicated branch until it is in a state where it can receive comments.
+    * Collaborate on the RFC document in its dedicated branch until it is in a state where it can receive comments (this can be done directly from the Pull Request by Editing the file).
 1. Primary Author:
     * When collaborators have finished updating the RFC and it is ready for public comment, move the RFC from the "Draft" column to "Ready" on the [Platform Architecture project board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
     * Update the Comment Deadline in the RFC document to an appropriate deadline. 30 days from when the RFC is moved into the "Ready" state is recommended.
 1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
-1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`, to be sure everyone's contributions have been acknoledged and (possibly) incorportated. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
+1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`, to be sure everyone's contributions have been acknowledged and (possibly) incorportated. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
 1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNERS` will approve the Pull Request and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
 
 Upon finalization of the RFC, if further discussion should be needed, then a new RFC must be created to facilitate this discussion.
