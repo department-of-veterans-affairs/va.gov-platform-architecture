@@ -22,7 +22,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * Announcement in the `#platform-architecture` Slack channel.
     * Default assignees based on `CODEOWNERS`, these must remain in place.
     * Attachment of default labels (e.g. `RFC`), these must remain in place.
-    * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column. 
+    * Addition of the PR to the [Platform Architecture](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1) board in the "Draft" column.
 1. Contributing Authors:
     * Collaborate on the RFC document in its dedicated branch until it is in a state where it can receive comments.
 1. Primary Author:
@@ -33,6 +33,21 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
 1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNERS` will approve the PR and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
 
 Upon finalization of the RFC, if further discussion should be needed, then a new RFC must be created to facilitate this discussion.
+
+## Guidance on Sensitive Information
+
+> This repository is public, do not include information considered sensitive in this repository.
+
+Be mindful that **RFCs are public**. The content in this repository follows [the same guidance and policy that applies to the va.gov-team repository](https://github.com/department-of-veterans-affairs/va.gov-team/blob/master/platform/working-with-vsp/policies-work-norms/sensitive-guidance.md).
+Authors of RFCs **must not** include sensitive information in RFCs. In almost all cases, it will be possible to write the RFC without including sensitive information (there are _parallels_ to be drawn for what would be sensitive or not using "encryption algorithm vs encryption key": it is _fine_ for the _algorithm_ to be public, they _key_ must never be public).
+
+If it is not possible to exclude the sensitive information from the RFC, first try again, and if this remains the case, use the sensitive repository instead of this repository. There will always be an opportunity to move it from the sensitive repo back into a public repo, but never the other way around.
+All that being said: the utmost effort should be applied to adhere to our "Default to Open" stance, and specifically: try to author the RFC in such a way that it does not contain any information that would be considered sensitive, thus enabling it to live in this repository.
+
+Be mindful that writing an RFC may involve multiple commits: it is not only the final state of the RFC that is available, but every commit (until merged); in other words, your mindfulness around sensitive information should extend over the entirety of the authoring of the RFC.
+
+Similarly, RFCs will inherently attract comments; do not include sensitive information in comments added to the RFC. If comments involve sensitive information, provide those via other mechanisms and come a conclusion with the author(s) of the RFC on how to incorporate the comment(s) while excluding the sensitive part of the comment.
+
 
 ## Roles and Responsibilities
 
