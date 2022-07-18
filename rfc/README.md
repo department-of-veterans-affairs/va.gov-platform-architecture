@@ -32,7 +32,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * Update the Comment Deadline in the RFC document to an appropriate deadline. 30 days from when the RFC is moved into the "Ready" state is recommended.
 1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
 1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`, to be sure everyone's contributions have been acknoledged and (possibly) incorportated. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
-1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNERS` will approve the PR and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
+1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNERS` will approve the Pull Request and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
 
 Upon finalization of the RFC, if further discussion should be needed, then a new RFC must be created to facilitate this discussion.
 
