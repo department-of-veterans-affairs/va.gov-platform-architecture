@@ -62,6 +62,7 @@ Possible benefits of a centralized system for component-specific technical docum
 * Each component’s source code and documentation will be easier to find and less likely to be lost than if they were stored in diverse locations.
 * With connections between component and their documentation better maintained, it will be easier to care for each software component, its documentation, and systems that depend upon the component.
 * With each component’s documentation stored close its source code, it will be easier to run automated checks to see if each component’s documentation is up to date.
+* Confidence in having access to the single source of truth to ensure that engineers have access to the most relevant up-to-date information
 
 ## Risks
 
