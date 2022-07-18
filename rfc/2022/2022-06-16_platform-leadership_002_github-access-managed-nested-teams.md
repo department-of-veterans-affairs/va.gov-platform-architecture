@@ -1,4 +1,4 @@
-# RFC: Github Access for Platform and VFS will be managed by nested Teams
+# RFC: Github Access for Platform and VFS users will be managed by nested Github Teams
 
 <!--
 The title is what you want comments on. Use the active voice in a future tense.
