@@ -63,7 +63,7 @@ The Primary Author is responsible and accountable for the majority of the activi
 * Soliciting participation in the RFC via announcement in relevant channels and discussions.
 * Ensuring all comments are appropriately addressed and when appropriately addressed, that they are subsequently resolved in the PR.
 * Enforcing adherence to the stipulated timeline(s) for the RFC, including enforcement of the Commenting Period.
-* On conclusion of the RFC, after approval[1] from at least one of the registered `CODEOWNERS` of the RFC subsequently merging the PR into the `main` branch.
+* On conclusion of the RFC, after approval[^1] from at least one of the registered `CODEOWNERS` of the RFC subsequently merging the PR into the `main` branch.
 
 The Primary Author has the prerogative to ignore, discard, or include comments that were registered outside the stated Commenting Period, into the record.
 
@@ -101,4 +101,4 @@ An RFC may 'graduate', potentially in combination with other RFCs, into an ADR. 
 
 ## Footnotes
 
-* [1]: Note that this approval is _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_ as outlined in this document.
+[^1]: Note that this approval is _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_ as outlined in this document.
