@@ -57,13 +57,24 @@ graph TD
     end
 ```
 
-### Phase 2 - Refine permissions
+### Phase 2 - Migrate permissions
 
-- Add any Platform specific permissions to `va.gov-platform-teams`
-- and `va.gov-vfs-teams` that are needed.
+- Review [`vets.gov-write` permissions](https://github.com/orgs/department-of-veterans-affairs/teams/vets-gov-write/repositories)
+- Add permissions to one of:
+    - `va.gov-all-teams`
+    - `va.gov-platform-teams`
+    - `va.gov-vfs-teams`
+- Examples:
+    - `Write` access to `va.gov-team`
+    This repo is used by both Platform and VFS teams, so the permission should be set to `va.gov-all-teams`
+    - `Write` access to `platform-console-api`
+    This repo is used only by Platform teams, so the permission should be set to `va.gov-platform-teams`
 
 
 ### Phase 3
+
+Move newly created teams `va.gov-platform-teams` and `va.gov-vfs-teams` out of `vets.gov-write` and into `va.gov-all-teams`
+
 ```mermaid
 graph TD
     subgraph va.gov-all-teams
