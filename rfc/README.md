@@ -6,7 +6,7 @@ We write an RFC to _communicate intent and get feedback_ before we start buildin
 
 Whenever your team is making a decision that could affect the platform, write the details and get feedback from others on the Platform. Anyone - including product managers, UX, research, and engineers - is encouraged to create RFCs in order to solicit ideas in preparation of a decision direction.
 
-Note that RFC approval is _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_. You should not feel the need to _wait for approval_ before starting your work.
+Note that RFC Pull Request approval is _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_. You should not feel the need to _wait for approval_ before starting your work.
 
 ## How do I create an RFC and manage its lifecycle?
 
