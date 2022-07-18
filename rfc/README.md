@@ -6,6 +6,8 @@ We write an RFC to _communicate intent and get feedback_ before we start buildin
 
 Whenever your team is making a decision that could affect the platform, write the details and get feedback from others on the Platform. Anyone - including product managers, UX, research, and engineers - is encouraged to create RFCs in order to solicit ideas in preparation of a decision direction.
 
+Note that RFC approval is _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_. You should not feel the need to _wait for approval_ before starting your work.
+
 ## How do I create an RFC and manage its lifecycle?
 
 An RFC's lifecycle is managed through the GitHub Pull Request process and via these outlined, ordered steps:
@@ -29,7 +31,7 @@ An RFC's lifecycle is managed through the GitHub Pull Request process and via th
     * When collaborators have finished updating the RFC and it is ready for public comment, move the RFC from the "Draft" column to "Ready" on the [Platform Architecture project board](https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1).
     * Update the Comment Deadline in the RFC document to an appropriate deadline. 30 days from when the RFC is moved into the "Ready" state is recommended.
 1. Collect comments via the Pull Request (see also [How do I comment on an RFC](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)) until the Comment Deadline.
-1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
+1. Address and resolve every comment, all comments must be resolved before the Pull Request can be merged into `main`, to be sure everyone's contributions have been acknoledged and (possibly) incorportated. Every comment must receive a response by the author(s) in accordance with [addressing comments](#addressing-comments).
 1. Once all comments are resolved and the comment deadline is reached, the `CODEOWNERS` will approve the PR and it will become mergeable. The Primary Author merges the RFC into the `main` branch, thereby completing the RFC.
 
 Upon finalization of the RFC, if further discussion should be needed, then a new RFC must be created to facilitate this discussion.
