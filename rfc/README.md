@@ -103,4 +103,4 @@ An RFC may 'graduate', potentially in combination with other RFCs, into an ADR. 
 
 ## Footnotes
 
-[^1]: Note that this approval is _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_ as outlined in this document.
+[^1]: Note that the Pull Request approval is  _not an approval of the content_ of the RFC, but instead _reflects approval that the process was followed_ as outlined in this document.
