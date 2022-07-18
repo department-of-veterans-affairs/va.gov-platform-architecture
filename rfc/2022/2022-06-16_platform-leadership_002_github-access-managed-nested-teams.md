@@ -7,17 +7,25 @@ Example:
 -->
 
 * Comment Deadline: `YYYY-MM-DD`
-* Team Crew and Name: <!--e.g. Platform/AMT-->
+* Team Crew and Name: Platform/Leadership
 * Authors:
-  * [Primary Author Github Handle](https://github.com/PrimaryAuthorHandle)
+  * @mchelen-gov
   * [Contributing Author 1 Github Handle](https://github.com/ContributingAuthor1Handle)
   * [Contributing Author 2 Github Handle](https://github.com/ContributingAuthor2Handle)
 * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/-1)
 
 ## Background
 
-Explain the current state. What is the problem? What needs to happen? Provide enough background for someone new to the problem space to understand this decision. Use active voice, present tense, and decisive language.
-Example: We need to choose how the website will render in the browser. There are several competing frameworks to choose from.
+
+Currently permissions to repos such as va.gov-team, vets-website, and vets-api are largely handled through the `vets.gov-write` [team](https://github.com/orgs/department-of-veterans-affairs/teams/vets-gov-write). This team includes a mixture of individual [members](https://github.com/orgs/department-of-veterans-affairs/teams/vets-gov-write/members) as well as [child teams](https://github.com/orgs/department-of-veterans-affairs/teams/vets-gov-write/teams).
+
+This makes management of users and permissions difficult for multiple reasons:
+1. The roles of various individual users added to the `vets.gov-write` team are unclear and difficult to track.
+1. Onboarding and offboarding of individual users has to be performed by maintainers of `vets.gov-write` creating maintainence burden.
+1. Refined permissions cannot be applied to various level groupings such as "all Platform teams" or "all VFS teams"
+
+We need to restructure our Github Teams to improve clarity, reduce manual overhead, and increase granularity of permissions.
+
 
 ## Motivation
 
