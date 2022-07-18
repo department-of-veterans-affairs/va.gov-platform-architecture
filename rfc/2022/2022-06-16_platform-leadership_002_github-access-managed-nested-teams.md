@@ -36,6 +36,55 @@ Example: Framework XYZ is a modern, well-known, web rendering framework. It is e
 
 Explain the proposed design in enough detail so that a team member will fully understand the implementation. Include a diagram (in the `images` dir) as needed to convey your plans. Use active voice, present tense, and decisive language.
 
+### Phase 1 - Establish structure
+
+First, use the existing `vets.gov-write` team and ensure all users are represented in a child team.
+
+```mermaid
+graph TD
+    subgraph vets.gov-write
+        subgraph va.gov-platform-teams
+            platform-leadership
+            platform-governance
+            platform-infrastructure
+            platform-release-tools
+        end
+        subgraph va.gov-vfs-teams
+            vfs-example-a
+            vfs-example-b
+            vfs-example-c
+        end
+    end
+```
+
+### Phase 2 - Refine permissions
+
+- Add any Platform specific permissions to `va.gov-platform-teams`
+- and `va.gov-vfs-teams` that are needed.
+
+
+### Phase 3
+```mermaid
+graph TD
+    subgraph va.gov-all-teams
+        subgraph va.gov-platform-teams
+            platform-leadership
+            platform-governance
+            platform-infrastructure
+            platform-release-tools
+        end
+        subgraph va.gov-vfs-teams
+            vfs-example-a
+            vfs-example-b
+            vfs-example-c
+        end
+    end
+```
+
+
+
+
+
 ## Risks
 
 List the risks of this approach
@@ -53,23 +102,7 @@ List the alternative approaches
 
 ## Diagrams
 
-Try to visually represent the proposal using a [diagram](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). [Live editor](https://mermaid.live/)
-```mermaid
-graph TD
-    subgraph va.gov-all-teams
-        subgraph va.gov-platform-teams
-            platform-leadership
-            platform-governance
-            platform-infrastructure
-            platform-release-tools
-        end
-        subgraph va.gov-vfs-teams
-            vfs-example-a
-            vfs-example-b
-            vfs-example-c
-        end
-    end
-```
+
 
 ## References
 
