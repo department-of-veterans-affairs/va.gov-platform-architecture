@@ -6,6 +6,9 @@ We write an RFC to _communicate intent and get feedback_ before we start buildin
 
 Whenever your team is making a decision that could affect the platform, write the details and get feedback from others on the Platform. Anyone - including product managers, UX, research, and engineers - is encouraged to create RFCs in order to solicit ideas in preparation of a decision direction.
 
+There is no formal requirement to present an RFC at the [Platform Architecture Working Group meeting](https://vfs.atlassian.net/wiki/spaces/ECP/pages/1872363553/Platform+Architecture+Working+Group), but authors may _request_ to present there. Depending on the subject and/or scope of an RFC the Platform Architecture WG _may_ request author(s) to present either by its own authority or because it has been petitioned to do so.
+Requesting an RFC's presentation is as simple as adding the RFC's PR to [the docket of the next scheduled meeting](https://vfs.atlassian.net/wiki/spaces/ECP/pages/2160132128/Working+Group+Meeting+Notes) along with a brief explanation of what the desired outcome of presentating is.
+
 ## How do I create an RFC and manage its lifecycle?
 
 An RFC's lifecycle is managed through the GitHub Pull Request process and via these outlined, ordered steps:
