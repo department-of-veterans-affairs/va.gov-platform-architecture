@@ -40,7 +40,7 @@ Idea docs and design docs are removed from the process for simplicity. Teams of 
 
 * **Create a lightweight RFC PR process**. This could include setting a timebox around RFC lifetime, and a loose “approval” process that empowers the author to move forward once all comments have been resolved.
 
-* **Move RFCs to a more visible place**. They currently live in the folder `/platform/engineering/request-for-comment/` in the va.gov-team repo, move them to dir `/rfc` in the va.gov-platform-architecture repo.
+* **Move RFCs to a more visible place**. They currently live in the folder `/platform/engineering/request-for-comment/` in the va.gov-team repo, move them to dir [/rfc](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/tree/main/rfc) in the [va.gov-platform-architecture repo](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/).
 
 
 ## Risks
