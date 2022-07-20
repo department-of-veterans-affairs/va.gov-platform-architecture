@@ -2,3 +2,4 @@
 # Used by https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/blob/main/.github/workflows/pull_request_labeler.yml
 RFC:
 - rfc/**/*
+- '!rfc/README.md'
