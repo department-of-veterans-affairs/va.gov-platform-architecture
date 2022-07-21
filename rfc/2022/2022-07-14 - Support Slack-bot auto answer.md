@@ -26,9 +26,11 @@ There is also an issue where users will post in the vfs-platform-support slack c
 
 The proposed workflow is as follows:
 1. The platform user submits a ticket through the Platform Support Slack-bot
-2. The application filters through the documentation mappings based on the tickets message, using keywords, or topic
-3. If there is a documentation mapping, the application will send back a threaded response to the ticket listing the documentation mappings
-4. The threaded response will contain a "Did this help?" Yes/No question for determining the usefulness of documentation mappings
+3. The application could filter through a record of previous solutions, if available.
+4. The application filters through the documentation mappings based on the tickets message, using keywords, or topic.
+5. If there is a documentation mapping, the application will send back a threaded response to the ticket listing the documentation mappings
+6. The threaded response will contain a promt to review documentation mapping and a "Do these help?" Yes/No question for determining the usefulness of documentation mappings
+7. A "Yes" response closes the support request, while a "No" response proceeds to assign support staff.  
 
 For more information see: https://vfs.atlassian.net/wiki/spaces/SRE/pages/2241396873/Automatic+Answers+and+Replies
 Documentation mappings: https://vfs.atlassian.net/wiki/spaces/SRE/pages/2260336690/Auto-Answer+Mappings
@@ -36,12 +38,15 @@ Documentation mappings: https://vfs.atlassian.net/wiki/spaces/SRE/pages/22603366
 
 ## Risks
 
-* The documentation mappings are too general and cause clutter in the slack thread
+* The documentation mappings are too general, or too many hits are returned, and it causes clutter in the slack thread
+* It could slow down common processes, such as requests for PR approvals (confusing these for requests on how to do a PR)
 * Platform users ignore the documentation and this effort is unnecessary
 
 ## Alternatives
 
 * The workflow could be changed so that platform users are presented with the documentation before the ticket is posted in the channel. This approach could clear up clutter in the channel, but would limit communication as there would not be a post if the user found the documentation helpful.
+
+* The application could filter out support requests marked with Nature:"PR Review" which also have a github PR URL present.
 
 
 ## Diagrams
