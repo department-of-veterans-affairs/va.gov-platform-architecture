@@ -13,5 +13,5 @@ jobs:
       - uses: actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/department-of-veterans-affairs/projects/710/views/1
-          github-token: ${{ secrets.PLATFORM_ARCH_GHA }}
+          github-token: ${{ secrets.BOT_GITHUB_TOKEN }}
           labeled: RFC
