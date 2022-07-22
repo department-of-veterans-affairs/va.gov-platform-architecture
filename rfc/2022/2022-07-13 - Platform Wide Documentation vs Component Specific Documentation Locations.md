@@ -18,7 +18,7 @@ Example:
 
 The Platform currently has two centralized locations for documentation:
 * The (Platform website)[https://depo-platform-documentation.scrollhelp.site/index.html], which uses (Scroll Viewport)[https://www.k15t.com/software/scroll-viewport/scroll-viewport-for-confluence-cloud] to display specific content hosted in Confluence. This website hosts the following types of content:
-    * **“Getting started”** content for onboarding VFS team members to working on the Platform
+    * **“Getting started”** content for onboarding VFS team members to work on the Platform
     * **“Developer docs”** content about writing and submitting code for review
     * **“Research and design”** content for adhering to the Platform’s guidance for research and design
     * **“Analytics and insights”** content, such as for analytics, KPI dashboards, and monitoring
@@ -27,11 +27,11 @@ The Platform currently has two centralized locations for documentation:
     * **“User guides, how-to instructions, tutorials, or reference documents for VFS teams”** ((source)[https://vfs.atlassian.net/wiki/spaces/CUI/pages/2186543112/RFC+DRAFT+Documentation+Locations+-+Console+UI])
 * (Operational documentation)[https://vfs.atlassian.net/wiki/spaces/AP/pages/1287782439] throughout Confluence, which includes internal content such as “(meeting notes, roles and responsibilities documentation, decision documentation, [and] initiative outlines.)[https://vfs.atlassian.net/wiki/spaces/AP/pages/1287782439]”
 
-While Confluence and the Platform website do contain a lot of helpful documentation for VFS (and Platform) teams, a lot of documentation—specifically more technical documentation that is specific to a software component, service, or infrastructure resource—is found throughout various GitHub repositories. This type of documentation is vital to developers who are trying to troubleshoot or set up software dependencies, but it is much harder to find. Developers typically find it by asking around, receiving a few different answers, and sometimes finding different versions of the documentation. When they find the documentation, it is often difficult to know whether the documentation is complete or up to date. Additionally, some VFS teams rely on systems that are external to the VA and have had difficulty finding or maintaining documentation about these systems.
+While Confluence and the Platform website contain helpful documentation for VFS (and Platform) teams, a lot of documentation—specifically technical documentation for a software component, service, or infrastructure resource—is found throughout various GitHub repositories. This documentation is vital to developers trying to troubleshoot or set up software dependencies, but it is much harder to find. Developers typically find it by asking around, receiving a few different answers, and sometimes finding different versions of the documentation. When they find the documentation, it is often difficult to know whether it is complete or up to date. Additionally, some VFS teams rely on systems external to the VA and have had difficulty finding or maintaining documentation about these systems.
 
 ## Motivation
 
-If we can make it easy for developers to locate and store technical documentation, we can save them hours (or even days) of extra work. Having a consistent method and location for finding this documentation is a crucial part of improving the experience and efficiency of VFS teams.
+If we can make it easy for developers to locate and store technical documentation, we can save them hours (or days) of extra work. In addition, having a consistent method and location for finding this documentation is a crucial part of improving the experience and efficiency of VFS teams.
 
 ## Design
 
@@ -49,7 +49,7 @@ Using the Console catalog to solve the problems outlined above will necessarily 
         1. Highly technical documentation about an infrastructure resource
         1. Documentation for VA APIs and downstream external services
 1. **A clear relationship between the Platform Console and the Platform Website.** We propose that the Console and Website contain numerous references to each other. For example, if a component in the Console catalog has documentation that is relevant to all VFS users, it should have a link to Platform Website documentation on the topic. If the Platform Website has a page that mentions technical documentation that not all VFS teams need, it should link to the relevant documentation in the Console catalog. 
-1. **Storing documentation close to the software project/component.** Documentation for a  component should be stored in the same repo as the the component (where possible) or in a central documentation location, and then ingested into the Console catalog so it easy to find.
+1. **Storing documentation close to the software project/component.** Documentation for a component should be stored in the same repo as the component (where possible) or in a central documentation location and then ingested into the Console catalog, so it is easy to find.
 1. **A self-service process for adding documentation.** Teams who own software components, services, and resources will register these entities in the Console catalog. They will include references to their technical documentation and spell out both upstream and downstream dependencies. They may also create catalog entries for dependencies (and their documentation) that are external to the VA.
 
 ## Potential Benefits
@@ -59,18 +59,18 @@ Possible benefits of a centralized system for component-specific technical docum
 * VFS and Platform teams will more easily maintain documentation about their software projects for themselves or others to reference later.
 * VFS teams will find it easier to document information about downstream systems that are external to the VA.
 * New VFS and Platform team members will more easily be able to learn about the software projects that their team maintains.
-* VFS and Platform team members will be able to more easily find and discover documentation about any VFS and Platform entity.
+* VFS and Platform team members can easily find and discover documentation about any VFS and Platform entity.
 * Each component’s source code and documentation will be easier to find and less likely to be lost than if they were stored in diverse locations.
 * With connections between component and their documentation better maintained, it will be easier to care for each software component, its documentation, and systems that depend upon the component.
-* With each component’s documentation stored close its source code, it will be easier to run automated checks to see if each component’s documentation is up to date.
-* Confidence in having access to the single source of truth to ensure that engineers have access to the most relevant up-to-date information
+* With each component’s documentation stored close to its source code, it will be easier to run automated checks to see if each component’s documentation is up to date.
+* Confidence in having access to a single source of truth to ensure that engineers have access to the most relevant, up-to-date information
 
 ## Risks
 
-* A risk of this strategy is that Platform-wide documentation intended for all VFS developers could be mistakenly added to the Console instead of the Platform Website, making it harder to find. Clear instructions will be needed to avoid this.
+* A risk of this strategy is that Platform-wide documentation intended for all VFS developers could be mistakenly added to the Console instead of the Platform Website, making it harder to find. Platform and VFS Engineers will need clear instructions to avoid this.
 * If the Console UI system is retired, all dispersed component-specific documentation loses its central location for being found. This scenario would be a sub-optimal situation but still better than storing documentation in a central system separate from the source code of assets. Elimination of such a system may permanently separate software from the documentation.
 
 ## Alternatives
 
-* We could drive people to add documentation for their components/projects to the Platform Website. The risk associated with this alternative is that documentation may become separated from source code, and it may add irrelevant documentation to some VFS developer audiences.
-* We could encourage developers to use a system like Confluence for all component-specific technical documentation. But that may incur additional licensing costs and the possibility that all documentation is lost if Confluence, or a similar system, is retired. Also, VFS team members do not have always access to Confluence.
+* We could drive people to add documentation for their components/projects to the Platform Website. The risk associated with this alternative is that documentation may become separated from source code and add irrelevant documentation to some VFS developer audiences.
+* We could encourage developers to use a system like Confluence for all component-specific technical documentation. But that may incur additional licensing costs and the possibility that all documentation is lost if Confluence, or a similar system, is retired. Also, VFS team members do not always have access to Confluence.
