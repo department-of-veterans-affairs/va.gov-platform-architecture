@@ -72,4 +72,4 @@ Possible benefits of a centralized system for component-specific technical docum
 ## Alternatives
 
 * We could drive people to add documentation for their components/projects to the Platform Website. The risk associated with this alternative is that documentation may become separated from source code, and it may add irrelevant documentation to some VFS developer audiences.
-* We could encourage developers to use a system like Confluence for all component-specific technical documentation. But that may incur additional licensing costs and the possibility that all documentation is lost if Confluence, or a similar system, is retired.
+* We could encourage developers to use a system like Confluence for all component-specific technical documentation. But that may incur additional licensing costs and the possibility that all documentation is lost if Confluence, or a similar system, is retired. Also, VFS team members do not have always access to Confluence.
