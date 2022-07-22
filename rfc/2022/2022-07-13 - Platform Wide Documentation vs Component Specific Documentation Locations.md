@@ -59,6 +59,7 @@ Possible benefits of a centralized system for component-specific technical docum
 * VFS and Platform teams will more easily maintain documentation about their software projects for themselves or others to reference later.
 * VFS teams will find it easier to document information about downstream systems that are external to the VA.
 * New VFS and Platform team members will more easily be able to learn about the software projects that their team maintains.
+* VFS and Platform team members will be able to more easily find and discover documentation about any VFS and Platform entity.
 * Each component’s source code and documentation will be easier to find and less likely to be lost than if they were stored in diverse locations.
 * With connections between component and their documentation better maintained, it will be easier to care for each software component, its documentation, and systems that depend upon the component.
 * With each component’s documentation stored close its source code, it will be easier to run automated checks to see if each component’s documentation is up to date.
