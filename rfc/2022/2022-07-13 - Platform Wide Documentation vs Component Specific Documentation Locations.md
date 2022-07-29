@@ -74,3 +74,15 @@ Possible benefits of a centralized system for component-specific technical docum
 
 * We could drive people to add documentation for their components/projects to the Platform Website. The risk associated with this alternative is that documentation may become separated from source code and add irrelevant documentation to some VFS developer audiences.
 * We could encourage developers to use a system like Confluence for all component-specific technical documentation. But that may incur additional licensing costs and the possibility that all documentation is lost if Confluence, or a similar system, is retired. Also, VFS team members do not always have access to Confluence.
+
+**Questions from Platform Content team to consider:**
+
+- Is there a high risk that documentation ends up on both the Platform and the Console simultaneously?
+
+- Is there any component-specific documentation on the Platform website currently, which would need to be migrated to the Console? 
+
+- Will there be any documents with both component-specific content and more general content? If so, how will we know where to place that? Will we have to separate out such content into separate docs?
+
+- Who is currently defining the IA of the Console and who will define it in the future?
+
+- Feedback about this write up: “Collaboration Cycle” …add a definition
