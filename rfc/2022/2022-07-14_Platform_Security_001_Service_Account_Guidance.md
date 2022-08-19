@@ -65,7 +65,7 @@ The Account Manager is responsible for the creating, maintaining, safeguarding, 
 
 In the case of passwords, the Account Manager must ensure that the password for the service account meets minimum password requirements for length and complexity as dictated by VA policy.  Per IA-5(1), the VA requires a case sensitive 12-character password comprised of upper-case letters, lower case letters, numbers and special characters, including at least one of each category.
 
-Authenticators should never be stored in personal password managers.  It is recommended that authenticators be stored in Parameter Store.
+Authenticators should never be stored in personal password managers.  It is required that authenticators be stored in Parameter Store or an equivalent solution.
 
 The Account Manager can grant (or revoke) access to the authenticator at their discretion amongst their team as necessary for those with a legitimate need to know.  Per IA-5, VA policy requires that service account authenticators be rotated at a minimum of every 3 years, or upon any member of the team or group with access to it leaving or no longer requiring access to the authenticator.  The Account Manager is responsible for providing access to the newly rotated authenticator as needed and ensuring that any application, service, or other process that rely on its use is updated.  
 
