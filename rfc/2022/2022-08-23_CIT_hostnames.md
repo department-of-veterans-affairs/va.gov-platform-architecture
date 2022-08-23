@@ -14,10 +14,11 @@ Vets-api and Lighthouse currently share the same API endpoint: api.va.gov. In th
 
 ## **Motivation**
 
-As their product goals and technical infrastructure diverge over time, it is no longer feasible for Lighthouse and VA.gov to share the api.va.gov hostname. In particular, Lighthouse wants to re-architect to use an Apigee API gateway hosted in Google Cloud (GCP). There's no reason for all VA.gov traffic to route through this gateway or through GCP. Because Lighthouse has a large number of API consumers, most of whom are external to VA, they have priority for continuing to use api.va.gov. VA.gov will transition to a new API hostname.
+The product goals and technical infrastructures of Lighthouse and VA.gov have diverged over time. Sharing the api.va.gov hostname is no longer feasible. In particular, Lighthouse wants to re-architect to use an Apigee API gateway hosted in Google Cloud (GCP). There's no reason for all VA.gov traffic to route through this gateway or through GCP. Because Lighthouse has a large number of API consumers, most of whom are external to VA, they have priority for continuing to use api.va.gov. VA.gov will transition to a new API hostname.
 
 ### New hostname for vets-api
 Teams that use VA.gov APIs as an endpoint will need to update their application code to replace any hostname instances of `api.va.gov` with `platform-api.va.gov`.
+
 Teams that use Lighthouse APIs as an endpoint will not be required to change their hostname addresses.
 
 
@@ -54,7 +55,7 @@ The vets-api settings in the devops repository which reference `api.va.gov` have
 
 Reference: [Vets-api Re-mapped Settings](https://docs.google.com/spreadsheets/d/111t6f4V3eCVkaKoBIxXi54_HlkPT-54qKShfRjl-iMs/edit#gid=2101280441).
 
-_TBD: Completed rerouting vets-api upstream requests to use the forward proxy in all environments._
+_TBD: Complete rerouting vets-api upstream requests to use the forward proxy in all environments._
 
 
 #### **Vets-api: Synthetic Tests**
@@ -81,24 +82,26 @@ PR feedback was gathered from affected teams.
 
 
 ### Pre-Release Tasks
-_May need to finish outstanding vets-api settings changes._
+_TBD. Outstanding vets-api settings changes._
 
 #### **Coordination**
   - Kickoff Meeting to discuss team roles and responsibilities:
     - Release Plan timeline.
     - Rollback plan.
+    - Notification strategy:
+      - Team notifications.
+      - User notifications for potential login availability.
     - Downtime window.
       - In order to minimize disruptions to Staging and Production, a coordinated release of both applications should consider the different build and deploy methods and runtimes.
       - Based on historic runtimes, determine the optimal timing for triggering the deployment of both vets-api and vets-website so that they finish at approximately the same time.
-    - Notification strategy (including user notifications for potential login availability downtime.)
 
 
 #### **VA**
-   * Submit required notifications to the VA so that entities, .e.g., the Help Desk, are aware of the planned downtime and can plan accordingly.
+   * Submit required notifications to the VA so that entities, .e.g., the Help Desk, are aware of any planned downtime or interruption of services.
 
 
 #### **Site Reliability Engineering**
-   * SRE playbooks prepared to use the *platform-api.va.gov hostname(s).
+   * SRE playbooks prepared to use the *platform-api.va.gov hostname.
 
 
 #### **Release Tools Team**
@@ -110,7 +113,7 @@ _May need to finish outstanding vets-api settings changes._
 
 
 ### Release Steps
-Due to the interdependencies of the API hostname’s inclusion in authentication cookies set by vets-api and API calls made from VA.gov, the deployment of the new *platform-api.va.gov hostname will require a coordinated sequence of events between vets-api and vets-website that occur at an agreed upon time.
+Due to the interdependencies of the API hostname’s inclusion in authentication cookies set by vets-api and API calls made from VA.gov, the deployment of the new *platform-api.va.gov hostname will require a coordinated release sequence between vets-api and vets-website.
 
 All systems will need to be deployed and tested in Staging prior to a Production deployment.
 
@@ -118,8 +121,8 @@ All systems will need to be deployed and tested in Staging prior to a Production
 #### **Proposed Release Sequence:**
 
 **Step 1** (Rollback preparation)
-  - Identity Team works with IAM authentication partners to prepare the rollback plan for reverting auth callback changes. 
-  - Release Tools Team prepares rollback PR and build.
+  - Identity Team works with IAM authentication partners to prepare a rollback plan for reverting auth callback changes. 
+  - Release Tools Team prepares a rollback PR and build.
 
 
 **Step 2** (Coordinated release of vets-api and vets-website repositories in lower environments)
@@ -193,7 +196,7 @@ At this time the Lighthouse team is working to transition to using the new Apige
 
 #### **Infrastructure Team**
   - Removes api.va.gov references from the revProxy.
-  - At this time only the Dev website is in EKS. As other environments migrate to EKS, routing configurations will need to be updated and release timing will need to be evaluated.
+  - **Note:** At this time only the Dev website is in EKS. As other environments migrate to EKS, routing configurations will need to be updated and release timing will need to be re-evaluated.
 
     Reference: [Enabling new *platform-api.va.gov domains in EKS](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263351375).
   - Schedule annual TLS/SSL cert renewals for all platform-api subdomains.
@@ -201,14 +204,14 @@ At this time the Lighthouse team is working to transition to using the new Apige
 
 #### **Documentation**
   - The Platform Content Team coordinates with contributing teams to edit documentation to use the *platform-api.va.gov hostname.
-  - The Console UI Team coordinates with contributing teams to edit documentation to use the *platform-api.va.gov hostname. Verify with CUI.
+  - The Console UI Team coordinates with contributing teams to edit documentation to use the *platform-api.va.gov hostname.
 
 
 ## **Risks**
   - **Lack of parity in environments and deployment processes:** Consideration should be given to completing the migration of all environments to EKS prior to rolling out *platform-api.va.gov.
-    - Simplifies Release Plan processes.
-    - Simplifies Post-Release issue triage.
-    - Reduces complexity in fixing issues that may arise from environments being in varying states of migration. 
+    - Reduces complexity in Release Plan processes.
+    - Reduces complexity in Post-Release issue triage.
+    - Reduces complexity in fixing issues that may arise later if environments remain in varying states of migration. 
   - **Staging downtime:** A window of time will be required to allow teams to test and mitigate any unforeseen issues. Authentication flows and day-to-day development tasks may be interrupted.
   - **Production downtime:** There may be a short period of downtime or instability in authentication flows.
   - **Unidentified issues:** Issues that are not identified in the Staging release may affect Production.
