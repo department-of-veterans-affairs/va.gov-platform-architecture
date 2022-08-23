@@ -222,5 +222,3 @@ At this time the Lighthouse team is working to transition to using the new Apige
   - [Remapped vets-api settings](https://docs.google.com/spreadsheets/d/111t6f4V3eCVkaKoBIxXi54_HlkPT-54qKShfRjl-iMs/edit#gid=2101280441) (Google Sheet)
   - [Enabling new *platform-api.va.gov domains in EKS](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263351375) (Confluence)
   - [New Domain to Serve vets-api](https://vfs.atlassian.net/wiki/spaces/ECP/pages/2221572288/2022-06-06+New+domain+to+serve+vets-api) (ADR/Confluence)
-Hostname Transition Playbook.md
-Displaying Hostname Transition Playbook.md.
