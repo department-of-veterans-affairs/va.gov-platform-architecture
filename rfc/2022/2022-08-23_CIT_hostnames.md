@@ -113,7 +113,7 @@ _TBD. Outstanding vets-api settings changes._
 
 
 ### Release Steps
-Due to the interdependencies of the API hostname’s inclusion in authentication cookies set by vets-api and API calls made from VA.gov, the deployment of the new *platform-api.va.gov hostname will require a coordinated release sequence between vets-api and vets-website.
+Due to the interdependence of API calls made from VA.gov and authentication cookies set by vets-api, the deployment of the new *platform-api.va.gov hostname will require the coordinated releases of vets-api and vets-website.
 
 All systems will need to be deployed and tested in Staging prior to a Production deployment.
 
@@ -210,8 +210,7 @@ At this time the Lighthouse team is working to transition to using the new Apige
 ## **Risks**
   - **Lack of parity in environments and deployment processes:** Consideration should be given to completing the migration of all environments to EKS prior to rolling out *platform-api.va.gov.
     - Reduces complexity in Release Plan processes.
-    - Reduces complexity in Post-Release issue triage.
-    - Reduces complexity in fixing issues that may arise later if environments remain in varying states of migration. 
+    - Reduces complexity in Post-Release issue resolution.
   - **Staging downtime:** A window of time will be required to allow teams to test and mitigate any unforeseen issues. Authentication flows and day-to-day development tasks may be interrupted.
   - **Production downtime:** There may be a short period of downtime or instability in authentication flows.
   - **Unidentified issues:** Issues that are not identified in the Staging release may affect Production.
