@@ -166,6 +166,7 @@ All systems will need to be deployed and tested in Staging prior to a Production
   - Release Tools Team triggers vets-website deploy manually. The built-in pause in the manual release will need to be approved to resume the deployment after the Build and Release steps are finished.
   - Based on Pre-Release coordination research, trigger the deployment of both vets-api and vets-website so that they finish at approximately the same time.
   - All teams QA/UAT Production for issues.  
+![staggered-deploy](https://user-images.githubusercontent.com/30317/186273089-4d101052-0166-4fde-aef5-d29214b866b2.png)
 
 
 ### Post-Release Tasks
