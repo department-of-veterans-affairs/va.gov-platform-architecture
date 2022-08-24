@@ -196,7 +196,9 @@ At this time the Lighthouse team is working to transition to using the new Apige
 
 
 #### **Infrastructure Team**
-  - Removes api.va.gov references from the revProxy.
+  - Removes api.va.gov references from the revProxy. This should only happen once Apigee has been successfully set up as a new API gateway and fully owns the api.va.gov domains.
+  - While the revProxy still handles the api.va.gov domain, ensures that new rules added to the `nginx_api_server.conf` file get replicated in `ngix_new_api_server.conf`.
+  - Prevents new references to api.va.gov to be added to the vets-api config files `*-settings.local.yml.j2` and their EKS counterparts. 
   - **Note:** At this time only the Dev website is in EKS. As other environments migrate to EKS, routing configurations will need to be updated and release timing will need to be re-evaluated.
 
     Reference: [Enabling new *platform-api.va.gov domains in EKS](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263351375).
@@ -225,3 +227,5 @@ At this time the Lighthouse team is working to transition to using the new Apige
   - [Remapped vets-api settings](https://docs.google.com/spreadsheets/d/111t6f4V3eCVkaKoBIxXi54_HlkPT-54qKShfRjl-iMs/edit#gid=2101280441) (Google Sheet)
   - [Enabling new *platform-api.va.gov domains in EKS](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263351375) (Confluence)
   - [New Domain to Serve vets-api](https://vfs.atlassian.net/wiki/spaces/ECP/pages/2221572288/2022-06-06+New+domain+to+serve+vets-api) (ADR/Confluence)
+  - [Original Explainer Doc on VA.gov <=> Lighthouse overlap](https://vfs.atlassian.net/wiki/spaces/ECP/pages/1907523684/Explainer+-+VA.gov-Lighthouse+Overlap) (Confluence)
+  - [RFC on domain name decision](https://github.com/department-of-veterans-affairs/va.gov-team/discussions/39068) (Github)
