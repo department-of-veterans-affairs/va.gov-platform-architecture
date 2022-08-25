@@ -186,12 +186,12 @@ All systems will need to be deployed and tested in Staging prior to a Production
 #### **Mobile Flagship App**
 Because the Mobile Flagship App is not bound by the same authentication workflows as vets-api and vets-website, it can be deployed separately.
   - The global configuration variables for new versions of the Mobile Flagship app are edited to use *platform-api.va.gov hostname. 
-  - The global configuration variables for legacy versions of the Mobile Flagship app will continue to use the older api.va.gov hostname and will be routed via the Lighthouse gateway.
+  - The global configuration variables for older versions of the Mobile Flagship app will continue to use the api.va.gov hostname and will be routed via the Lighthouse gateway.
 
 
 #### **Lighthouse**
 At this time the Lighthouse team is working to transition to using the new Apigee Gateway (timeline TBD.) Until that time, Kong will continue to serve as its API gateway and will honor requests to `api.va.gov/services/*` and `api.va.gov/internal/*`.
-  - Once implemented, the new Apigee gateway will continue to honor legacy/mobile app requests to `api.va.gov/mobile/*`.
+  - Once implemented, the new Apigee gateway will continue to honor requests to `api.va.gov/mobile/*` from older versions of the Mobile Flagship app.
   - Once implemented, the new Apigee gateway will continue to honor requests to `api.va.gov/vanotify` and route them to the  VANotify service until that team agrees to retire the endpoint.
 
 
@@ -199,7 +199,7 @@ At this time the Lighthouse team is working to transition to using the new Apige
   - Removes api.va.gov references from the revProxy. This should only happen once Apigee has been successfully set up as a new API gateway and fully owns the api.va.gov domains.
   - While the revProxy still handles the api.va.gov domain, ensures that new rules added to the `nginx_api_server.conf` file get replicated in `ngix_new_api_server.conf`.
   - Prevents new references to api.va.gov to be added to the vets-api config files `*-settings.local.yml.j2` and their EKS counterparts. 
-  - **Note:** At this time only the Dev website is in EKS. As other environments migrate to EKS, routing configurations will need to be updated and release timing will need to be re-evaluated.
+  - **Note:** At this time only the Dev website is in EKS. As other environments migrate to EKS, routing configurations will need to be updated.
 
     Reference: [Enabling new *platform-api.va.gov domains in EKS](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263351375).
   - Schedule annual TLS/SSL cert renewals for all platform-api subdomains.
