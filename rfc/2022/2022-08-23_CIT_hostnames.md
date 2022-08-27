@@ -32,6 +32,7 @@ The vets-api code base makes several API requests to different hosts. In instanc
        Reference: [Forward Proxy Addresses](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263449831/Guide+API+Hostname+Status).
   - For requests that vets-api makes to itself, the endpoints need to change to the new, environment-specific *platform-api.va.gov hostname.
   - Host references that don’t make network requests should remain unchanged.
+  - In one case, vets-api makes calls to Lighthouse servers directly. For this purpose we set up an additional fwdproxy port (`4494`) that points from the DSVA staging environment to Lighthouse's sandbox server at `blue.lab.lighthouse.va.gov`
 
 
 ## **Design**
@@ -44,7 +45,7 @@ The vets-api code base makes several API requests to different hosts. In instanc
     - **Sandbox:** sandbox-platform-api.va.gov
     - **Prod:** platform-api.va.gov
   - ESECC has been approved for all hostnames.
-  - DNS has been configured for all platform-api hostnames.
+  - DNS and SSL have been configured for all platform-api hostnames.
   - Platform-api hostnames are resolving to vets-api in all environments.
 
     Reference: [Hostname Specifications](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2283339976).
@@ -55,7 +56,9 @@ The vets-api settings in the devops repository which reference `api.va.gov` have
 
 Reference: [Vets-api Re-mapped Settings](https://docs.google.com/spreadsheets/d/111t6f4V3eCVkaKoBIxXi54_HlkPT-54qKShfRjl-iMs/edit#gid=2101280441).
 
-_TBD: Complete rerouting vets-api upstream requests to use the forward proxy in all environments._
+With the exception of the authentication callbacks that will need to change to the new, environment-specific *platform-api.va.gov hostnames, all settings that required changes have been updated and tested with the help of affected teams. See **Release Steps** for details on updating authentication callbacks.
+
+**Side Note**: In some cases, vets-api code makes subsequent Lighthouse API requests to iterate over paginated data. It is important to ensure that vets-api makes these additional request using the same API URL defined in the settings file (i.e. the forward proxy address and port) rather than directly using the API links provided as part of the API response. This might require some code changes in vets-api that swap out the host portion of the API address to the one defined in the settings.
 
 
 #### **Vets-api: Synthetic Tests**
@@ -66,20 +69,14 @@ Example: The `/facilities_api/v1/va` endpoint in vets-api is used by the va.gov 
 Reference: [Complete list of Datadog Tests](https://vagov.ddog-gov.com/synthetics/tests?query=tag%3A%28%22team%3Acit%22%29)
 
 
-#### **Vets-website: Unit and Integration Test POC**
-A POC branch was created in the vets-website repository for the purpose of updating test references from `api.va.gov` to `platform-api.va.gov`.
-Updates to the test references did not break any unit or integration tests. These references were part of canned API responses and were not used in any test assertions.
+#### **Vets-website: Change *api.va.gov References in Unit and Integration Tests**
+We have updated `api.va.gov` references to `platform-api.va.gov` in the test files of the vets-website repository. These updates to the test references did not break any unit or integration tests, as they were in many cases part of canned API responses and not used in any test assertions.
 
 Certain test references to `sandbox-api.va.gov` and `api.va.gov` did not require any changes because these reference endpoints will still be served by the Lighthouse API. **Example**: `health-care-questionnaire` application (not used in Production.)
 
 Parameterizing the API URL was done where possible. Setting the API_URL constant as an environment variable will ensure that unit specs that check for the variable value will pass before and after changing the configured API URL to the new *platform-ap.va.gov hostname.
 
-The POC branch passed all unit and integration tests.
-
-The POC branch was pushed to trigger integration/E2E tests.
-
-PR feedback was gathered from affected teams.
-
+To prevent the future use of *api.va.gov in test files, the Release Tools Team should add custom linting rules that instruct users to use the new API URLs.
 
 ### Pre-Release Tasks
 _TBD. Outstanding vets-api settings changes._
@@ -113,7 +110,7 @@ _TBD. Outstanding vets-api settings changes._
 
 
 ### Release Steps
-Due to the interdependence of API calls made from VA.gov and authentication cookies set by vets-api, the deployment of the new *platform-api.va.gov hostname will require the coordinated releases of vets-api and vets-website.
+Due to the interdependence of API calls made from VA.gov and authentication cookies set by vets-api, the deployment of the new *platform-api.va.gov hostname will require the coordinated releases of vets-api and vets-website. 
 
 All systems will need to be deployed and tested in Staging prior to a Production deployment.
 
@@ -124,14 +121,19 @@ All systems will need to be deployed and tested in Staging prior to a Production
   - Identity Team works with IAM authentication partners to prepare a rollback plan for reverting auth callback changes. 
   - Release Tools Team prepares a rollback PR and build.
 
+The following authentication settings will need to be updated from *api.va.gov to *platform-api.va.gov:
+  - `idme > redirect_uri`
+  - `logingov > inherited_proofing_redirect_uri`
+  - `logingov > redirect_uri`
+  - `saml_ssoe > callback_url`
 
 **Step 2** (Coordinated release of vets-api and vets-website repositories in lower environments)
   - Broadcast an internal notification that Staging may be disrupted.
   - Site Reliability Engineering notified of impending deployment to Staging.
   - Infrastructure On-Call Team notified of impending deployment to Staging.
   - In parallel:
-    - The Identity Team updates the vets-api authentication URLs for Dev and Staging. 
     - The IAM team updates their own API callback URLs for Dev and Staging.
+    - The Identity Team updates the vets-api authentication URLs for Dev and Staging. 
   - Release Tools Team updates globally configured API URL for vets-website for Dev and Staging.
   - vets-website repo:
     - PRs merged into the main branch are automatically built and deployed to both dev and staging. 
@@ -176,7 +178,7 @@ All systems will need to be deployed and tested in Staging prior to a Production
 
 
 #### **Release Tools Team**
-  - Search and replace documented instances of  `api.va.gov` API references with `platform-api.va.gov`, e.g., README files, script files, code comments, etc.
+  - Search and replace documented instances of `api.va.gov` API references with `platform-api.va.gov`, e.g., README files, script files, code comments, etc.
 
 
 #### **Console Services**
@@ -191,15 +193,16 @@ Because the Mobile Flagship App is not bound by the same authentication workflow
 
 #### **Lighthouse**
 At this time the Lighthouse team is working to transition to using the new Apigee Gateway (timeline TBD.) Until that time, Kong will continue to serve as its API gateway and will honor requests to `api.va.gov/services/*` and `api.va.gov/internal/*`.
-  - Once implemented, the new Apigee gateway will continue to honor requests to `api.va.gov/mobile/*` from older versions of the Mobile Flagship app.
-  - Once implemented, the new Apigee gateway will continue to honor requests to `api.va.gov/vanotify` and route them to the  VANotify service until that team agrees to retire the endpoint.
+  - Once implemented, the new Apigee gateway will continue to honor requests to `api.va.gov/mobile/*` for older versions of the Mobile Flagship app.
+  - Once implemented, the new Apigee gateway will continue to honor requests to `api.va.gov/vanotify` and route them to the VANotify service until that team agrees to retire the endpoint.
+  - Kong Team will need to update routing to vets-api as it moves into EKS environment in different environments.
 
 
 #### **Infrastructure Team**
   - Removes api.va.gov references from the revProxy. This should only happen once Apigee has been successfully set up as a new API gateway and fully owns the api.va.gov domains.
   - While the revProxy still handles the api.va.gov domain, ensures that new rules added to the `nginx_api_server.conf` file get replicated in `ngix_new_api_server.conf`.
   - Prevents new references to api.va.gov to be added to the vets-api config files `*-settings.local.yml.j2` and their EKS counterparts. 
-  - **Note:** At this time only the Dev website is in EKS. As other environments migrate to EKS, routing configurations will need to be updated.
+  - **Note:** At this time only the Dev website is in EKS. As other environments migrate to EKS, routing configurations will need to be updated. The Kong team will need to be alerted of the move to EKS, so that they can update their own routing from Kong to vets-api.
 
     Reference: [Enabling new *platform-api.va.gov domains in EKS](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263351375).
   - Schedule annual TLS/SSL cert renewals for all platform-api subdomains.
