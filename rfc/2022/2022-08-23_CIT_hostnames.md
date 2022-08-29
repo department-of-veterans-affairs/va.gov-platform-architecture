@@ -16,6 +16,7 @@ Vets-api and Lighthouse currently share the same API endpoint: api.va.gov. In th
 
 The product goals and technical infrastructures of Lighthouse and VA.gov have diverged over time. Sharing the api.va.gov hostname is no longer feasible. In particular, Lighthouse wants to re-architect to use an Apigee API gateway hosted in Google Cloud (GCP). There's no reason for all VA.gov traffic to route through this gateway or through GCP. Because Lighthouse has a large number of API consumers, most of whom are external to VA, they have priority for continuing to use api.va.gov. VA.gov will transition to a new API hostname.
 
+
 ### New hostname for vets-api
 Teams that use VA.gov APIs as an endpoint will need to update their application code to replace any hostname instances of `api.va.gov` with `platform-api.va.gov`.
 
@@ -69,7 +70,7 @@ Example: The `/facilities_api/v1/va` endpoint in vets-api is used by the va.gov 
 Reference: [Complete list of Datadog Tests](https://vagov.ddog-gov.com/synthetics/tests?query=tag%3A%28%22team%3Acit%22%29)
 
 
-#### **Vets-website: Change *api.va.gov References in Unit and Integration Tests**
+#### **Vets-website: Change \*api.va.gov References in Unit and Integration Tests**
 We have updated `api.va.gov` references to `platform-api.va.gov` in the test files of the vets-website repository. These updates to the test references did not break any unit or integration tests, as they were in many cases part of canned API responses and not used in any test assertions.
 
 Certain test references to `sandbox-api.va.gov` and `api.va.gov` did not require any changes because these reference endpoints will still be served by the Lighthouse API. **Example**: `health-care-questionnaire` application (not used in Production.)
@@ -77,9 +78,19 @@ Certain test references to `sandbox-api.va.gov` and `api.va.gov` did not require
 Parameterizing the API URL was done where possible. Setting the API_URL constant as an environment variable will ensure that unit specs that check for the variable value will pass before and after changing the configured API URL to the new *platform-ap.va.gov hostname.
 
 To prevent the future use of *api.va.gov in test files, the Release Tools Team should add custom linting rules that instruct users to use the new API URLs.
+&nbsp;
+&nbsp;
+#### **Diagram: New Production State with vets-api in BRD and Lighthouse/Kong**
 
+![Prod-release-state-BRD-Kong](https://user-images.githubusercontent.com/1426601/187307838-1ba75418-49e9-479c-8c85-89e8117751eb.png)
+&nbsp;
+&nbsp;
+#### **Diagram: Future Production State with vets-api in EKS and Lighthouse/Apigee**
+
+![Prod-release-state-EKS-Apigee](https://user-images.githubusercontent.com/1426601/187308803-f87cd357-d3ba-497a-94c6-ea792769ee6a.png)
+&nbsp;
+&nbsp;
 ### Pre-Release Tasks
-_TBD. Outstanding vets-api settings changes._
 
 #### **Coordination**
   - Kickoff Meeting to discuss team roles and responsibilities:
@@ -121,12 +132,6 @@ All systems will need to be deployed and tested in Staging prior to a Production
   - Identity Team works with IAM authentication partners to prepare a rollback plan for reverting auth callback changes. 
   - Release Tools Team prepares a rollback PR and build.
 
-The following authentication settings will need to be updated from *api.va.gov to *platform-api.va.gov:
-  - `idme > redirect_uri`
-  - `logingov > inherited_proofing_redirect_uri`
-  - `logingov > redirect_uri`
-  - `saml_ssoe > callback_url`
-
 **Step 2** (Coordinated release of vets-api and vets-website repositories in lower environments)
   - Broadcast an internal notification that Staging may be disrupted.
   - Site Reliability Engineering notified of impending deployment to Staging.
@@ -134,6 +139,11 @@ The following authentication settings will need to be updated from *api.va.gov t
   - In parallel:
     - The IAM team updates their own API callback URLs for Dev and Staging.
     - The Identity Team updates the vets-api authentication URLs for Dev and Staging. 
+    - The following authentication settings will need to be updated from *api.va.gov to *platform-api.va.gov:
+      - `idme > redirect_uri`
+      - `logingov > inherited_proofing_redirect_uri`
+      - `logingov > redirect_uri`
+      - `saml_ssoe > callback_url`
   - Release Tools Team updates globally configured API URL for vets-website for Dev and Staging.
   - vets-website repo:
     - PRs merged into the main branch are automatically built and deployed to both dev and staging. 
@@ -145,7 +155,6 @@ The following authentication settings will need to be updated from *api.va.gov t
     - The build step takes ~30 minutes, but can be run separately if needed.
     - The deploy step is fast.
   - Based on Pre-Release coordination research, trigger the deployment of both vets-api and vets-website so that they finish at approximately the same time. **Note**: Authentication flows may not work correctly until both applications have been fully deployed.
-
 
 
 **Step 3** (QA in Staging)
@@ -168,6 +177,9 @@ The following authentication settings will need to be updated from *api.va.gov t
   - Release Tools Team triggers vets-website deploy manually. The built-in pause in the manual release will need to be approved to resume the deployment after the Build and Release steps are finished.
   - Based on Pre-Release coordination research, trigger the deployment of both vets-api and vets-website so that they finish at approximately the same time.
   - All teams QA/UAT Production for issues.  
+
+**Coordinated Production Release Flow**
+
 ![staggered-deploy](https://user-images.githubusercontent.com/30317/186273089-4d101052-0166-4fde-aef5-d29214b866b2.png)
 
 
