@@ -21,12 +21,12 @@ The Platform currently has at least three locations for documentation:
     * **“Getting started”** content for onboarding VFS team members to work on the Platform
     * **“Developer docs”** content about writing and submitting code for review
     * **“Research and design”** content for adhering to the Platform’s guidance for research and design
-    * **“Analytics and insights”** content, such as for analytics, KPI dashboards, and monitoring
-    * **“Collaboration cycle”** documentation of the process that VFS teams are required to follow to ensure quality for all products and featured launched on [va.gov](http://va.gov/).
+    * **“Analytics and insights”** content for analytics, KPI dashboards, and monitoring
+    * **“Collaboration cycle”** documentation of the process that VFS teams are required to follow to ensure quality for all products and features launched on [va.gov](http://va.gov/).
     * **“Support”** policies and incident management
     * **“User guides, how-to instructions, tutorials, or reference documents for VFS teams”** ((source)[https://vfs.atlassian.net/wiki/spaces/CUI/pages/2186543112/RFC+DRAFT+Documentation+Locations+-+Console+UI])
 * (Operational documentation)[https://vfs.atlassian.net/wiki/spaces/AP/pages/1287782439] throughout Confluence, which includes internal content such as “(meeting notes, roles and responsibilities documentation, decision documentation, [and] initiative outlines.)[https://vfs.atlassian.net/wiki/spaces/AP/pages/1287782439]”
-* The [design.va.gov](https://design.va.gov) site contains the content style guide, components, and patterns include guidance, standards, and tools to help teams build a consistent, intuitive, and Veteran-centered experience across VA.gov.
+* The [design.va.gov](https://design.va.gov) site contains the content style guide, components, and patterns that include guidance, standards, and tools to help teams build a consistent, intuitive, and Veteran-centered experience across VA.gov.
 
 While Confluence and the Platform website contain helpful documentation for VFS (and Platform) teams, a lot of documentation—specifically technical documentation for a software component, service, or infrastructure resource—is found throughout various GitHub repositories. This documentation is vital to developers trying to troubleshoot or set up software dependencies, but it is much harder to find. Developers typically find it by asking around, receiving a few different answers, and sometimes finding different versions of the documentation. When they find the documentation, it is often difficult to know whether it is complete or up to date. Additionally, some VFS teams rely on systems external to the VA and have had difficulty finding or maintaining documentation about these systems.
 
@@ -77,7 +77,7 @@ Possible benefits of a centralized system for component-specific technical docum
 * Each component’s source code and documentation will be easier to find and less likely to be lost than if they were stored in diverse locations.
 * With connections between component and their documentation better maintained, it will be easier to care for each software component, its documentation, and systems that depend upon the component.
 * With each component's documentation stored close to its source code, it will be easier to run automated checks to see if each component's documentation is up to date. Keeping the documentation with the source code also ensures that we're following VA policy to make all documentation publicly accessible.
-* Confidence in having access to a single source of truth to ensure that engineers have access to the most relevant, up-to-date information
+* VFS and Platform team members will have confidence in their access to a single source of truth, ensuring that engineers have access to the most relevant, up-to-date information.
 
 ## Risks
 
