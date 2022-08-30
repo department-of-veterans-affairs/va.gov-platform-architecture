@@ -34,7 +34,7 @@ This step handles the cases:
 This step encompasses the process of detailing a platform tool's permissions in JSON format<sub>[[RFC6]](https://vfs.atlassian.net/wiki/spaces/AMT/pages/2142011842/RFC+6+AMT+integrators+can+describe+fine-grained+permissions+using+JSON)</sub>, including any support from AMT.
 
 ### 2: Apply Permissions
-The permissions application step includes the source control integration process. It also includes the automation required to apply the permissions configuration to the platform tool previously integrated into Keycloak. This is described in more detail below
+The permissions application step automatically applies the permissions configuration to the integrated platform tool upon merge of a pull request. This is described in more detail below.
 
 ### 3: Use Permissions
 This step represents some amount of time where the integrated and configured platform tool's users interact with the tool under the scope of permissions they have been provided
