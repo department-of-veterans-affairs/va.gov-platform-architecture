@@ -195,6 +195,7 @@ All systems will need to be deployed and tested in Staging prior to a Production
 
 #### **Console Services**
   - Adds linting rules or triggered Github action to prevent use of the *api.va.gov hostname.
+  - Work with individual teams whose API calls were re-routed via the forward proxy to ensure that any subsequent calls, e.g. for paginated requests, are also routed in the same way (see note under **Vets-api: Settings**)
 
 
 #### **Mobile Flagship App**
@@ -231,6 +232,7 @@ At this time the Lighthouse team is working to transition to using the new Apige
     - Reduces complexity in Post-Release issue resolution.
   - **Staging downtime:** A window of time will be required to allow teams to test and mitigate any unforeseen issues. Authentication flows and day-to-day development tasks may be interrupted.
   - **Production downtime:** There may be a short period of downtime or instability in authentication flows.
+  - **Unidentified vets-api clients:** While we believe that the VA.gov website and the mobile app are the only clients of vets-api, any unidentified client would encounter 404 errors after the Apigee migration. To ward against that possibility, the Infrastructure Team could conduct a thorough examination of the revproxy logs to identify client IP addresses involved in vets-api requests that did not originate from either VA.gov or the mobile app.
   - **Unidentified issues:** Issues that are not identified in the Staging release may affect Production.
 
 
