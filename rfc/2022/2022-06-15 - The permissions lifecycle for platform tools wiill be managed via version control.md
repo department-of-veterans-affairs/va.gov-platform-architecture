@@ -30,6 +30,8 @@ This step handles the cases:
 1. The application has not been integrated into Keycloak
 2. The application has [been integrated into Keycloak](https://vfs.atlassian.net/wiki/spaces/AMT/pages/2088402974/Integrate+a+User-facing+Application+with+Keycloak), but has not configured authorization
 
+_Note: Currently, applications within Keycloak are identified manually. Similarly, permissions requests will be verified to come from the appropriate team manually. However, there is some potential for this to be automated, either by a) the CODEOWNERS file of the repo or b) the Platform Console. The effort required for automating verification using these tools is outside the scope of this RFC and can be described in a separate document._
+
 ### 1: Describe Permissions
 This step encompasses the process of detailing a platform tool's permissions in JSON format<sub>[[RFC6]](https://vfs.atlassian.net/wiki/spaces/AMT/pages/2142011842/RFC+6+AMT+integrators+can+describe+fine-grained+permissions+using+JSON)</sub>, including any support from AMT.
 
