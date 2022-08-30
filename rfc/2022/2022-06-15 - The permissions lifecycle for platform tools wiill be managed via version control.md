@@ -28,16 +28,16 @@ flowchart TD
 ### 0: Authorization Desired 
 This step handles the cases:
 1. The application has not been integrated into Keycloak
-2. The application has been integrated into Keycloak, but has not configured authorization
+2. The application has [been integrated into Keycloak](https://vfs.atlassian.net/wiki/spaces/AMT/pages/2088402974/Integrate+a+User-facing+Application+with+Keycloak), but has not configured authorization
 
 ### 1: Describe Permissions
 This step encompasses the process of detailing a platform tool's permissions in JSON format<sub>[[RFC6]](https://vfs.atlassian.net/wiki/spaces/AMT/pages/2142011842/RFC+6+AMT+integrators+can+describe+fine-grained+permissions+using+JSON)</sub>, including any support from AMT.
 
 ### 2: Apply Permissions
-The permissions application step automatically applies the permissions configuration to the integrated platform tool upon merge of a pull request. This is described in more detail below.
+The permissions application step automatically applies the permissions configuration to the integrated platform tool upon merge of a pull request. The pull request will be reviewed by AMT for _general_ validity, but AMT cannot and does not know the specific configuration of each tool. This is described in more detail below.
 
 ### 3: Use Permissions
-This step represents some amount of time where the integrated and configured platform tool's users interact with the tool under the scope of permissions they have been provided
+This step represents some amount of time where the integrated and configured platform tool's users interact with the tool under the scope of permissions they have been provided.
 
 ### 4: Revise Permissions
 Revising permissions could occur when:
