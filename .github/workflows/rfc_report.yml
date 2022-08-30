@@ -1,0 +1,28 @@
+name: "RFC Report"
+on:
+  schedule:
+    - cron: '0 9 * * 1,4'  # Mon, Thurs 9am
+  workflow_dispatch:
+jobs:
+  rfc_report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List all RFC pull requests
+        uses: buildsville/list-pull-requests@v1
+        id: list_rfcs
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: '["RFC"]'
+          skip_hour: '0' # do not filter by create date
+      - name: Send message to Slack workflow
+        uses: slackapi/slack-github-action@v1.18.0
+        id: slack_workflow
+        with:
+          payload: |
+            {
+              "text": "this field is unused but required",
+              "message_text": "${{ steps.list_rfcs.outputs.pulls }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_RFC_REPORT_WEBHOOK_URL }}
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
