@@ -105,7 +105,7 @@ Instead of committing permissions information to source control, we could store 
 
 Similarly, a protected S3 bucket could be used to store the actual permissions data, while source control could leverage a manifest file to point to the permissions data.
 
-Finally, the permissions data could be stored in a protected repository in source control. An option could be the `va.gov-team-sensitive` repo.
+Using source control is preferred for its built-in niceties. With that in mind, the permissions data could be stored in a protected repository in source control. One option is to use the `devops` repo, as its scope is set to private. Another option could be the `va.gov-team-sensitive` repo.
 
 ## References
 * [RFC 6](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/blob/<FULL_COMMIT_HASH>/rfc/<FILENAME>.md): AMT integrators can describe fine-grained permissions using JSON
