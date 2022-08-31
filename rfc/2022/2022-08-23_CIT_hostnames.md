@@ -116,10 +116,6 @@ To prevent the future use of *api.va.gov in test files, the Release Tools Team s
   - Adds linting rules to prevent use of the api.va.gov hostname.
 
 
-#### **GIDS (GI Bill Data Services)**
-   * Edits global `link_host` variable to use environment-specific *platform-api.va.gov value in both BRD and EKS deployment configurations.
-
-
 ### Release Steps
 Due to the interdependence of API calls made from VA.gov and authentication cookies set by vets-api, the deployment of the new *platform-api.va.gov hostname will require the coordinated releases of vets-api and vets-website. 
 
@@ -203,6 +199,8 @@ Because the Mobile Flagship App is not bound by the same authentication workflow
   - The global configuration variables for new versions of the Mobile Flagship app are edited to use *platform-api.va.gov hostname. 
   - The global configuration variables for older versions of the Mobile Flagship app will continue to use the api.va.gov hostname and will be routed via the Lighthouse gateway.
 
+#### **GIDS (GI Bill Data Services)**
+   * Edits global `link_host` variable to use environment-specific *platform-api.va.gov value in both BRD and EKS deployment configurations.
 
 #### **Lighthouse**
 At this time the Lighthouse team is working to transition to using the new Apigee Gateway (timeline TBD.) Until that time, Kong will continue to serve as its API gateway and will honor requests to `api.va.gov/services/*` and `api.va.gov/internal/*`.
