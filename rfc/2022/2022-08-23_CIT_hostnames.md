@@ -95,7 +95,8 @@ To prevent the future use of *api.va.gov in test files, the Release Tools Team s
 ### Pre-Release Tasks
 
 #### **Coordination**
-While the Lighthouse team currently doesn't have 
+While the Lighthouse team currently doesn't have a fixed timeline for their migration to Apigee, we propose that the transition of VA.gov to the new hostname, platform-api.va.gov, should occur as soon as is feasible. This would ensure that the independence of VA.gov from the Lighthouse domain and infrastructure has been achieved and tested in production. 
+
   - Kickoff Meeting to discuss team roles and responsibilities:
     - Release Plan timeline.
     - Rollback plan.
