@@ -6,7 +6,7 @@ This document explains why:
 2. A mature solution with enterprise support such as Traefik Enterprise Edition should be used.  
 3. We should make this solution available for development teams early in the microservices lifecycle. 
 
-Details
+### Details
   
 * Comment Deadline: `2022-07-14`  
 * Team Crew and Name: Platform/Spike - Integration Experience Team   
@@ -15,12 +15,19 @@ Details
   * [Emily Wilson](https://github.com/ewilson-adhoc)  
 * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/25)  
 
+
 ## Background
 
 > Explain the current state. What is the problem? What needs to happen? Provide enough background for someone new to the problem space to understand this decision. Use active voice, present tense, and decisive language.
 Example: We need to choose how the website will render in the browser. There are several competing frameworks to choose from.
 
-In the current state, Platform operating environments are moving into Amazon Elastic Kubernetes Service (EKS) or simply Kubernetes. At the same time, Login.gov single sign-on (SSO) is being introduced for Platform access management with Keycloak software as a broker. Login.gov is one of the many parts of Zero Trust Architecture (ZTA). ZTA involves Cyber-Secure Policy Enforcement Points (PEPs).
+### Prologue
+
+The Infrastructure Team is investigating the feasibility/budget for going Traefik Enterprise within the GitHub issue [[Discovery] Evaluate Traefik Enterprise for ingress to EKS #43357](https://github.com/department-of-veterans-affairs/va.gov-team/issues/43357), which would be the first step for continuing forward.
+
+### Current Status
+
+Platform operating environments are moving into Amazon Elastic Kubernetes Service (EKS) or simply Kubernetes. At the same time, Login.gov single sign-on (SSO) is being introduced for Platform access management with Keycloak software as a broker. Login.gov is one of the many parts of Zero Trust Architecture (ZTA). ZTA involves Cyber-Secure Policy Enforcement Points (PEPs).
 
 The task at hands is, first, to decide where is the best place for PEP (on the Application container level within a pod, on the Sidecar level in front of the Application within same pod, on the Kubernetes ingress level in front of the whole Kubernetes cluster), second, implement selected PEP solution to protect all applications in the Kubernetes cluster.     
 
