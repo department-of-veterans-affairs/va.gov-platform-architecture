@@ -14,7 +14,9 @@ Vets-api and Lighthouse currently share the same API endpoint: api.va.gov. In th
 
 ## **Motivation**
 
-The product goals and technical infrastructures of Lighthouse and VA.gov have diverged over time. Sharing the api.va.gov hostname is no longer feasible. In particular, Lighthouse wants to re-architect to use an Apigee API gateway hosted in Google Cloud (GCP). There's no reason for all VA.gov traffic to route through this gateway or through GCP. Because Lighthouse has a large number of API consumers, most of whom are external to VA, they have priority for continuing to use api.va.gov. VA.gov will transition to a new API hostname.
+The product goals and technical infrastructures of Lighthouse and VA.gov have diverged over time. The two projects share the same cloud infrastructure and  have a common domain - api.va.gov. This tight coupling complicates configuration changes, debugging, and error management. Making changes to infrastructure components, such as the reverse or the forward proxy, requires extensive coordination between teams. It is also not a trivial task to determine the target of requests involved in different error alerts, which often delays their resolution. 
+
+However, one of the main reasons in hastening the separation of Lighthouse and the VA.gov was the desire of the Lighthouse team to change the technology of their API gateway from Kong to Apigee, and to move this infrastructure component into GCP, a new cloud environment. Such a change would have caused all VA.gov traffic to also be routed through this new API gateway, which would not have been very efficient from a networking point of view. Because Lighthouse has a large number of API consumers, most of whom are external to VA, they have priority for continuing to use the domain api.va.gov. As such, VA.gov will transition to a new API hostname.
 
 
 ### New hostname for vets-api
@@ -93,6 +95,7 @@ To prevent the future use of *api.va.gov in test files, the Release Tools Team s
 ### Pre-Release Tasks
 
 #### **Coordination**
+While the Lighthouse team currently doesn't have 
   - Kickoff Meeting to discuss team roles and responsibilities:
     - Release Plan timeline.
     - Rollback plan.
