@@ -84,12 +84,12 @@ To prevent the future use of *api.va.gov in test files, the Release Tools Team s
 &nbsp;
 #### **Diagram: New Production State with vets-api in BRD and Lighthouse/Kong**
 
-![Prod-release-state-BRD-Kong](https://user-images.githubusercontent.com/1426601/187307838-1ba75418-49e9-479c-8c85-89e8117751eb.png)
+![Prod-release-state-BRD-Kong](https://user-images.githubusercontent.com/1426601/187929311-0a5cac3b-115a-445b-aab2-8e7e7cbae419.svg)
 &nbsp;
 &nbsp;
 #### **Diagram: Future Production State with vets-api in EKS and Lighthouse/Apigee**
 
-![Prod-release-state-EKS-Apigee](https://user-images.githubusercontent.com/1426601/187308803-f87cd357-d3ba-497a-94c6-ea792769ee6a.png)
+![Prod-release-state-EKS-Apigee](https://user-images.githubusercontent.com/1426601/187929499-5974103b-3d20-422c-bd1a-98d6541f5451.svg)
 &nbsp;
 &nbsp;
 ### Pre-Release Tasks
@@ -190,7 +190,7 @@ While the Lighthouse team currently doesn't have a fixed timeline for their migr
 
 **Coordinated Production Release Flow**
 
-![staggered-deploy](https://user-images.githubusercontent.com/30317/186273089-4d101052-0166-4fde-aef5-d29214b866b2.png)
+![Staggered Deploy](https://user-images.githubusercontent.com/1426601/187937646-f3b5048f-e710-4a34-82c8-1a327de01136.svg)
 
 
 ### Post-Release Tasks
