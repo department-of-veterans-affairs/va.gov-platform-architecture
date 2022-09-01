@@ -95,7 +95,6 @@ To prevent the future use of *api.va.gov in test files, the Release Tools Team s
 ### Pre-Release Tasks
 
 #### **Coordination**
-While the Lighthouse team currently doesn't have a fixed timeline for their migration to Apigee, we propose that the transition of VA.gov to the new hostname, platform-api.va.gov, should occur as soon as is feasible. This would ensure that the independence of VA.gov from the Lighthouse domain and infrastructure has been achieved and tested in production. 
 
   - Kickoff Meeting to discuss team roles and responsibilities:
     - Release Plan timeline.
@@ -121,12 +120,23 @@ While the Lighthouse team currently doesn't have a fixed timeline for their migr
 
 
 ### Release Steps
-Due to the interdependence of API calls made from VA.gov and authentication cookies set by vets-api, the deployment of the new *platform-api.va.gov hostname will require the coordinated releases of vets-api and vets-website. 
+Due to the interdependence of API calls made from VA.gov and authentication cookies set by vets-api, the deployment of the new *platform-api.va.gov hostname will require the coordinated releases of vets-api and vets-website or VA.gov. 
+
+vets-api sets an `api_session` cookie, whose domain is tied to the currently configured authentication callback URL. It is essential that the cookie domain set by vets-api matches the API URL that VA.gov uses to ensure that the browser correctly sends the authentication cookie to support authenticated API requests. A mismatch between the domains set in the cookie and used by VA.gov would cause a disruption in authentication behavior.
+
+The following options for obviating the need to coordinate the API URLs used by VA.gov and vets-api were considered:
+1. Have multiple SAML authentication callbacks configured at a time, which would allow to at least side-step the need to coordinate these changes with the IAM Team. However, this is not possible in the case of SAML, unlike some other auth providers.
+2. Set up an extra internal redirect between the auth callback and the final redirect to www.va.gov that would switch the domain back to whatever the VA.gov was expecting, and decouple these two things. This would require some prototyping in dev to fully assess.
+3. Use a domain wildcard for the cookie, i.e. one for \*.va.gov, in which case the browser would send the cookie for subsequent requests to _any_ va.gov subdomain. This might require some extra manipulation of the cookie name to account for different environments, e.g. `api-session-dev` for `dev-platform-api.va.gov`.
+
+Currently, we are working under the assumption that the change to the new hostname will be performed in a coordinated fashion between VA.gov and vets-api.
 
 All systems will need to be deployed and tested in Staging prior to a Production deployment.
 
 
 #### **Proposed Release Sequence:**
+
+While the Lighthouse team currently doesn't have a fixed timeline for their migration to Apigee, we propose that the transition of VA.gov to the new hostname, platform-api.va.gov, should occur as soon as is feasible. This would ensure that the independence of VA.gov from the Lighthouse domain and infrastructure has been achieved and tested in production. 
 
 **Step 1** (Rollback preparation)
   - Identity Team works with IAM authentication partners to prepare a rollback plan for reverting auth callback changes. 
