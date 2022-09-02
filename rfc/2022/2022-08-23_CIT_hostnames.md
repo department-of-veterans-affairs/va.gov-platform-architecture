@@ -249,6 +249,7 @@ At this time the Lighthouse team is working to transition to using the new Apige
 
 
 ## **Appendix**
+  - [Hostname Transition Story Map](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2334687528/Hostname+Transition+Story+Map+-+Cloud+Isolation) (Confluence)
   - [Forward Proxy Addresses](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263449831/Guide+API+Hostname+Status) (Confluence)
   - [Hostname Specifications](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2283339976) (Confluence)
   - [Reroute vets-api upstream requests to Lighthouse](https://vfs.atlassian.net/wiki/spaces/ECP/pages/2220785993/2022-06-06+Reroute+vets-api+upstream+requests+to+Lighthouse) (ADR/Confluence)
