@@ -57,7 +57,7 @@ The vets-api code base makes several API requests to different hosts. In instanc
 #### **Vets-api: Settings**
 The vets-api settings in the devops repository which reference `api.va.gov` have been identified and their change requirements have been documented.
 
-Reference: [Vets-api Re-mapped Settings](https://docs.google.com/spreadsheets/d/111t6f4V3eCVkaKoBIxXi54_HlkPT-54qKShfRjl-iMs/edit#gid=2101280441).
+Reference: [Vets-api Re-mapped Settings](https://github.com/department-of-veterans-affairs/va.gov-team/blob/f3389a1a1aed15d54f9f0f2580f6c2ea188cf9e8/platform/engineering/infrastructure/vets_api_upstream_settings.xlsx).
 
 With the exception of the authentication callbacks that will need to change to the new, environment-specific *platform-api.va.gov hostnames, all settings that required changes have been updated and tested with the help of affected teams. See **Release Steps** for details on updating authentication callbacks.
 
@@ -249,12 +249,12 @@ At this time the Lighthouse team is working to transition to using the new Apige
 
 
 ## **Appendix**
-  - [Hostname Transition Story Map](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2334687528/Hostname+Transition+Story+Map+-+Cloud+Isolation) (Confluence)
+  - [Hostname Transition Story Map](https://github.com/department-of-veterans-affairs/va.gov-team/blob/f3389a1a1aed15d54f9f0f2580f6c2ea188cf9e8/platform/engineering/infrastructure/hostname_release_story_map.xlsx) (Excel File)
   - [Forward Proxy Addresses](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263449831/Guide+API+Hostname+Status) (Confluence)
   - [Hostname Specifications](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2283339976) (Confluence)
   - [Reroute vets-api upstream requests to Lighthouse](https://vfs.atlassian.net/wiki/spaces/ECP/pages/2220785993/2022-06-06+Reroute+vets-api+upstream+requests+to+Lighthouse) (ADR/Confluence)
   - [Datadog Tests](https://vagov.ddog-gov.com/synthetics/tests?query=tag%3A%28%22team%3Acit%22%29) (Datadog Link)
-  - [Remapped vets-api settings](https://docs.google.com/spreadsheets/d/111t6f4V3eCVkaKoBIxXi54_HlkPT-54qKShfRjl-iMs/edit#gid=2101280441) (Google Sheet)
+  - [Remapped vets-api settings](https://github.com/department-of-veterans-affairs/va.gov-team/blob/f3389a1a1aed15d54f9f0f2580f6c2ea188cf9e8/platform/engineering/infrastructure/vets_api_upstream_settings.xlsx) (Excel File)
   - [Enabling new *platform-api.va.gov domains in EKS](https://vfs.atlassian.net/wiki/spaces/CLOUD/pages/2263351375) (Confluence)
   - [New Domain to Serve vets-api](https://vfs.atlassian.net/wiki/spaces/ECP/pages/2221572288/2022-06-06+New+domain+to+serve+vets-api) (ADR/Confluence)
   - [Original Explainer Doc on VA.gov <=> Lighthouse overlap](https://vfs.atlassian.net/wiki/spaces/ECP/pages/1907523684/Explainer+-+VA.gov-Lighthouse+Overlap) (Confluence)
