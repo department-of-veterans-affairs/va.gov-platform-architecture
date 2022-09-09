@@ -117,6 +117,9 @@ To prevent the future use of *api.va.gov in test files, the Release Tools Team s
 
 #### **Release Tools Team**
   - Adds linting rules to prevent use of the api.va.gov hostname.
+  
+#### **VA Virtual Agent Team**
+  - Made aware of upcoming hostname change, as they extract the value of the session cookie to make authenticated requests to vets-api
 
 
 ### Release Steps
