@@ -1,16 +1,14 @@
 # RFC: _E2E Stress Test and Allow List_
 
+- **Comment Deadline**: 2022-09-21
+- **Team Crew and Name**: QA Standards
+- **Authors**:
+  - Primary Author pjhill
+  - Contributing Author cbonade
+  - Contributing Author holdenhinkle
+- **[Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/49)**
+
 A new GitHub Actions workflow that discovers new or changed end-to-end test spec files in vets-website, and executes the tests in a loop probing for inconsistencies that might indicate the new or changed tests are flaky. This new workflow reuses code created for end-to-end test selection, and adds on some new functionality written in Javascript.
-
-- **Date**: _2022-09-16_
-
-- **Authors**: @Joe Tice @Peter Hill @Holden Hinkle @Curt Bonade
-
-- **Status**: Proposed
-
-- **Related Issue**: <https://app.zenhub.com/workspaces/quality-assurance-standards-613a3f47e06ba00013d05eed/issues/department-of-veterans-affairs/va.gov-team/46339>
-
-- **Related Discussions**: _N/A_
 
 ## Background
 
