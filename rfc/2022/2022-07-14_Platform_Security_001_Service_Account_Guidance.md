@@ -10,12 +10,12 @@ Example:
 * Team Crew and Name: Platform Security
 * Authors:
   * [Troy Mosher](https://github.com/troymosher)
-  
+
  * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/35)
 
 ## Background
 
-Numerous service accounts exist throughout the Platform, and there is currently no central tracking of them, nor consistent guidance on how they are created, approved, managed, and maintained. 
+Numerous service accounts exist throughout the Platform, and there is currently no central tracking of them, nor consistent guidance on how they are created, approved, managed, and maintained.
 
 ## Motivation
 
@@ -31,7 +31,7 @@ Content below:
 A service account is a special type of shared/group privileged account used to execute applications, services, or other processes.  Service accounts are used to run automated or persistent processes and are intended to be used by applications, not interactively by people.
 
 #### What unique risks do Service Accounts pose?
-Service accounts are not tied back to a unique individual.   This makes tracing back actions performed by a service account to a specific individual a challenge. 
+Service accounts are not tied back to a unique individual.   This makes tracing back actions performed by a service account to a specific individual a challenge.
 
 Service account authenticators are often shared or known amongst a team.  This necessitates rotation of authenticators when a member of that team leaves the project.
 
@@ -61,13 +61,13 @@ The Account Manager is responsible for initially requesting approval (link to re
 
 *Authenticator Management*
 
-The Account Manager is responsible for the creating, maintaining, safeguarding, and rotating of the service account authenticator. 
+The Account Manager is responsible for the creating, maintaining, safeguarding, and rotating of the service account authenticator.
 
 In the case of passwords, the Account Manager must ensure that the password for the service account meets minimum password requirements for length and complexity as dictated by VA policy.  Per IA-5(1), the VA requires a case sensitive 12-character password comprised of upper-case letters, lower case letters, numbers and special characters, including at least one of each category.
 
 Authenticators should never be stored in personal password managers.  It is required that authenticators be stored in Parameter Store or an equivalent solution.
 
-The Account Manager can grant (or revoke) access to the authenticator at their discretion amongst their team as necessary for those with a legitimate need to know.  Per IA-5, VA policy requires that service account authenticators be rotated at a minimum of every 3 years, or upon any member of the team or group with access to it leaving or no longer requiring access to the authenticator.  The Account Manager is responsible for providing access to the newly rotated authenticator as needed and ensuring that any application, service, or other process that rely on its use is updated.  
+The Account Manager can grant (or revoke) access to the authenticator at their discretion amongst their team as necessary for those with a legitimate need to know.  Per IA-5, VA policy requires that service account authenticators be rotated at a minimum of every 3 years, or upon any member of the team or group with access to it leaving or no longer requiring access to the authenticator.  The Account Manager is responsible for providing access to the newly rotated authenticator as needed and ensuring that any application, service, or other process that rely on its use is updated.
 
 *Intended Usage*
 
@@ -75,7 +75,7 @@ The Account Manager is responsible for ensuring the service account is only used
 
 *Documentation and Tracking*
 
-The Account Manager is responsible for documenting, at a minimum, the following information for service accounts they manage:
+The Account Manager is required to document, at a minimum, the following information for service accounts they manage:
 
 * Service account name
 * Type of authenticator used, method of safeguarding and where it is stored
@@ -84,11 +84,11 @@ The Account Manager is responsible for documenting, at a minimum, the following 
 * Intended usage of the service account
 * All applications, services, or processes that rely on or use the service account.
 
-The Platform Security team will collect this documentation from all Account Managers within Platform and maintain it in one location to track all service accounts. 
+The Platform Security team will collect this documentation from all Account Managers within Platform and maintain it in one location to track all service accounts.
 
 *Offboarding*
 
-The Account Manager is responsible for offboarding the Service Account when its use is no longer needed.  
+The Account Manager is responsible for offboarding the Service Account when its use is no longer needed.
 
 
 
@@ -107,6 +107,6 @@ N/A
 
 ## References
 
-Link to proposed [Service Account Guidance](https://vfs.atlassian.net/wiki/spaces/PSEC/pages/2222588013/Service+Account+Guidance) in PSEC Confluence page. 
+Link to proposed [Service Account Guidance](https://vfs.atlassian.net/wiki/spaces/PSEC/pages/2222588013/Service+Account+Guidance) in PSEC Confluence page.
 
 
