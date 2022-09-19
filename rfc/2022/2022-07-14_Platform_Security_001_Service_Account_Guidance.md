@@ -41,7 +41,7 @@ Service account authenticators are often stored within applications or code for 
 
 *Assigned Account Manager*
 
-Every service account should have an assigned Account Manager.  The Account Manager is a specific human individual with the overall responsibility for the service account but can delegate use of the account.  The Account Manager can be a team lead or member of the team that necessitates the use of the service account.  In the case of an Account Manager leaving, a replacement Account Manager from the team must be designated.
+Every service account should have an assigned Account Manager.  The Account Manager is a specific human individual with the overall responsibility for the service account but can delegate use of the account.  The Account Manager may be a team lead or member of the team that necessitates the use of the service account.  In the case of an Account Manager leaving, a replacement Account Manager from the team must be designated. The Team Lead is responsible for ensuring that all Service Accounts used by their team have an assigned Account Manager at all times (and one Account Manager may own multiple Service Accounts). The team Lead may work with other Team Members (and individuals outside of the team) to determine or designate the Account Manager but the responsibility for continuity of this role lies solely with the Team Lead. New Team Leads inherit this responsibility from those who came before them.
 
 *Service Account Identifiers*
 
