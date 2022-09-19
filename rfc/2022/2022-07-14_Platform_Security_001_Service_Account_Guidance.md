@@ -57,7 +57,7 @@ Bad:  jwilson, service_account, admin
 
 *Required Approval*
 
-The Account Manager is responsible for initially requesting approval (link to request TBD) for the creation and usage of a service account.  Each service account should have a valid authorization approved by the ISO or designee (OCTO-DE VA employee).  In the case of an Account Manager leaving, the replacement Account Manager would need to submit a request for approval by the ISO or designee (OCTO-DE VA employee) designating themselves as the new Account Manager.
+The Account Manager is responsible for initially requesting approval, via a GitHub Issue Template, for the creation and usage of a service account.  Each service account should have a valid authorization approved by the ISO or designee (OCTO-DE VA employee).  In the case of an Account Manager leaving, the replacement Account Manager (or the Team Lead of the team owning the Service Account) must submit a request for approval by the ISO or designee (OCTO-DE VA employee) designating themselves as the new Account Manager.
 
 *Authenticator Management*
 
