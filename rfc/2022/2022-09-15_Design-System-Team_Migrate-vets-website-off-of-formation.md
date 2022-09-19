@@ -1,11 +1,5 @@
 # RFC: formation and USWDS1 will be removed from `vets-website` and `content-build` and will instead use the Design System's new `css-library` based on USWDS3
 
-<!--
-The title is what you want comments on. Use the active voice in a future tense.
-Example:
-    - The website will be built using the XZY framework
--->
-
 * Comment Deadline: `YYYY-MM-DD`
 * Team Crew and Name: Platform/DST
 * Authors:
@@ -33,22 +27,20 @@ Explain the proposed design in enough detail so that a team member will fully un
 -->
 ## Risks
 
-<!--
-List the risks of this approach
+### Breaking the appearance of a page or application
 
-* There are always risks. What are the risks of this solution?
-* These are the things people will bring up in opposition to your idea or plans. Acknowledge them.
--->
+The goal is to reduce this risk as much as possible by making small incremental changes that are tested each step of the way. Relying on ESLint rules to ["stop the bleeding"](https://lethain.com/migrations/) should prevent new code from being added which uses older classes that have been replaced.
 
 ## Alternatives
 
-<!--
-List the alternative approaches
+### Moving directly to USWDS3 instead of the VADS CSS library
 
-* There are always alternatives. What other alternative solutions were considered? Not considered?
-* What are their strengths, weaknesses, risks? Why weren’t they chosen?
-* Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
--->
+The problem with this is that it would leave us in the same situation wer're in now where future changes are more difficult.
+By limiting the available CSS classes in `vets-website`, we will have an easier time making upgrades.
+
+### Sticking with formation & USWDS 1
+
+This will lead to further version skew and make it harder to adopt USWDS fixes and changes.
 
 ## Diagrams
 
