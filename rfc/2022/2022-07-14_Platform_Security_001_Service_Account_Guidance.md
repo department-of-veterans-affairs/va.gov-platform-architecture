@@ -84,13 +84,11 @@ The Account Manager is required to document, at a minimum, the following informa
 * Intended usage of the service account
 * All applications, services, or processes that rely on or use the service account.
 
-The Platform Security team will collect this documentation from all Account Managers within Platform and maintain it in one location to track all service accounts.
+The Platform Security team will collect this documentation from all Account Managers within Platform and maintain it in one location to track all service accounts. This information will be tracked in the [va.gov-team-sensitive repo](https://github.com/department-of-veterans-affairs/va.gov-team-sensitive/issues).
 
 *Offboarding*
 
 The Account Manager is responsible for offboarding the Service Account when its use is no longer needed.
-
-
 
 ## Risks
 
