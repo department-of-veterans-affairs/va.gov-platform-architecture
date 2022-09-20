@@ -22,7 +22,7 @@ Solving flakiness will remove many roadblocks for numerous aspects of platform o
 
 Our solution resolves around a new BigQuery table called [vets_website_e2e_allow_list](https://console.cloud.google.com/bigquery?authuser=1&project=vsp-analytics-and-insights&ws=!1m5!1m4!4m3!1svsp-analytics-and-insights!2svsp_testing_tools!3svets_website_e2e_allow_list) which holds attributes of each E2E spec file including:
 
-- its relative spec path (`spec_path`, `string`)
+- its relative path (`spec_path`, `string`)
 
 - whether the spec is allowed or not (`allowed`, `bool`)
 
@@ -40,7 +40,7 @@ There are two parts of our solution:
 
 The purpose of this workflow is to discover flaky E2E tests and disallow them from running in CI. This workflow runs once a day and runs all allowed E2E test specs in a loop.
 
-Allowed specs are specs in the `vets_website_e2e_allow_list` table with an `allowed` field value of `true`. If a test fails while running in the loop, the test is deemed flaky and the spec file's `allowed` field in the `vets_website_e2e_allow_list` table is set to `false`, the `title` of the failed test is added to the `titles` array, and the `date field is set to the current `datetime`, ensuring that the test is skipped in CI until it is fixed.
+Allowed specs are specs in the `vets_website_e2e_allow_list` table with an `allowed` field value of `true`. If a test fails while running in the loop, the test is deemed flaky and the spec file's `allowed` field in the `vets_website_e2e_allow_list` table is set to `false`, the `title` of the failed test is added to the `titles` array, and the `date` field is set to the current `datetime`, ensuring that the test is skipped in CI until it is fixed.
 
 The workflow runs once a day because:
 
@@ -48,7 +48,7 @@ The workflow runs once a day because:
 
 2.  If infrastructure changes, or if any dependencies change (e.g. versions of node, packages, including Cypress, etc.) we want to verify that changes don't introduce flakiness.
 
-#### Key jobs and steps in the E2E Stress Test GitHub Actions Workflow
+#### Key jobs and steps in the `E2E Stress Test` GitHub Actions Workflow
 
 - The `fetch-e2e-allow-list` job grabs the contents of the `vets_website_e2e_allow_list` table and sets it as an `output` called `allow_list`
 
@@ -88,7 +88,7 @@ The workflow runs once a day because:
 
 Additionally, a new GitHub Actions Workflow in the `qa-standards-dashboard-data` repo called `Slack Notice for Allow List` runs once a day at 9am and sends a message to `#qas-notifications` Slack channel on the DS@VA Slack instance with a list of currently disallowed spec paths and how many days they've been disallowed for.
 
-### Continuous Integration GitHub Actions Workflow
+### `Continuous Integration` GitHub Actions Workflow
 
 The purpose of the updates to this workflow are to require new and updated E2E tests to be stress-tested before they are merged into master. Additionally, the updates allow engineers to fix failing tests and have them automatically allowed again.
 
