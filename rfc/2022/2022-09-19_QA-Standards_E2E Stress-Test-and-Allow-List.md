@@ -88,7 +88,7 @@ The workflow runs once a day because:
 
 Additionally, a new GitHub Actions Workflow in the `qa-standards-dashboard-data` repo called `Slack Notice for Allow List` runs once a day at 9am and sends a message to `#qas-notifications` Slack channel on the DS@VA Slack instance with a list of currently disallowed spec paths and how many days they've been disallowed for.
 
-### `Continuous Integration` GitHub Actions Workflow
+### The `Continuous Integration` GitHub Actions Workflow
 
 The purpose of the updates to this workflow are to require new and updated E2E tests to be stress-tested before they are merged into master. Additionally, the updates allow engineers to fix failing tests and have them automatically allowed again.
 
