@@ -1,6 +1,6 @@
 # RFC: formation and USWDS1 will be removed from `vets-website` and `content-build` and will instead use the Design System's new `css-library` based on USWDS3
 
-* Comment Deadline: `YYYY-MM-DD`
+* Comment Deadline: `2022-10-11`
 * Team Crew and Name: Platform/DST
 * Authors:
   * [Brooks Johnson](https://github.com/bkjohnson)
