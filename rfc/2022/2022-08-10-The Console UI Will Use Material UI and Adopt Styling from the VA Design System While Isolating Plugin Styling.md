@@ -146,4 +146,14 @@ In order to contribute upstream, we must:
 
 - Instead of allowing teams to opt-out, don’t allow plugin developers to commit any CSS. This choice would force them to use whatever design system the Console UI uses.
 
+-------------------
+## OCTO Determination 
+
+The goal here was to determine how far away the VA Design System was from being able to support the Console UI. Unfortunately, the audit exercise was done with a perspective of, "Backstage and Material UI are tightly coupled. Material UI has what we need. Thus we want to use that." There is no question that Backstage and Material UI are tightly coupled and using a different design system with Backstage presents some challenges. However, there is also no question that we have a design system at the VA, that we own and maintain, and that is the system we are going to use or extend to meet our needs. 
+
+What perhaps wasn't taken into account here, or greatly underestimated, is that the Design System Team does not currently scale to be able to support multiple Design Systems. Even a design system that is actively maintained by an open source community still represents some amount of burden on our Design System team to monitor and addresss issues that arise. It also makes an assumption that the open source community will live on in perpituity, which is very rarely the case.
+
+The 21st Century IDEA is the law and is clear: Agencies must "to the greatest extent practicable" ensure that they use the USWDS internally. In this case, it is practical to use either the VA or US Design Systems. It's not easy, but it is achievable. If we were to simply use Material UI there would be a burden on the VA to ensure that Material UI provides the same level of quality and accessibility that either USWDS or VA do. While Material UI does have a11y guidance, it's unclear if they have a11y experts routinely reviewing their components. 
+
+If the VA continues to rely on 3rd party systems it will not be able to grow and mature our own Design System. Thus the next time this issue arises we'll be looking at adding another design system to the mix, then another, etc. That's a cycle of dependency that we must break. We want the VA Design System to grow to meet the needs of the organization. A good outcome for this work would have been a list of components that we'd need to add to the VA Design System to meet the needs of the Console UI. Unfortunately, that's not what we got. 
 
