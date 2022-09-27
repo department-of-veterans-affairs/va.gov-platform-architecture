@@ -13,6 +13,10 @@ The Platform Console is built upon [Backstage](https://backstage.io/) which incl
 
 The [VA Design System](https://design.va.gov/about/) provides guidelines and codes to ensure consistency in digital services across the [VA.gov](https://www.va.gov/) platform. However, its primary audiences include those building veteran-facing services and applications on [VA.gov](https://www.va.gov/), whereas the Platform Console’s primary intended audience are VFS and Platform backend engineers. More importantly, the VA Design System would need to be implemented as custom components, [which would require substantial effort to rewrite and maintain code and risks incurring technical debt](https://vfs.atlassian.net/wiki/spaces/CUI/pages/2256306184/Draft+Explore+replacing+components+in+Console+UI+with+Custom+Components). 
 
+> More importantly, the VA Design System would need to be implemented as custom components
+
+**_Request for the reasons for this to be elaborated on_**
+
 ## Motivation
 
 We need to accomplish the following goals:
@@ -27,9 +31,15 @@ We need to accomplish the following goals:
 
 We will adopt the Material UI + VA Design System Styling utilized by the Lighthouse team, what they have dubbed the **VA Enterprise Design System**. This system will comply with all of the brand identity and accessibility standards of the VA Design System. The significant difference is that the VA Enterprise Design system has a different end-user base internal to the organization and focuses on software engineering. 
 
+> The significant difference is that the VA Enterprise Design system has a different end-user base internal to the organization and focuses on software engineering.
+
+**_The actual VA Design System isn't Veteran-specific and can be used to support other users. Relying on the "Enterprise Design System" seems like it's going to be just as costly since someone will have to maintain that or you will be stuck with something that might not meet your stated goal of adhering to the core design principles of the VA Design System._**
+
 We will document how to adopt this system for plugin developers that need to extend the Console UI and don't need additional UI/UX flexibility. In addition, we will document how to extend the system for plugin developers who need to offer additional capabilities for visual content presentation within Console UI. We will also document how to disable all of the VA Enterprise Design System for plugin developers that need highly customized UI/UX or the need to demonstrate another design system, such as The VA Design System.
 
 This will 1) allow the Console documentation and use to begin faster than anticipated, and 2) contribute to the formation of an internal “enterprise” design system so that non-veteran-facing tools can also remain consistent.
+
+**_We on the Design System Team would love to talk with you all about this and figure out how we could support your team better._**
 
 ## Implementation strategy of VA Design System standards on the Platform Console
 
@@ -37,6 +47,16 @@ We can adopt the standards of the VA Design System while not adopting the system
 
 In addition, we will aim to adhere to the standards set forth in the [21st Century Integrated Digital Experience Act](https://www.congress.gov/bill/115th-congress/house-bill/5759/text). This act applies to public sites first and foremost, however internal tools are encouraged to perform to the same standards. The standards are as follows: 
 
+> This act applies to public sites first and foremost, however internal tools are encouraged to perform to the same standards.
+
+**_[Section 3 subsection c](https://www.congress.gov/bill/115th-congress/house-bill/5759/text) states:_**
+
+> (c) Internal Digital Services.--The head of each executive agency
+shall ensure, to the greatest extent practicable, that any Intranet
+established after the date of enactment of this Act conforms to the
+requirements described in subsection (a).
+
+**_Since Backstage has [official documentation on custom theming](https://backstage.io/docs/getting-started/app-custom-theme), I don't see how it would be impractical to at least use styles from the VA Design System. It's still unclear to me why the VA Design System would need to be implemented as custom components._**
 
 ## SEC. 3. WEBSITE MODERNIZATION.
     (a) Requirements for New Websites and Digital Services.--Not 
@@ -84,11 +104,15 @@ These are preventive steps; however, we would need to conduct user research with
 ## 3.a.2
 To ensure consistent appearance within the Console and when compared to other VA products, we suggest the following strategy to synchronize design assets for Material UI with the styling changes from Formation, the front-end framework used on [VA.gov](https://www.va.gov/). 
 
+**_Is this placeholder text_**
+
 Process for ongoing alignment of VADS, Material UI 
 Strategy for development of lifecycle of recommended sharing
 We suggest setting up a new repository for styling modifications to Backstage outside of either the Lighthouse instance or our own, so we can share and incorporate the styling into both products.
 
 In that repository, we will likely need to set up automation that downloads the [source code for Formation](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/tree/master/packages/formation). This automation would consult [assets like images and fonts, SASS files](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/master/packages/formation/sass/base/b-variables.scss) that set variables and synchronize the definitions to the design system used in Backstage. This automation could be based on the releases of [Formation](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/releases?q=Formation&expanded=true).
+
+**_Importing tokens that we provide as JSON or ES6 imports is probably easier than setting up this automation to scan SASS files._**
 
 Both the Lighthouse and the Console UI projects will then need to incorporate the changes automatically compiled, and likely manually reviewed and tweaked to this new repository.
 
@@ -96,6 +120,10 @@ Both the Lighthouse and the Console UI projects will then need to incorporate th
 We completed an [audit of components used in the VA Design System and compared the components of both systems](https://vfs.atlassian.net/wiki/spaces/CUI/pages/2276196618/VADS+Backstage+Material+UI+Comparison+Summary). This audit revealed that the large majority of components have comparable functionality between the two systems (Material UI and VA Design System). 
 
 In addition, [we explored the technical challenges associated with how to import and use individual components from VA Design System in the Console](https://vfs.atlassian.net/wiki/spaces/CUI/pages/2256306184/Draft+Explore+replacing+components+in+Console+UI+with+Custom+Components). We concluded that overhauling the entire Console to use a set of custom components from the VA Design system presents a lot of issues. The work to implement and maintain is quite high and will likely result in more error-prone code (Backstage provided components from Material UI already handle many API interactions for us). Drifting further from Backstage/Material UI and their adopters community comes with costs as well, making updates more challenging, and not being able to benefit from community improvements to the integrated components.
+
+> We concluded that overhauling the entire Console to use a set of custom components from the VA Design system presents a lot of issues.
+
+**_Can you list those issues? I see that the Confluence draft mentions that using the VA Design System instead of Material UI would involve some work - is there a demo branch or repo where we can see what that entails?_**
 
 Based on these activities, we suggest using the Material UI components that overlap with VA Design system components to avoid downstream technical debt. 
 
