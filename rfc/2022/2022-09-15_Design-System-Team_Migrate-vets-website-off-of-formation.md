@@ -53,6 +53,8 @@ In order to begin migrating we will need to make the `css-library` available, an
 1. Add the stylesheets to each specific app's SASS file as they are migrated.
     - This will bloat the app's bundle size, but other pages and apps won't be affected
 
+We will be starting with migrating the utility classes, and the css library will export a `utilities.css` file as part of its build which can be imported in either location.
+
 
 #### Remove old VADS utility classes from markup
 We will first identify a team and/or app and work with them on migrating their markup to use the new USWDS3-based utilities provided by `css-library`. As part of this we should also see if we can eliminate any unused CSS from the application's SASS file.
@@ -63,9 +65,19 @@ As we eliminate `vads-u-*` classes from app code, add an [ESLint override](https
 
 This is related to the prerequisite for migrating to web components. For example, [this bit of app code](https://github.com/department-of-veterans-affairs/vets-website/blob/4885e8c532f77801712a6d39c0625f8ceb19a556/src/applications/vaos/new-appointment/components/VAFacilityPage/FacilitiesNotShown.jsx#L81) relies on [this CSS from formation](https://github.com/department-of-veterans-affairs/veteran-facing-services-tools/blob/f0e1d666503ecf4aafcb421bbc47fc7f76abec4a/packages/formation/sass/modules/_m-additional-info.scss#L1-L4), and that module is [included in the sitewide styles for `vets-website`](https://github.com/department-of-veterans-affairs/vets-website/blob/4885e8c532f77801712a6d39c0625f8ceb19a556/src/platform/site-wide/sass/style.scss#L16). As we get to a point where we can be sure that certaion SASS modules are no longer being used, we can remove them from `vets-website`, giving us a good idea of how far along we are in the migration while also reducing the bundle size.
 
+#### Try to replace "Custom CSS" with utility classes
+
+Many applications have custom CSS [like this](https://github.com/department-of-veterans-affairs/vets-website/blob/fad1a404cc2c7a8c33153d159523c14888d6fa03/src/applications/gi/sass/partials/_gi-search-page.scss#L303-L310) where they are making declarations in a CSS file when there are existing CSS utility classes for the exact same declarations that could be used instead. We will also want to do an audit to identify places like this where utility classes can be used and then make changes to use the appropriate utilities.
+
+This will have a performance benefit as well, since an audit of that particular CSS class would reveal that the `search-result-tag` CSS class isn't used in application code at all, so we are shipping unused CSS that should be deleted. As we begin to rely more on utility classes and developers write less CSS, this type of thing will happen less often.
+
 #### Prune unneeded pieces of formation
 
-This is somewhat covered in the previous section, but as we make progress with the migration we will routinely run searches to see if there is any remaining code which relies on a given CSS class that is part of the migration. If there isn't, we can remove `formation` imports from `vets-website` which will let us get a better picture of which classes are actually in use. This will also improve performance by sending less CSS.
+This is somewhat covered in the "Remove component/module CSS" section, but as we make progress with the migration we will routinely run searches to see if there is any remaining code which relies on a given CSS class that is part of the migration. If there isn't, we can remove `formation` imports from `vets-website` which will let us get a better picture of which classes are actually in use. This will also improve performance by sending less CSS.
+
+#### Identify styles/classes what have no component or utility available
+
+As we audit and migrate each app we may find that there is custom styling happening which cannot be replaced using current components or utilities. When this happens we will make a note of the files & styles and consider if they should be brought into the DS in one way or another.
 
 ## Risks
 
