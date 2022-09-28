@@ -71,6 +71,8 @@ The goal is to reduce this risk as much as possible by making small incremental 
 The problem with this is that it would leave us in the same situation wer're in now where future changes are more difficult.
 By limiting the available CSS classes in `vets-website`, we will have an easier time making upgrades.
 
+Part of the problem we're dealing with now is that `usa-*` classes are used throughout `vets-website`, and these are corresponding to USWDS1 styles. USWDS3 uses many of the same names like `usa-alert` which means that a drop-in replacement/upgrade is impossible to do with confidence that it won't break existing styles. Putting the VADS between `vets-website` and direct use of USWDS means that the DST will be able to manage these kinds of version upgrades in the future while minimizing risk in `vets-website`.
+
 ### Sticking with formation & USWDS 1
 
 This will lead to further version skew and make it harder to adopt USWDS fixes and changes.
