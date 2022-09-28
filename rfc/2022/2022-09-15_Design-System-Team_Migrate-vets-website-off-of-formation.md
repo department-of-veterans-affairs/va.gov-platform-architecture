@@ -53,8 +53,7 @@ In order to begin migrating we will need to make the `css-library` available, an
 1. Add the stylesheets to each specific app's SASS file as they are migrated.
     - This will bloat the app's bundle size, but other pages and apps won't be affected
 
-We will be starting with migrating the utility classes, and the css library will export a `utilities.css` file as part of its build which can be imported in either location.
-
+We will be starting with migrating the utility classes, and the css library will export a `utilities.css` file as part of its build which can be imported in either location. All of the steps outlined here will begin with a single app, and then expanded to other apps once the pilot app has been successfully migrated.
 
 #### Remove old VADS utility classes from markup
 We will first identify a team and/or app and work with them on migrating their markup to use the new USWDS3-based utilities provided by `css-library`. As part of this we should also see if we can eliminate any unused CSS from the application's SASS file.
