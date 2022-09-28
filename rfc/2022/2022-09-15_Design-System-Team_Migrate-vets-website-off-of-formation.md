@@ -20,6 +20,15 @@ By relying on USWDS internals, we are able to provide a lot of utilities while h
 We also want to namespace all of the classes we provide rather than allow developers full unlimited access to everything within USWDS.
 This gives the Design System more control and will also make future maintenance and updates easier.
 
+We also hope to be able to improve performance with this new css library in a number of ways, including:
+
+- smaller stylesheets due to elimination of `!important` declaration
+- smaller stylesheets due to simpler utility names (`vads-u-background-color--gray` => `vads-bg-gray`)
+
+(Note: these name changes are why teams will need to update their apps to use the names of the new classes)
+
+We'd also like to explore the possibility of allowing teams to rely less on global site-wide assets and declare a minimum subset of which DS assets they will need. Much of this work is out of scope for this RFC.
+
 ## Design
 
 Before this migration can begin there are prerequisites which must happen.
