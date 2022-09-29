@@ -97,7 +97,7 @@ Part of the problem we're dealing with now is that `usa-*` classes are used thro
 
 ### Sticking with formation & USWDS 1
 
-This will lead to further version skew and make it harder to adopt USWDS fixes and changes.
+This will lead to further version skew and make it harder to adopt USWDS fixes and changes. This would also mean that more money is spent just to have the va.gov and the VADS put in work to "stay in sync with USWDS" while being stuck on USWDS1 and not actually receiving any direct benefits of the work of USWDS developers & designers.
 
 ## Diagrams
 
