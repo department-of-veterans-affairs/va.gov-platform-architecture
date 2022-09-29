@@ -25,6 +25,8 @@ We also hope to be able to improve performance with this new css library in a nu
 - smaller stylesheets due to elimination of `!important` declaration
 - smaller stylesheets due to simpler utility names (`vads-u-background-color--gray` => `vads-bg-gray`)
 
+ [Early work](https://github.com/department-of-veterans-affairs/component-library/pull/452) on the css library revealed that for equivalent color utilities, removing the `!important` and shortening the class names resulted in a 40% reduction in file size.
+
 (Note: these name changes are why teams will need to update their apps to use the names of the new classes)
 
 We'd also like to explore the possibility of allowing teams to rely less on global site-wide assets and declare a minimum subset of which DS assets they will need. Much of this work is out of scope for this RFC.
