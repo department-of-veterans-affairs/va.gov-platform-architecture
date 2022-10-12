@@ -41,7 +41,7 @@ Before this migration can begin there are prerequisites which must happen.
 and no CSS class components as these rely on `formation` components.
     - This will unblock those modules from being removed in formation
 1. We will need a published version of the `css-library` package
-1. Write a new ESLint rule which can trigger when a `vads-u-*` class is used.
+1. Write and refine a new ESLint rule which can trigger when a `vads-u-*` class is used.
 
 Once these have been met we can move on to beginning the migration
 
