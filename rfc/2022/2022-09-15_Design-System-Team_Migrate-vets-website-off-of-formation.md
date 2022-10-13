@@ -46,6 +46,7 @@ Before this migration can begin there are prerequisites which must happen.
 1. Application, sitewide, & platform code will need to be using proper VADS web components. This means no React components,
 and no CSS class components as these rely on `formation` components.
     - This will unblock those modules from being removed in formation
+    - Not _all_ apps have to be off of Design System React components in order for us to begin migrating a single app to the new CSS library. But we can't begin migrating an app until it satisfies this criteria
 1. We will need a published version of the `css-library` package
 1. Write and refine a new ESLint rule which can trigger when a `vads-u-*` class is used.
 
