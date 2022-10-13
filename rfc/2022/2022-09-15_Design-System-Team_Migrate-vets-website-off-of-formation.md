@@ -10,6 +10,12 @@
 
 ## Background
 
+### Glossary
+
+- **VADS** - The VA Design System. Also seen as `vads` for namespacing CSS classes
+- **Formation** - The `formation` npm package responsible for VADS styles. What we are moving away from
+- **USWDS** - The US Web Design System
+
 `formation`, the CSS framework for va.gov, is dependent on USWDS version 1 as is the rest of va.gov. This is now a dead branch and the latest version of USWDS is version 3.
 In order to continue to receive updates and bug fixes from USWDS, and also contribute back, we need to switch to a more recent version.
 
