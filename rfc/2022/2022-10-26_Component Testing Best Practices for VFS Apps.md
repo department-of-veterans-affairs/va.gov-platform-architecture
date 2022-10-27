@@ -8,7 +8,7 @@
 
 ## Background
 
-VA Platform teams have seen requests from VFS engineers for additional guidance on testing their React applications. Platform engineers have also observed that many VFS applications do not meet the highest standards in their application tests. In manay cases, teams are not taking advantage of powerful new tools which would help them write shorter but more thorough tests. These tools are already available in the platform, but teams are not aware or are reluctant to use them.
+VA Platform teams have seen requests from VFS engineers for additional guidance on testing their React applications. Platform engineers have also observed that many VFS applications do not meet the highest standards in their application tests. In many cases, teams are not taking advantage of powerful new tools which would help them write shorter but more thorough tests. These tools are already available in the platform, but teams are not aware or are reluctant to use them.
 
 ## Motivation
 
@@ -18,7 +18,7 @@ Clearly documenting best practices for component testing will help VFS engineers
 
 ## Design
 
-The [DRAFT Component Testing Guidelines](https://vfs.atlassian.net/wiki/spaces/~481106865/pages/2316763221/DRAFT+Component+Testing+Guidelines) page contains proposed best practices, including justifications, and links. The page is ready for review.
+The [DRAFT Component Testing Guidelines](https://vfs.atlassian.net/wiki/spaces/~481106865/pages/2316763221/DRAFT+Component+Testing+Guidelines) page contains proposed best practices, including justifications and links. The page is ready for review.
 
 ## Risks
 
@@ -27,6 +27,6 @@ The [DRAFT Component Testing Guidelines](https://vfs.atlassian.net/wiki/spaces/~
 
 ## Alternatives
 
-* Our existing [Unit Testing documentation]([url](https://vfs.atlassian.net/wiki/spaces/pilot/pages/1836187655/Unit+tests)) covers some basics, but contains limited recommendations on component testing. Further, existing documentation often does not specify the "why" behind its recommendations and sometimes lacks sources where engineers can learn more.
-* Various best practices are described across the web, but these are scattered and it can be challenging to know which practices are optimal to adopt. Sifting through this would be time-consuming for engineers, with uneven results.
+* Our existing [Unit Testing documentation](https://vfs.atlassian.net/wiki/spaces/pilot/pages/1836187655/Unit+tests) covers some basics, but contains limited recommendations on component testing. Further, existing documentation often does not specify the "why" behind its recommendations and sometimes lacks sources where engineers can learn more.
+* Various best practices are described across the web, but these are scattered and it can be challenging to know which practices are optimal to adopt. Sifting through these would be time-consuming for engineers, with uneven results.
 * Reading through unit tests for existing apps can provide examples of best practices. However, our codebase contains a mix of good and poor practices with no indication of the best path to follow.
