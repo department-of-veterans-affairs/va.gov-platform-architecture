@@ -18,7 +18,7 @@ Clearly documenting best practices for component testing will help VFS engineers
 
 ## Design
 
-The [(DRAFT) Component Testing Guidelines]([url](https://vfs.atlassian.net/wiki/spaces/~481106865/pages/2316763221/DRAFT+Component+Testing+Guidelines)) page contains proposed best practices, including justifications, and links. The page is ready for review.
+The [DRAFT Component Testing Guidelines](https://vfs.atlassian.net/wiki/spaces/~481106865/pages/2316763221/DRAFT+Component+Testing+Guidelines) page contains proposed best practices, including justifications, and links. The page is ready for review.
 
 ## Risks
 
