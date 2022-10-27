@@ -4,7 +4,7 @@
 * Team Crew and Name: VSP Platform
 * Authors:
   * [Chris Alexander](https://github.com/alexandec)
-* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/-1)
+* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-architecture/pull/50)
 
 ## Background
 
@@ -30,6 +30,3 @@ The [(DRAFT) Component Testing Guidelines]([url](https://vfs.atlassian.net/wiki/
 * Our existing [Unit Testing documentation]([url](https://vfs.atlassian.net/wiki/spaces/pilot/pages/1836187655/Unit+tests)) covers some basics, but contains limited recommendations on component testing. Further, existing documentation often does not specify the "why" behind its recommendations and sometimes lacks sources where engineers can learn more.
 * Various best practices are described across the web, but these are scattered and it can be challenging to know which practices are optimal to adopt. Sifting through this would be time-consuming for engineers, with uneven results.
 * Reading through unit tests for existing apps can provide examples of best practices. However, our codebase contains a mix of good and poor practices with no indication of the best path to follow.
-
-* [RFC XYZ](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/blob/<FULL_COMMIT_HASH>/rfc/<FILENAME>.md): <RFC_TITLE>
-
