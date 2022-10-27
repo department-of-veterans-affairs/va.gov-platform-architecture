@@ -16,6 +16,8 @@ VFS application engineers need additional guidance to ensure all their applicati
 
 Clearly documenting best practices for component testing will help VFS engineers improve their tests. Guiding VFS engineers with regard to the proper component testing tools and techniques will improve VA's return on investment, reducing bugs while encouraging refactoring.
 
+Of note, the proposed tools are already available to all VFS teams, so no additional platform changes are required.
+
 ## Design
 
 The [DRAFT Component Testing Guidelines](https://vfs.atlassian.net/wiki/spaces/~481106865/pages/2316763221/DRAFT+Component+Testing+Guidelines) page contains our proposed best practices, including justifications and links. **The page is ready for review**. If this RFC is accepted, we will publish the page on the Platform documentation site.
