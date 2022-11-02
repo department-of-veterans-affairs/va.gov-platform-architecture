@@ -14,9 +14,17 @@ Example:
 * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/-1)
 
 ## Background
+The current version of ephemeral environments for use on the VA.gov platform is referred to as Review Instances. Review instances provide many capabilities, but several characteristics of review instances cause pain points.
+1. Review instance creation operates under the deprecated BRD (build, release, deploy) paradigm
+2. VFS teams without SOCKS or the technical knowledge to use SOCKS can't use review instances
+3. VA Stakeholders without SOCKS or the technical knowledge to use SOCKS can't use review instances
+4. VFS teams are unable to reach review instances with tools hosted in the cloud
+5. VFS teams are unable to preview changes from multiple sources in a single preview environment
 
-Explain the current state. What is the problem? What needs to happen? Provide enough background for someone new to the problem space to understand this decision. Use active voice, present tense, and decisive language.
-Example: We need to choose how the website will render in the browser. There are several competing frameworks to choose from.
+As a result, review instance usage is fairly low. Over the past two weeks (as of 11/2/2022) approximately 15% of the review instances that get created are ever accessed by a user.
+
+The Preview Environment Architecture change is intended to update the create of preview environments to the new EKS deployment strategy, reduce or remove the impact of the listed pain points, and increase VFS team use of the ephemeral environments that are created.
+
 
 ## Motivation
 
