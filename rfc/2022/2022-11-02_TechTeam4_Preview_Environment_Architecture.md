@@ -23,26 +23,30 @@ The current version of ephemeral environments for use on the VA.gov platform is 
 
 As a result, review instance usage is fairly low. Over the past two weeks (as of 11/2/2022) approximately 15% of the review instances that get created are ever accessed by a user.
 
-The Preview Environment Architecture change is intended to update the create of preview environments to the new EKS deployment strategy, reduce or remove the impact of the listed pain points, and increase VFS team use of the ephemeral environments that are created.
-
-
 ## Motivation
 
-Which problem(s) does this solve? Why? Use active voice, present tense, and decisive language.
-Example: Framework XYZ is a modern, well-known, web rendering framework. It is easy to learn, easy to use, and provides high-performance web rendering. etc
+The Preview Environment Architecture change is intended to update the create of preview environments to the new EKS deployment strategy, reduce or remove the impact of the listed pain points, and increase VFS team use of the ephemeral environments that are created.
+
+The EKS hosting paradigm for ephemeral environments enables preview environments to spin up more quickly, produce more consistent user experiences upon interaction with the environments, and enable greater customizability for each environment.
 
 ## Design
+TBD
 
-Explain the proposed design in enough detail so that a team member will fully understand the implementation. Include a diagram (in the `images` dir) as needed to convey your plans. Use active voice, present tense, and decisive language.
+<!--Explain the proposed design in enough detail so that a team member will fully understand the implementation. Include a diagram (in the `images` dir) as needed to convey your plans. Use active voice, present tense, and decisive language. -->
 
 ## Risks
+TBD
 
+<!--
 List the risks of this approach
 
 * There are always risks. What are the risks of this solution?
 * These are the things people will bring up in opposition to your idea or plans. Acknowledge them.
-
+-->
 ## Alternatives
+1. Custom preview environment build process driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS.
+2. Codespaces --brief description--
+3. TugboatQA --brief description--
 
 List the alternative approaches
 
