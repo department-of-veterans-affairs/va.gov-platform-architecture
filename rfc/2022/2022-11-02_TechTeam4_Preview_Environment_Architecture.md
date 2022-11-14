@@ -14,18 +14,22 @@ Example:
 * [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/-1)
 
 ## Background
-The current version of ephemeral environments for use on the VA.gov platform is referred to as "Review Instances". Review instances provide many capabilities, but several characteristics of review instances cause pain points.
+The current version of ephemeral environments for use on the VA.gov platform is referred to as Review Instances. Review instances provide many capabilities, but several characteristics of review instances cause pain points.
 1. Review instance creation operates under the deprecated BRD (build, release, deploy) paradigm
-2. VFS team members without SOCKS access or the technical knowledge to use SOCKS can't use review instances
-3. VA stakeholders without SOCKS access or the technical knowledge to use SOCKS can't use review instances
-4. VFS team members are unable to reach review instances with tools hosted in the cloud
-5. VFS team members are unable to preview changes from multiple sources in a single preview environment
+2. VFS teams without SOCKS or the technical knowledge to use SOCKS can't use review instances
+3. VA Stakeholders without SOCKS or the technical knowledge to use SOCKS can't use review instances
+4. VFS teams are unable to reach review instances with tools hosted in the cloud
+5. VFS teams are unable to preview changes from multiple sources in a single preview environment
+6. Review Instances don't always spin up reliably
+7. Review Instances aren't available when needed, and the timeframe can't be adjusted
+8. VFS Teams are unclear on the benefits and intended use of Review Instances
+9. Review Instances can't be tested on real or virtual mobile devices
 
-As a result, review instance usage is fairly low. Over the past two weeks (as of 11/2/2022) approximately 15% of the review instances that get created are ever accessed by a user.
+As a result, review instance usage is fairly low. Over the past two weeks (as of 11/14/2022) under 10% of the review instances that get created are ever accessed by a user.
 
 ## Motivation
 
-The Preview Environment Architecture change is intended to update the create of preview environments to the new EKS deployment strategy, reduce or remove the impact of the listed pain points, and increase VFS team use of the ephemeral environments that are created.
+The Preview Environment Architecture change is intended to update the creation of preview environments to the new EKS deployment strategy, reduce or remove the impact of the listed pain points, and increase VFS team use of the ephemeral environments that are created.
 
 The EKS hosting paradigm for ephemeral environments enables preview environments to spin up more quickly, produce more consistent user experiences upon interaction with the environments, and enable greater customizability for each environment.
 
