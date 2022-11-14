@@ -16,10 +16,10 @@ Example:
 ## Background
 The current version of ephemeral environments for use on the VA.gov platform is referred to as Review Instances. Review instances provide many capabilities, but several characteristics of review instances cause pain points.
 1. Review instance creation operates under the deprecated BRD (build, release, deploy) paradigm
-2. VFS teams without SOCKS or the technical knowledge to use SOCKS can't use review instances
-3. VA Stakeholders without SOCKS or the technical knowledge to use SOCKS can't use review instances
-4. VFS teams are unable to reach review instances with tools hosted in the cloud
-5. VFS teams are unable to preview changes from multiple sources in a single preview environment
+2. VFS team members without SOCKS access or the technical knowledge to use SOCKS can't use review instances
+3. VA stakeholders without SOCKS access or the technical knowledge to use SOCKS can't use review instances
+4. VFS team members are unable to reach review instances with tools hosted in the cloud
+5. VFS team members are unable to preview changes from multiple sources in a single preview environment
 6. Review Instances don't always spin up reliably
 7. Review Instances aren't available when needed, and the timeframe can't be adjusted
 8. VFS Teams are unclear on the benefits and intended use of Review Instances
