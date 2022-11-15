@@ -1,13 +1,7 @@
-# RFC: The Preview Environment architecture will generate publicly accessible environments hosted in EKS using mocked test data.
+# RFC: The Preview environment architecture will generate publicly accessible environments hosted in EKS using mocked test data.
 
-<!--
-The title is what you want comments on. Use the active voice in a future tense.
-Example:
-    - The website will be built using the XZY framework
--->
-
-* Comment Deadline: `2022-12-09`
-* Team Crew and Name: Platform Tech Team 4<!--e.g. Platform/AMT-->
+* Comment Deadline: `2022-12-15`
+* Team Crew and Name: Platform/Tech Team 4
 * Authors:
   * [pjhill](https://github.com/pjhill)
   * [JoeTice](https://github.com/JoeTice)
@@ -25,13 +19,13 @@ The current version of ephemeral environments for use on the VA.gov platform is 
 8. VFS Teams are unclear on the benefits and intended use of Review Instances
 9. Review Instances can't be tested on real or virtual mobile devices
 
-As a result, review instance usage is fairly low. Over the past two weeks (as of 11/14/2022) under 10% of the review instances that get created are ever accessed by a user.
+As a result, review instance usage is fairly low. As of 11/14/2022, less than 10% of the review instances that are automatically created are ever accessed by a user.
 
 ## Motivation
 
-The Preview Environment Architecture change is intended to update the creation of preview environments to the new EKS deployment strategy, reduce or remove the impact of the listed pain points, and increase VFS team use of the ephemeral environments that are created.
+The preview environment architecture change is intended to update the creation of preview environments to the new EKS deployment strategy, reduce or remove the impact of the listed pain points, and increase VFS team use of the ephemeral environments that are created.
 
-The EKS hosting paradigm for ephemeral environments enables preview environments to spin up more quickly, produce more consistent user experiences upon interaction with the environments, and enable greater customizability for each environment.
+The EKS hosting paradigm for ephemeral environments enables preview environments to spin up more quickly, produce more consistent user experiences upon interaction with the environments, and enable greater customizability for each environment. Additionally, moving this platform process to the new EKS paradigm reduces the breadth and complexity of the infrastructure code that Platform needs to maintain in order to operate successfully.
 
 ## Design
 TBD
@@ -48,15 +42,26 @@ List the risks of this approach
 * These are the things people will bring up in opposition to your idea or plans. Acknowledge them.
 -->
 ## Alternatives
-1. Custom preview environment build process driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS.
-2. Codespaces --brief description--
-3. TugboatQA --brief description--
-
-List the alternative approaches
-
-* There are always alternatives. What other alternative solutions were considered? Not considered?
-* What are their strengths, weaknesses, risks? Why weren’t they chosen?
-* Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
+* Custom preview environment build process driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS.
+* GitHub Codespaces : Codespaces is billed by GitHub as a "dev environment in the cloud." While Codespaces does create development environments, the primary purpose of these development environments is focused around coding and controlling the creation of reproducible development environments for the purposes of collaboration between developers and the facilitation of onboarding new developers.
+  * Supported aspects of Platform use cases:
+    * Access control for environments
+    * Ability to make an environment public
+    * Removes reliance on BRD infrastructure paradigm
+    * Removes requirement for SOCKS in order to access the environment
+  * Unsupported aspects of Platform use cases:
+    * Unable to integrate with VA enterprise lower environments
+    * Unable to directly promote a development environment
+    * Unable to orchestrate deployments with EKS
+* TugboatQA : 
+  * Supported aspects of Platform use cases:
+    * Ability to make an environment public
+    * Removes reliance on BRD infrastructure paradigm
+    * Removes requirement for SOCKS in order to access the environment
+  * Unsupported aspects of Platform use cases:
+    * Unable to integrate with VA enterprise lower environments
+    * Unable to directly promote a development environment
+    * Unable to orchestrate deployments with EKS
 
 ## Diagrams
 
@@ -64,18 +69,13 @@ Try to visually represent the proposal using a [diagram](https://docs.github.com
 ```mermaid
 flowchart LR;
     A[Developer creates/modifies a pull request] --> B{CI workflow passes}
-    B --> |Yes: MVP| C[Dev settings through GH Issue Template]
-    B --> |Yes: Final| D[Dev settings through app]
+    B --> |Yes| C[Dev has settings stored]
+    B --> |Yes| D[Default settings]
     B --> |No| Z[No preview environment NOT generated]
-    C --> |MVP| E[Settings stored in DevOps repo file]
-    D --> |Final| F[Settings stored in app DB]
+    C --> E[Retrieve settings stored in DevOps repo file]
     E --> G[Preview Environment deploy command]
-    F --> G
-    G --> |MVP: Mocked| H[PE Created in dev]
-    G --> |Final: Test Harness| H[PE Created in dev]
-    G --> |Fina: Integrated| I[PE Created in staging]
+    G --> |Mocked Data| H(PE Created in dev)
     H --> J[Preview environment accessible]
-    I --> J
     J --> K[Preview environment evaluated by users]
     K --> L{Are updates necessary?}
     L --> |Yes| A
