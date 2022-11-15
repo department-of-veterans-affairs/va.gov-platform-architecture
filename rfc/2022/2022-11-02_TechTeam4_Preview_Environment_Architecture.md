@@ -77,21 +77,21 @@ List the risks of this approach
     * Unable to orchestrate deployments with EKS
 
 ## Diagrams
-The in progress diagram link is [here](https://mermaid.live/edit#pako:eNptkl9v2jAUxb_KlZ9WKWUhJDRk0iYKqF1LadXuZSV9cJMbsEjszHbCGPDd5ziA2J88WfHvnnPu9d2SRKRIIpLlYp0sqdQwff4UczDfcD7GGnNRooREItWoPhYiZRlDBRTKKs9B4o8KlX6Dy8vPcL0dfYW1kKtGDEqqFKp9q3Vtgd13VDsYNbqwpAoUas34why0kJi-_cuODZvRKtcn9k9oJnbwOp8JKCXWDNeAvGZS8AK5htnjN1ggR2miH8VHtm4yf0YtmWnv7wzAOJh4j6UyvZUCMpbjoXRiS2_mTweryZlVimUuNpCIoqD86HXTZnwQycoIj6mmO7j98DSBkZ2m9UqxvmjpW0vfneTPO6FJgkqx91OWOwvf_xfGmuaV1X_fQKVQHmd2b4um26FEqMq0eVDg2ChTuflyeKnp2fSHxCEFyoKy1KzItgFiopdYYEwic0ypXMUk5nvD0UqLlw1PSKRlhQ5pDcaMLiQtSJTRXJm_mDIz5od25-zqOaSknERb8pNE_X4nDILeled2w8Dr-w7ZkMgPB50r1x8EA8_1u70w3DvklxBG0-2E_W7P83y33w181_MGVuzVXjYp9r8BAkntJg).
+The in progress diagram link is [here](https://mermaid.live/edit#pako:eNp9kl9v2jAUxb_KlZ82KSAISUkyaRP_2jKtFHXTpBX64MYXsEjsyHbCssB3n2PotErd8mTZ93fOyb23IalkSBKyyeQh3VFl4MvDh7UA-41WU6wwkwUqSBVSgxqkglwyvuH2TOFZUZHunqDT-QjjZjKHg1T7VgkKqjXq01lo7AqOP1AfYbJ6QKO4FQaNxnCx1aCNVMiAC7CG94UGhYWEDc_w6ZXAQh7hcbWQUCisOB4ARcWVFDkKA4v7b7BFgcrmZBdu4rjpavlGPcMikzWkMs-peAGmZ6M7me5toCk19Aizd8sZTNz_u4wV3cqqw7CC78vJ-zM3c9z1_4x0maaITF-crh1x8yaBFc1KZ_dcQ6lRvUA3DrptRgqhLJibiMAUtaaq_nTp9u1f3R69umr7N1-N3dAgR7X906i5K_j8j_xtj7jWXAoLEI9YNKec2a1pWnxNzA5zXJPEHhlV-zVZi5Oto6WRX2uRksSoEj1yjjzldKtoTpINzbS9Rcbt_O_Oa-i20SMFFSRpyE-SdOJh2A37vSgMo6Hf6_Ujj9QkCYZR14_jQXAVxlHgh1fBySO_pLSy_e4wHAyCuB8FcRTHfuw7vUf32AY5_QbD2_TA).
 
 ```mermaid
 flowchart LR;
-    A[Developer creates/modifies a pull request] --> B{CI workflow passes}
-    B --> |Yes| C[Dev has settings stored]
-    B --> |Yes| D[Default settings]
+    A[Developer creates or modifies a branch] --> B{CI workflow passes}
+    B --> |Yes| C[Retrieve settings stored in DevOps repo file]
     B --> |No| Z[No preview environment NOT generated]
-    C --> E[Retrieve settings stored in DevOps repo file]
-    E --> G[Preview Environment deploy command]
-    G --> |Mocked Data| H(PE Created in dev)
-    H --> J[Preview environment accessible]
-    J --> K[Preview environment evaluated by users]
-    K --> L{Are updates necessary?}
-    L --> |Yes| A
+    C --> D[Preview environment deploy command]
+    D --> |Mocked Data| E(PE Created in vagov-dev VPC)
+    E --> F[Preview environment deploy succeeds]
+    F --> G[Preview environment evaluated by users]
+    G --> H{Are updates necessary?}
+    H --> |Yes| A
+    H --> |No| I[Branch merged]
+    I --> J[Preview environment decommissioned]
 ```
 
 ## References
