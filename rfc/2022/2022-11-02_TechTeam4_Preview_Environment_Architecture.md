@@ -30,7 +30,7 @@ The EKS hosting paradigm for ephemeral environments enables preview environments
 ## Design
 For the MVP of the preview environment architecture, the user will interact solely with GitHub and the preview environment will be created with default settings. As a developer pushes their branch to GitHub, the preview environment architecture will detect the branch and begin the process of deploying the code in the branch to a preview environment. Once the continuous integration workflow completes successfully, a request to deploy the preview environment triggers a GitHub Actions workflow. The GHA workflow writes the dynamically generated preview environment configuration to the `devops` repository. EKS detects the change in the `devops` repository and deploys the newly defined environment.
 
-A diagram is submitted [below](Support for mocking integrations / test data) as additional explanation.
+A diagram is submitted [below](#Diagrams) as additional explanation.
 
 ## Risks
 TBD
