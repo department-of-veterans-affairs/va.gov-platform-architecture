@@ -43,6 +43,16 @@ List the risks of this approach
 -->
 ## Alternatives
 * Custom preview environment build process driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS.
+  * Supported aspects of Platform use cases: 
+    * Ability to make an environment public
+    * Removes reliance on BRD infrastructure paradigm
+    * Removes requirement for SOCKS in order to access the environment
+    * Ability to define specific versions of additional resources
+    * Able to integrate with VA lower environments
+    * Ability to customize the preview environment
+    * Support for mocking integrations / test data
+    * Ability to promote preview environment
+    * Ability to orchestrate deployments with EKS
 * GitHub Codespaces : Codespaces is billed by GitHub as a "dev environment in the cloud." While Codespaces does create development environments, the primary purpose of these development environments is focused around coding and controlling the creation of reproducible development environments for the purposes of collaboration between developers and the facilitation of onboarding new developers.
   * Supported aspects of Platform use cases:
     * Access control for environments
@@ -52,7 +62,7 @@ List the risks of this approach
     * Ability to define specific versions of additional resources
   * Unsupported aspects of Platform use cases:
     * Unable to integrate with VA enterprise lower environments
-    * Unable to directly promote a development environment
+    * Unable to directly promote a preview environment
     * Unable to orchestrate deployments with EKS
 * TugboatQA : Data-first testing and review environments within a mighty serverless platform. The CMS team operates an "on-prem" version of Tugboat. This means that Tugboat environments have easy access to other VA enterprise resources. Tugboat is a product built specifically for creating ephemeral environments for the purpose of testing and demoing .
   * Supported aspects of Platform use cases:
