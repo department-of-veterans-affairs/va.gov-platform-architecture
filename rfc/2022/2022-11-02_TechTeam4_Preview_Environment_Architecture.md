@@ -49,17 +49,20 @@ List the risks of this approach
     * Ability to make an environment public
     * Removes reliance on BRD infrastructure paradigm
     * Removes requirement for SOCKS in order to access the environment
+    * Ability to define specific versions of additional resources
   * Unsupported aspects of Platform use cases:
     * Unable to integrate with VA enterprise lower environments
     * Unable to directly promote a development environment
     * Unable to orchestrate deployments with EKS
-* TugboatQA : 
+* TugboatQA : Data-first testing and review environments within a mighty serverless platform. The CMS team operates an "on-prem" version of Tugboat. This means that Tugboat environments have easy access to other VA enterprise resources. Tugboat is a product built specifically for creating ephemeral environments for the purpose of testing and demoing .
   * Supported aspects of Platform use cases:
-    * Ability to make an environment public
+    * Able to integrate with VA lower environments
     * Removes reliance on BRD infrastructure paradigm
-    * Removes requirement for SOCKS in order to access the environment
+    * Ability to customize the preview environment
+    * Support for mocking integrations / test data
+    * Ability to use different version of different resources
   * Unsupported aspects of Platform use cases:
-    * Unable to integrate with VA enterprise lower environments
+    * Current on-prem solution requries SOCKS access
     * Unable to directly promote a development environment
     * Unable to orchestrate deployments with EKS
 
