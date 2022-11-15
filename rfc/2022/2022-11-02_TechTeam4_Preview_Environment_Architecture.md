@@ -77,8 +77,8 @@ List the risks of this approach
     * Unable to orchestrate deployments with EKS
 
 ## Diagrams
+The in progress diagram link is [here](https://mermaid.live/edit#pako:eNptkl9v2jAUxb_KlZ9WKWUhJDRk0iYKqF1LadXuZSV9cJMbsEjszHbCGPDd5ziA2J88WfHvnnPu9d2SRKRIIpLlYp0sqdQwff4UczDfcD7GGnNRooREItWoPhYiZRlDBRTKKs9B4o8KlX6Dy8vPcL0dfYW1kKtGDEqqFKp9q3Vtgd13VDsYNbqwpAoUas34why0kJi-_cuODZvRKtcn9k9oJnbwOp8JKCXWDNeAvGZS8AK5htnjN1ggR2miH8VHtm4yf0YtmWnv7wzAOJh4j6UyvZUCMpbjoXRiS2_mTweryZlVimUuNpCIoqD86HXTZnwQycoIj6mmO7j98DSBkZ2m9UqxvmjpW0vfneTPO6FJgkqx91OWOwvf_xfGmuaV1X_fQKVQHmd2b4um26FEqMq0eVDg2ChTuflyeKnp2fSHxCEFyoKy1KzItgFiopdYYEwic0ypXMUk5nvD0UqLlw1PSKRlhQ5pDcaMLiQtSJTRXJm_mDIz5od25-zqOaSknERb8pNE_X4nDILeled2w8Dr-w7ZkMgPB50r1x8EA8_1u70w3DvklxBG0-2E_W7P83y33w181_MGVuzVXjYp9r8BAkntJg).
 
-Try to visually represent the proposal using a [diagram](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). [Live editor](https://mermaid.live/)
 ```mermaid
 flowchart LR;
     A[Developer creates/modifies a pull request] --> B{CI workflow passes}
