@@ -62,11 +62,23 @@ List the alternative approaches
 
 Try to visually represent the proposal using a [diagram](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). [Live editor](https://mermaid.live/)
 ```mermaid
-graph TD
-    A[Public] -->|TIC| B(AWS)
-    B --> C{Reverse Proxy}
-    C --> D[vets-api]
-    C --> F[fa:fa-chess-rook Kong]
+flowchart LR;
+    A[Developer creates/modifies a pull request] --> B{CI workflow passes}
+    B --> |Yes: MVP| C[Dev settings through GH Issue Template]
+    B --> |Yes: Final| D[Dev settings through app]
+    B --> |No| Z[No preview environment NOT generated]
+    C --> |MVP| E[Settings stored in DevOps repo file]
+    D --> |Final| F[Settings stored in app DB]
+    E --> G[Preview Environment deploy command]
+    F --> G
+    G --> |MVP: Mocked| H[PE Created in dev]
+    G --> |Final: Test Harness| H[PE Created in dev]
+    G --> |Fina: Integrated| I[PE Created in staging]
+    H --> J[Preview environment accessible]
+    I --> J
+    J --> K[Preview environment evaluated by users]
+    K --> L{Are updates necessary?}
+    L --> |Yes| A
 ```
 
 ## References
