@@ -94,14 +94,3 @@ flowchart LR;
     H --> |No| I[Branch merged]
     I --> J[Preview environment decommissioned]
 ```
-
-## References
-
-<!--
-This section /may/ be eliminated if it is not applicable.
-When linking to other documents in this repository, ensure to link to their state at a particular commit (hence the usage of .../blob/<FULL_COMMIT_HASH>/...) as opposed to their current state (i.e. 'currently in main').
--->
-
-* [RFC XYZ](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/blob/<FULL_COMMIT_HASH>/rfc/<FILENAME>.md): <RFC_TITLE>
-
-
