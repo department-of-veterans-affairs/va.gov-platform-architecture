@@ -33,7 +33,8 @@ For the MVP of the preview environment architecture, the user will interact sole
 A diagram is submitted [below](#Diagrams) as additional explanation.
 
 ## Risks
-TBD
+* Removing the ability for a preview environment to integrate with VA enterprise lower environments may reduce the quality of the experience of preview environments for some users.
+* Creating a custom solution for preview environments will require more effort to create and maintain than if the Platform were to implement an existing tool.
 
 <!--
 List the risks of this approach
