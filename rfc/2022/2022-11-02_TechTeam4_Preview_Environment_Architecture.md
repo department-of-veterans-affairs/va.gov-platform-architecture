@@ -32,6 +32,9 @@ For the MVP of the preview environment architecture, the user will interact sole
 
 A diagram is submitted [below](#Diagrams) as additional explanation.
 
+### Post-MVP Design: Additional Features
+There are a number of additional features planned to include in Post-MVP iterations. Specifically, we will begin adding the abilities to specify custom settings, including custom repository configurations, different types and sets of test data, and allowing custom durations to be set for a Preview Environment.
+
 ## Risks
 * Removing the ability for a preview environment to integrate with VA enterprise lower environments may reduce the quality of the experience of preview environments for some users.
 * Creating a custom solution for preview environments will require more effort to create and maintain than if the Platform were to implement an existing tool.
