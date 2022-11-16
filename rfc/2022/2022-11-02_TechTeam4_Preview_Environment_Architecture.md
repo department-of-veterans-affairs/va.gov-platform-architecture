@@ -84,7 +84,7 @@ The in progress diagram link is [here](https://mermaid.live/edit#pako:eNp9kl9v2j
 flowchart LR;
     A[Developer creates or modifies a branch] --> B{CI workflow passes}
     B --> |Yes| C[Retrieve settings stored in DevOps repo file]
-    B --> |No| Z[No preview environment NOT generated]
+    B --> |No| Z[No preview environment generated]
     C --> D[Preview environment deploy command]
     D --> |Mocked Data| E(PE Created in vagov-dev VPC)
     E --> F[Preview environment deploy succeeds]
