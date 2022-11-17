@@ -48,40 +48,27 @@ List the risks of this approach
 ## Alternatives
 ### Custom preview environment build process:
 A custom process that is driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS.
-  * Supported aspects of Platform use cases: 
-    * Ability to make an environment public
-    * Removes reliance on BRD infrastructure paradigm
-    * Ability to promote preview environment
-    * Removes requirement for SOCKS in order to access the environment
-    * Ability to define specific versions of additional resources
-    * Able to integrate with VA lower environments
-    * Ability to customize the preview environment
-    * Support for mocking integrations / test data
-    * Ability to orchestrate deployments with EKS
+
 ### GitHub Codespaces:
 Codespaces is billed by GitHub as a "dev environment in the cloud." While Codespaces does create development environments, the primary purpose of these development environments is focused around coding and controlling the creation of reproducible development environments for the purposes of collaboration between developers and the facilitation of onboarding new developers.
-  * Supported aspects of Platform use cases:
-    * Access control for environments
-    * Ability to make an environment public
-    * Removes reliance on BRD infrastructure paradigm
-    * Removes requirement for SOCKS in order to access the environment
-    * Ability to define specific versions of additional resources
-  * Unsupported aspects of Platform use cases:
-    * Unable to integrate with VA enterprise lower environments
-    * Unable to orchestrate deployments with EKS
-    * Unable to directly promote a preview environment
+
 ### TugboatQA:
 Data-first testing and review environments within a mighty serverless platform. The CMS team operates an "on-prem" version of Tugboat. This means that Tugboat environments have easy access to other VA enterprise resources. Tugboat is a product built specifically for creating ephemeral environments for the purpose of testing and demoing.
-  * Supported aspects of Platform use cases:
-    * Able to integrate with VA lower environments
-    * Removes reliance on BRD infrastructure paradigm
-    * Ability to customize the preview environment
-    * Support for mocking integrations / test data
-    * Ability to use different version of different resources
-  * Unsupported aspects of Platform use cases:
-    * Current on-prem solution requries SOCKS access
-    * Unable to orchestrate deployments with EKS
-    * Unable to directly promote a development environment
+
+### Summary of Alternative Capabilities
+Below is a summary of the key capabilities necessary to create the product that resolves the pain points uncovered during discovery.
+
+|                                     | Custom | Codespaces | TugboatQA |
+|-------------------------------------|--------|------------|-----------|
+| Publicly accessible                 | Yes    | Yes        | No        |
+| Uses new EKS paradigm               | Yes    | No         | No        |
+| Promote environment                 | Yes    | No         | No        |
+| Removes SOCKS                       | Yes    | Yes        | No        |
+| User specified resource versions    | Yes    | Yes        | Yes       |
+| Integrate with VA enterprise lowers | Yes    | No         | Yes       |
+| Customize settings                  | Yes    | Yes        | Yes       |
+| Mocked data                         | Yes    | Yes        | Yes       |
+| Test harnesses                      | Yes    | Yes        | Yes       |
 
 ## Diagrams
 The in progress diagram link is [here](https://mermaid.live/edit#pako:eNp9kl9v2jAUxb_KlZ82KSAISUkyaRP_2jKtFHXTpBX64MYXsEjsyHbCssB3n2PotErd8mTZ93fOyb23IalkSBKyyeQh3VFl4MvDh7UA-41WU6wwkwUqSBVSgxqkglwyvuH2TOFZUZHunqDT-QjjZjKHg1T7VgkKqjXq01lo7AqOP1AfYbJ6QKO4FQaNxnCx1aCNVMiAC7CG94UGhYWEDc_w6ZXAQh7hcbWQUCisOB4ARcWVFDkKA4v7b7BFgcrmZBdu4rjpavlGPcMikzWkMs-peAGmZ6M7me5toCk19Aizd8sZTNz_u4wV3cqqw7CC78vJ-zM3c9z1_4x0maaITF-crh1x8yaBFc1KZ_dcQ6lRvUA3DrptRgqhLJibiMAUtaaq_nTp9u1f3R69umr7N1-N3dAgR7X906i5K_j8j_xtj7jWXAoLEI9YNKec2a1pWnxNzA5zXJPEHhlV-zVZi5Oto6WRX2uRksSoEj1yjjzldKtoTpINzbS9Rcbt_O_Oa-i20SMFFSRpyE-SdOJh2A37vSgMo6Hf6_Ujj9QkCYZR14_jQXAVxlHgh1fBySO_pLSy_e4wHAyCuB8FcRTHfuw7vUf32AY5_QbD2_TA).
