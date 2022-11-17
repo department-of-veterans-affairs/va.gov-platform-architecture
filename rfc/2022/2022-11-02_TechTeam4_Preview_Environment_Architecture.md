@@ -71,7 +71,7 @@ Codespaces is billed by GitHub as a "dev environment in the cloud." While Codesp
     * Unable to orchestrate deployments with EKS
     * Unable to directly promote a preview environment
 ### TugboatQA:
-Data-first testing and review environments within a mighty serverless platform. The CMS team operates an "on-prem" version of Tugboat. This means that Tugboat environments have easy access to other VA enterprise resources. Tugboat is a product built specifically for creating ephemeral environments for the purpose of testing and demoing .
+Data-first testing and review environments within a mighty serverless platform. The CMS team operates an "on-prem" version of Tugboat. This means that Tugboat environments have easy access to other VA enterprise resources. Tugboat is a product built specifically for creating ephemeral environments for the purpose of testing and demoing.
   * Supported aspects of Platform use cases:
     * Able to integrate with VA lower environments
     * Removes reliance on BRD infrastructure paradigm
