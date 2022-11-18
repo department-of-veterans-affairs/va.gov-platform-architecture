@@ -55,7 +55,7 @@ List the risks of this approach
 There were a number of approaches explored during Discovery, listed first below is the recommended approach, followed by the two other primary solutions considered. Lastly, we included a feature comparison to inform everyone on what led into our decision making process.
 
 ### Custom preview environment build process: (Selected Approach)
-A custom process that is driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS. The capabilities with a custom solution are limited by few characteristics of the existing tech stack. In working through what might be possible, we know that GitHub API limits the number of requests we can make, EKS will only operate within certain VPCs, 
+A custom process that is driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS. The capabilities with a custom solution are limited by few characteristics of the existing tech stack. Known limitations within the technologies available for our custom solution are that GitHub API limits the number of requests we can make, EKS will only operate within certain VPCs, and creating a new subdomain for use with preview environments may be a lengthy process.
 
 ### GitHub Codespaces:
 Codespaces is billed by GitHub as a "dev environment in the cloud." While Codespaces does create development environments, the primary purpose of these development environments is focused around coding and controlling the creation of reproducible development environments for the purposes of collaboration between developers and the facilitation of onboarding new developers.
