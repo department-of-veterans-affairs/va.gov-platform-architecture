@@ -5,7 +5,7 @@
 * Authors:
   * [pjhill](https://github.com/pjhill)
   * [JoeTice](https://github.com/JoeTice)
-* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/-1)
+* [Original RFC Pull Request](https://github.com/department-of-veterans-affairs/va.gov-platform-arch/pull/51)
 
 ## Background
 Review Instances is the term used for the current approach to the ephemeral environments used on the VA.gov platform. Review instances provide many helpful capabilities to preview products on the platform, but have also been the source of negative feedback from VFS teams over recent quarters. Between platform feedback surveys and recent discovery efforts, a list of pain points was surfaced and is listed below...
