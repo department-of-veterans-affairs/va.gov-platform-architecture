@@ -41,6 +41,11 @@ A diagram is submitted [below](#Diagrams) as additional explanation.
 ### Post-MVP Design: Additional Features
 For reference, there are numerous additional features planned for inclusion in Post-MVP iterations. Specifically, we will begin adding the abilities to specify custom settings like: custom repository configurations, selection of different types of test data, connectivity to lower environment endpoints for external partners. These features will be vetted and prioritized as development progresses.
 
+### Access controls
+For the MVP, we do not expect to require access controls for the publicly available preview environments. The default and only configuration available to users excludes the integration of preview environments with external services operated by other groups within the VA, so our assumption is that it is acceptable to allow public access to these preview environments. For the post MVP implementation that permits users to potentially configure a preview environment that integrates with external services, we plan to either --
+1. Create the PE in a way that requires the user to use CAG, VPN, or SOCKS to access it
+2. Direct the user to a landing page that uses GitHub Oauth to authenticate the user
+
 ## Risks
 * Removing the ability for a preview environment to integrate with VA enterprise lower environments may initially reduce the quality of the experience of preview environments for some users. These risks will lessen over time as additional functionality is added into preview environments and this capability is restored.
 * If there is an overlap between the creation of review instances and the creation of preview environments there could be increased resource usage and cost while both products are supported.
