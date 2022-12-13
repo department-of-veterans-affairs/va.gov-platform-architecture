@@ -44,6 +44,10 @@ For reference, there are numerous additional features planned for inclusion in P
 ## Risks
 * Removing the ability for a preview environment to integrate with VA enterprise lower environments may initially reduce the quality of the experience of preview environments for some users. These risks will lessen over time as additional functionality is added into preview environments and this capability is restored.
 * If there is an overlap between the creation of review instances and the creation of preview environments there could be increased resource usage and cost while both products are supported.
+* In order to operate preview.va.gov as the DNS for preview environements, we will need to create or modify an ESECC request declaring our intent for a public route and asking for the VA to configure a portion of the route for us. We are assuming several things in order to make this happen --
+    1. We will be able to submit the existing WASA scan of VA.gov with the new ESECC request.
+    2. We should use the existing RFC 965 that seeks to define all public addresses used by the VA.gov Platform team.
+If one of these assumptions is not true it may extend the time it takes to resolve the issue of establishing a publicly accessible route to preview environments.
 
 <!--
 List the risks of this approach
