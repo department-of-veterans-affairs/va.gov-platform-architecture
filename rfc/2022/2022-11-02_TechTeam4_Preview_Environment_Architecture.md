@@ -52,7 +52,7 @@ For the MVP, we do not expect to require access controls for the publicly availa
 * In order to operate preview.va.gov as the DNS for preview environements, we will need to create or modify an ESECC request declaring our intent for a public route and asking for the VA to configure a portion of the route for us. If one of the following assumptions is not true it may extend the time it takes to resolve the issue of establishing a publicly accessible route to preview environments. We are assuming several things in order to make this happen --
     1. We will be able to submit the existing WASA scan of VA.gov with the new ESECC request.
     2. We should use the existing RFC 965 that seeks to define all public addresses used by the VA.gov Platform team.
-* If it is not possible to route traffic from within the VAGov* VPCs then it may not be possible in the post-MVP efforts to integrate preview environments with external services hosted elsewhere within the VA enterprise.
+* We are assuming that for the post-MVP we will be able to route traffic from within a Platform operated VPC to external services operated elsewhere within the VA enterprise. If it is not possible to route traffic from within the VAGov* VPCs then it may not be possible in the post-MVP efforts to integrate preview environments with external services hosted elsewhere within the VA enterprise.
     
 <!--
 List the risks of this approach
