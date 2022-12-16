@@ -52,6 +52,7 @@ For the MVP, we do not expect to require access controls for the publicly availa
 * In order to operate preview.va.gov as the DNS for preview environements, we will need to create or modify an ESECC request declaring our intent for a public route and asking for the VA to configure a portion of the route for us. If one of the following assumptions is not true it may extend the time it takes to resolve the issue of establishing a publicly accessible route to preview environments. We are assuming several things in order to make this happen --
     1. We will be able to submit the existing WASA scan of VA.gov with the new ESECC request.
     2. We should use the existing RFC 965 that seeks to define all public addresses used by the VA.gov Platform team.
+* If it is not possible to route traffic from within the VAGov* VPCs then it may not be possible in the post-MVP efforts to integrate preview environments with external services hosted elsewhere within the VA enterprise.
     
 <!--
 List the risks of this approach
@@ -63,7 +64,7 @@ List the risks of this approach
 There were a number of approaches explored during Discovery, listed first below is the recommended approach, followed by the two other primary solutions considered. Lastly, we included a feature comparison to inform everyone on what led into our decision making process.
 
 ### Custom preview environment build process: (Selected Approach)
-A custom process that is driven by events in GitHub, built by GitHub Actions, and orchestrated by EKS. The capabilities with a custom solution are limited by few characteristics of the existing tech stack. Known limitations within the technologies available for our custom solution are that GitHub API limits the number of requests we can make, EKS will only operate within certain VPCs, and creating a new subdomain for use with preview environments may be a lengthy process.
+A custom process that is initiated by events in GitHub, built by GitHub Actions, and orchestrated by EKS. The capabilities with a custom solution are limited by few characteristics of the existing tech stack. Known limitations within the technologies available for our custom solution are that GitHub API limits the number of requests we can make, EKS will only operate within certain VPCs, and creating a new subdomain for use with preview environments may be a lengthy process.
 
 ### GitHub Codespaces:
 Codespaces is billed by GitHub as a "dev environment in the cloud." While Codespaces does create development environments, the primary purpose of these development environments is focused around coding and controlling the creation of reproducible development environments for the purposes of collaboration between developers and the facilitation of onboarding new developers.
