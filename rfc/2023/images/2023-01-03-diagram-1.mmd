@@ -1,0 +1,20 @@
+graph LR
+
+    A1((Public)) ==> B1{TIC}
+    B1 ==> C1(RevProxy\nSSL term\nRouter-3)
+    C1 == prod ==> D1(BRD\nPEP)
+    D1:::highlight <==> F1(SSO)
+    classDef highlight fill:#f96
+
+    A2((Private)) --> B2(Kong\nTemporary\nRouter-2)
+    C1 -. dev .-> B2   
+    B2 -.-> D2(Traefik\nopen-source\nRouter-1)  
+    subgraph EKS
+    E2 -.-> F21(MS1\nPEP1)
+    E2 -.-> F22(MS2\nPEP2)
+    E2 -.-> F23(MS...\nPEP...)
+    end
+    D2 -.-> E2([Ingress])
+    F21:::highlight <-.-> F1(SSO)
+    F22:::highlight <-.-> F1(SSO)
+    F23:::highlight <-.-> F1(SSO)

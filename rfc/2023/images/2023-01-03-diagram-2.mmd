@@ -1,0 +1,26 @@
+graph LR
+
+    A1((Public)) ==> B1{TIC}
+    B1 ==> C1(RevProxy\nSSL term\nRouter-3)
+    C1 -. legacy .-> D1(BRD\nPEP)
+    D1:::highlight <-.-> F1(SSO) 
+    classDef highlight fill:#f96
+
+    A2((Private)) --> B2(Kong\nTemporary\nRouter-2)
+    C1 == prod ==> B2   
+    B2 ==> C2(TraefikEE\nZTA PEP\nRouter-1):::highlight
+    C2 <== OIDC ==> F1(ZTA\nSSO)
+    C2 == JSON ==> A3[(Datadog\nLogging)]
+    C2 ==> D2([Ingress])
+    subgraph EKS
+    D2 ==> E21(MS1)
+    D2 ==> E22(MS2)
+    D2 ==> E23(MS...)
+    end
+   
+    A3 -. near\nfuture .-> B3[(Datadog\nCloud SIEM)]
+    B3 -.-> C3[/Security\nIncident\nResponse/]
+    C3 -. Adaptive MFA .-> F1
+
+    A3 -. distant\nfuture .-> A4[(AI/ML\nBehavior Analytics)]
+    A4 <-. Adaptive MFA .-> F1
