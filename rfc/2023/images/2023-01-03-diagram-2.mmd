@@ -1,26 +1,21 @@
 graph LR
 
     A1((Public)) ==> B1{TIC}
-    B1 ==> C1(RevProxy\nSSL term\nRouter-3)
-    C1 -. legacy .-> D1(BRD\nPEP)
-    D1:::highlight <-.-> F1(SSO) 
-    classDef highlight fill:#f96
+    B1 ==> C1(NGINX\nRevProxy\nSSL term)
+    C1 == prod ==> D1(BRD\nVM\nPEP)
+    D1:::fillPEP <==> F1(Old SSOe\nID.me,...):::fillIDP
+    classDef fillPEP fill:#f96
+    classDef fillIDP fill:#6f9
 
-    A2((Private)) --> B2(Kong\nTemporary\nRouter-2)
-    C1 == prod ==> B2   
-    B2 ==> C2(TraefikEE\nZTA PEP\nRouter-1):::highlight
-    C2 <== OIDC ==> F1(ZTA\nSSO)
-    C2 == JSON ==> A3[(Datadog\nLogging)]
-    C2 ==> D2([Ingress])
+    A2((Private)) --  SOCKS/VPN --> B2(Kong\nTemporary\nIntegration)
+    C1 -. dev .-> B2   
+    B2 -.-> D2(Traefik\nIngress\nController)  
     subgraph EKS
-    D2 ==> E21(MS1)
-    D2 ==> E22(MS2)
-    D2 ==> E23(MS...)
+    E2 -.-> F21(MS1\nPod\nPEP1)
+    E2 -.-> F22(MS2\nPod\nPEP2)
+    E2 -.-> F23(MS...\nPod\nPEP)
     end
-   
-    A3 -. near\nfuture .-> B3[(Datadog\nCloud SIEM)]
-    B3 -.-> C3[/Security\nIncident\nResponse/]
-    C3 -. Adaptive MFA .-> F1
-
-    A3 -. distant\nfuture .-> A4[(AI/ML\nBehavior Analytics)]
-    A4 <-. Adaptive MFA .-> F1
+    D2 -.-> E2{Ingress}
+    F21:::fillPEP <-.-> F1
+    F22:::fillPEP <-.-> F2(SSO of GitHub\nOAuth Apps):::fillIDP
+    F23:::fillPEP <-.-> F3(Basic Auth):::fillIDP

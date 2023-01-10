@@ -1,20 +1,20 @@
 graph LR
-
-    A1((Public)) ==> B1{TIC}
-    B1 ==> C1(RevProxy\nSSL term\nRouter-3)
-    C1 == prod ==> D1(BRD\nPEP)
-    D1:::highlight <==> F1(SSO)
-    classDef highlight fill:#f96
-
-    A2((Private)) --> B2(Kong\nTemporary\nRouter-2)
-    C1 -. dev .-> B2   
-    B2 -.-> D2(Traefik\nopen-source\nRouter-1)  
-    subgraph EKS
-    E2 -.-> F21(MS1\nPEP1)
-    E2 -.-> F22(MS2\nPEP2)
-    E2 -.-> F23(MS...\nPEP...)
-    end
-    D2 -.-> E2([Ingress])
-    F21:::highlight <-.-> F1(SSO)
-    F22:::highlight <-.-> F1(SSO)
-    F23:::highlight <-.-> F1(SSO)
+  subgraph SA [Implicit Trust]
+    direction LR
+      A11((User)) --  SOCKS/VPN --> B11{Kubernetes\nIngress}
+      B11 --> C11(MS1) --> D11(PEP1):::fillPEP
+      B11 --> C12(MS2) --> D12(PEP2):::fillPEP
+      B11 --> C13(MS...)
+      B11 --> C14[/Discovery/]:::fillDisco --> D14(...)
+      classDef fillDisco fill:violet
+      classDef fillPEP fill:#f96
+  end
+  subgraph SB [Explicit Trust]
+    direction LR
+      A21((User)) --  SOCKS/VPN --> B21{Kubernetes\nIngress\nPEP}:::fillPEP
+      B21 --> C21(MS1)
+      B21 --> C22(MS2)
+      B21 -.-x C23(MS...)
+      B21 -.-x C24[/Discovery/]
+  end
+  SA-->SB

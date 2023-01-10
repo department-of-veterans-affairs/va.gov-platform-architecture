@@ -1,0 +1,29 @@
+graph LR
+
+    A1((Public)) ==> B1{TIC}
+    B1 ==> C1(NGINX\nRevProxy\nSSL term)
+    C1 -. legacy .-> D1(BRD\nVM\nPEP)
+    D1:::fillPEP <-.-> F1(New SiS\nVeterans\nLogin.gov):::fillIDP
+    classDef fillPEP fill:#f96
+    classDef fillIDP fill:#6f9
+
+    A2((Private)) -- SOCKS/VPN --> B2(Ingress\nController\nPEP):::fillPEP
+    C1 == prod ==> B2   
+    B2 <== AuthN & AuthZ for Veterans ==> F1
+    B2 == JSON ==> A3[(Datadog\nLogging)]
+    B2 ==> D2{Ingress}
+    subgraph EKS
+    D2 ==> E21(MS1\nPod)
+    D2 ==> E22(MS2\nPod)
+    D2 ==> E23(MS...\nPod)
+    end
+   
+    A3 -. near\nfuture .-> B3[(Datadog\nCloud SIEM)]
+    B3 -.-> C3[/Security\nIncident\nResponse/]
+    C3 -. Adaptive MFA .-> F1
+
+    A3 -. distant\nfuture .-> A4[(AI/ML\nBehavior Analytics)]
+    A4 <-. Adaptive MFA .-> F1
+ 
+    F2(SSO of GitHub\nOAuth Apps\nor SiS for Teams):::fillIDP <-. AuthN & AuthZ for Teams .-> B2
+    F3(Local Controller\nBasic Auth\nor SiS for Apps):::fillIDP <-. AuthN & AuthZ for Apps .-> B2
