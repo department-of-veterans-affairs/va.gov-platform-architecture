@@ -21,7 +21,7 @@ Example:
 
 Currently, VA.gov frontend pages perform poorly for a significant number of Veterans. In late 2022, 48.35% of users to va.gov were on relatively slow mobile devices (Source: Google Analytics, 7/26/22-8/01/22). A significant amount are also on slow third-party devices, such as library desktops, per [government research](https://docs.fcc.gov/public/attachments/DOC-357270A1.pdf). Automated reports on the [Frontend support dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) and in Datadog via [RUM's Core Web Vitals](https://docs.datadoghq.com/real_user_monitoring/browser/monitoring_page_performance/#core-web-vitals) show us that many pages on VA.gov perform poorly for Veterans. We need to optimize VA.gov frontend applications for better performance.
 
-Performance, and the inequality that can result from not managing performance, is an issue for the web as a whole. However, [industry research shows](https://infrequently.org/2022/12/performance-baseline-2023/) how we can budget for better, more equitable performance. We should follow this guidance and adopt practices that help us improve how our web applications perform for all Veterans.
+Performance affects people's experience with websites, and poor performance can prevent people from using a website. For Veterans, this can affect whether they can access the services they need online. However, [industry research shows](https://infrequently.org/2022/12/performance-baseline-2023/) how we can budget for better, more equitable performance. We should follow this guidance and adopt practices that help us improve how our web applications perform for all Veterans.
 
 ## Motivation
 
