@@ -29,9 +29,13 @@ The VA.gov Platform provides [few options for creating new frontend (FE) applica
 >Which problem(s) does this solve? Why? Use active voice, present tense, and decisive language.
 > Example: Framework XYZ is a modern, well-known, web rendering framework. It is easy to learn, easy to use, and provides high-performance web rendering. etc
 
+## We can build smaller, faster and simpler applications using static site generation
+
 Static-site generation techniques allow us to build smaller, faster applications by generating HTML and other assets at build time, minimizing HTML generation on user devices. We can add dynamic functionality selectively, and deliver smaller bundles of JavaScript. Server-side processing at build time and run time handle business logic and provide just enough data to our frontends only when they need it.
 
-Given that the VA.gov homepage, whose experience is mostly static HTML, currently consists of 4.88 MB of assets (HTML, CSS, JavaScript) (Accessed 24 April 2023) and includes three copies of React in different JavaScript bundles, there is plenty of opportunity for reducing overall page size. If we also [budget for performance](va-rfc-frontend-performance.md), we will have useful goals for application size.
+### Currently, static content is weighted down with unneeded assets
+
+Given that the VA.gov homepage, primarily uses static HTML content, consists of 4.88 MB of assets (HTML, CSS, JavaScript) (Accessed 24 April 2023) and includes three copies of React in different JavaScript bundles, there is plenty of opportunity for reducing overall page size. If we also [budget for performance](va-rfc-frontend-performance.md), we will have useful goals for application size.
 
 
 ## Design

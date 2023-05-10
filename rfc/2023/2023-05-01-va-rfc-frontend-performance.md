@@ -19,7 +19,7 @@ Example:
 > Explain the current state. What is the problem? What needs to happen? Provide enough background for someone new to the problem space to understand this decision. Use active voice, present tense, and decisive language.
 > Example: We need to choose how the website will render in the browser. There are several competing frameworks to choose from.
 
-Currently, VA.gov frontend pages perform poorly for a significant number of Veterans. In late 2022, 48.35% of users to va.gov were on relatively slow mobile devices (Source: Google Analytics, 7/26/22-8/01/22). A significant amount are also on slow third-party devices, such as library desktops, per [government research](https://docs.fcc.gov/public/attachments/DOC-357270A1.pdf). Automated reports on the [Frontend support dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) and in Datadog via [RUM's Core Web Vitals](https://docs.datadoghq.com/real_user_monitoring/browser/monitoring_page_performance/#core-web-vitals) show us that many pages on VA.gov perform poorly for Veterans. We need to optimize VA.gov frontend applications for better performance.
+VA.gov frontend pages perform poorly for a significant number of Veterans. As of late 2022, 48.35% of users to va.gov use slower mobile devices (Source: Google Analytics, 7/26/22-8/01/22). A significant amount are also on slow third-party devices, such as library desktops, per [government research](https://docs.fcc.gov/public/attachments/DOC-357270A1.pdf). Automated reports on the [Frontend support dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) and in Datadog via [RUM's Core Web Vitals](https://docs.datadoghq.com/real_user_monitoring/browser/monitoring_page_performance/#core-web-vitals) show us that many pages on VA.gov perform poorly for Veterans. We need to optimize VA.gov frontend applications for better performance.
 
 Performance affects people's experience with websites, and poor performance can prevent people from using a website. For Veterans, this can affect whether they can access the services they need online. However, [industry research shows](https://infrequently.org/2022/12/performance-baseline-2023/) how we can budget for better, more equitable performance. We should follow this guidance and adopt practices that help us improve how our web applications perform for all Veterans.
 
@@ -30,17 +30,21 @@ Performance affects people's experience with websites, and poor performance can 
 
 Datadog and Google Lighthouse help us understand the Veteran experience with VA.gov by measuring frontend performance. The information provided can help teams identify how to improve website performance for Veterans using various devices and internet connection speeds. These measurements can also help teams define and adopt a budget for how much HTML, CSS and JavaScript should be served per application and per pageview.
 
-We can address many challenges to frontend performance on VA.gov today. Every performance report on the [Frontend Performance Dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) links to a "Treemap", a visualization of what JavaScript libraries and components are included and estimates for how much is unused or duplicated. For example, the treemap for the [Va.gov homepage's report](https://vetsgov-website-builds-s3-upload-test.s3-us-gov-west-1.amazonaws.com/lighthouse/homepage.html) shows that of 3.59MB of JavaScript, 1.55MB, or about 43% is *unused*.
+### Performance reports show large amounts of unused code, sometimes over 40% of an application, slowing page load times
 
-Further digging into existing performance reports, it appears that most, if not all, pages have three JavaScript bundles, and each bundle has its own copy of React. It appears that **pages have multiple redundant copies of the same code libraries**. In part, this is due to pages including `web-components.entry.js` (508.752 KiB) and `vendor.entry.js` (349.064 KiB) in addition to an application-specific bundle. The tools we use today can [prevent this duplication](https://webpack.js.org/guides/code-splitting/#prevent-duplication).
+We can address many challenges to frontend performance on VA.gov today. Every performance report on the [Frontend Performance Dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) links to a "Treemap", a visualization of what JavaScript libraries and components are included and estimates for how much is unused or duplicated. For example, the treemap for the [Va.gov homepage's report](https://vetsgov-website-builds-s3-upload-test.s3-us-gov-west-1.amazonaws.com/lighthouse/homepage.html) shows that of 3.59MB of JavaScript, 1.55MB, or about **43% is unused**.
 
-A sample of performance scores is available below under [Performance Scores](#performance-scores)
+### Redundant code is another major source of bloat, slowing down page load times, and is preventable
+
+Further digging into existing performance reports, it appears that most, if not all, pages have three JavaScript bundles, and each bundle has its own copy of React. It appears that **pages have redundant copies of the same code libraries** (e.g., multiple copies of React and ReactDOM). In part, this is due to pages including `web-components.entry.js` (508.752 KiB) and `vendor.entry.js` (349.064 KiB) in addition to an application-specific bundle. The tools we use today can [prevent this duplication](https://webpack.js.org/guides/code-splitting/#prevent-duplication).
+
+A sample of performance scores is available below under [Performance Scores](#performance-scores).
 
 ## Design
 
 > Explain the proposed design in enough detail so that a team member will fully understand the implementation. Include a diagram (in the `images` dir) as needed to convey your plans. Use active voice, present tense, and decisive language.
 
-The Platform should provide general guidance and technical resources to empower VFS teams to adopt performance budgets. Providing access to Datadog's RUM is a first step that will give teams information about performance via Core Web Vitals, which can help them come up with performance budget targets. Teams are already in the process of gaining access to Datadog, and adding RUM to measure Core Web Vitals is a reasonable next step.
+The Platform should provide guidance and technical resources to empower VFS teams to adopt performance budgets. While the Platform can provide knowledge and set expectations around performance, VFS teams should take responsibility for it. Providing access to Datadog's RUM will give teams information about performance via Core Web Vitals, which can help them come up with performance budget targets. Teams are already gaining access to Datadog, and adding RUM to measure Core Web Vitals is a reasonable next step.
 
 Sitewide performance issues can be addressed to improve performance across VA.gov applications. The **shared header and footer** are React applications that are part of the `static-pages.entry.js` bundle, which is 1.397MB as of April 2023. The header and footer should be refactored to remove React and use build-time generated HTML, with lightweight web components to add interactivity and manage accessibility. Improving performance of the header and footer will have a positive impact across VA.gov and subdomains that inject the header and footer.
 
@@ -73,7 +77,7 @@ As mentioned above, we can leverage our existing build tool, Webpack, to [preven
 
 One alternative would be to adopt an hypermedia-centric approach and have `vets-api` generate HTML documents and "partials" in coordination with a lightweight hypertext-centric framework such as [htmx](https://htmx.org), a ~14KiB JavaScript library. This would shift a lot of logic to the server and minimize the amount of JavaScript, the major contributor to the performance issues facing VA.gov. This would represent a paradigm shift in how VA.gov applications are built, and require a significant investment in time and resources to adopt across all applications. This shift could be done incrementally, but still represents a major architectural change.
 
-Another alternative to adopting performance budgets at this time is to do more research on the issue of performance before adopting any corrective measures. We'd want to gather and analyze metrics and talk to Veterans about what their experience with VA.gov applications is. We certainly should gather and analyze information regardless of any improvements, but it seems reasonable to predict that some number of Veterans are experiencing poor performance based on the data at hand.
+Another alternative is to do nothing and leave everything the way it is. We could assume the Veterans will acquire more powerful, newer computers and get the fastest broadband speeds, making this less of an issue for them. We would also need to assume that our application won't grow significantly larger when we assume all Veterans are using the most powerful computers on the fastest networks.
 
 ## Diagrams
 
@@ -87,6 +91,8 @@ graph TD
 ```
 
 ## Performance Scores
+
+Google Lighthouse [scores performance](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8) by taking time measurements in areas such as "Largest Contentful Paint", "Time to Interactive", and "Total Blocking Time", then calculating a 1-100 score from a weighted average of those measurements. Those scores are coded in the ranges: "0 to 49 (red): Poor," "50 to 89 (orange): Needs Improvement," "90 to 100 (green): Good." **All VA.gov applications measured fall into the "0-49: Poor" range**. That means that a Veteran could wait over 13 seconds for the homepage to become fully interactive.
 
 The following table samples performance scores, as of 10 May 2023, from the [Frontend Performance Dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/):
 
@@ -138,7 +144,7 @@ The following table samples performance scores, as of 10 May 2023, from the [Fro
 | vre                               | 9%          | https://www.va.gov/careers-employment/education-and-career-counseling/apply-career-guidance-form-28-8832                       |       |
 | yellow-ribbon                     | 20%         | https://www.va.gov/education/yellow-ribbon-participating-schools/                                                              |       |
 
-_Note_: The set of applications is limited by what is available on the performance dashboard, as well as by issues accessing the machine-readable versions of the reports. This is not an exhaustive accounting of all VA.gov Frontend applications, but a significant sample.
+_Note_: the performance dashboard contains a subset of all applications, limiting the number applications measured. Also, some issues limited access to the machine-readable versions of the reports. This table represents a significant sample of VA.gov Frontend applications, but is not exhaustive.
 
 ## References
 
@@ -149,6 +155,7 @@ When linking to other documents in this repository, ensure to link to their stat
 
 - [Core Web Vitals as a UX measure](https://web.dev/vitals/)
 - [Performance Budgets 101](https://web.dev/performance-budgets-101/)
+- [Lighthouse Performance Scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8)
 - [Webpack Performance Features](https://webpack.js.org/configuration/performance/)
 - [Designing for Performance: Performance is User Experience](https://designingforperformance.com/performance-is-ux/)
 - [The Performance Inequality Gap, 2023](https://infrequently.org/2022/12/performance-baseline-2023/)
