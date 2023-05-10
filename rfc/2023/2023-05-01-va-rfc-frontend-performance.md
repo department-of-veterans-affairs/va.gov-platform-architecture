@@ -44,13 +44,23 @@ A sample of performance scores is available below under [Performance Scores](#pe
 
 > Explain the proposed design in enough detail so that a team member will fully understand the implementation. Include a diagram (in the `images` dir) as needed to convey your plans. Use active voice, present tense, and decisive language.
 
+### Set performance expectations and provide tools to monitor performance
+
 The Platform should provide guidance and technical resources to empower VFS teams to adopt performance budgets. While the Platform can provide knowledge and set expectations around performance, VFS teams should take responsibility for it. Providing access to Datadog's RUM will give teams information about performance via Core Web Vitals, which can help them come up with performance budget targets. Teams are already gaining access to Datadog, and adding RUM to measure Core Web Vitals is a reasonable next step.
+
+### Address performance issues that affect all applications
 
 Sitewide performance issues can be addressed to improve performance across VA.gov applications. The **shared header and footer** are React applications that are part of the `static-pages.entry.js` bundle, which is 1.397MB as of April 2023. The header and footer should be refactored to remove React and use build-time generated HTML, with lightweight web components to add interactivity and manage accessibility. Improving performance of the header and footer will have a positive impact across VA.gov and subdomains that inject the header and footer.
 
+### Raise visibility of performance data by enhancing existing reports
+
 Another step is to update the [Frontend Support Dashboard - Performance Report](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) to include all applications. This will raise visibility of performance issues, both per application and sitewide. This step will also help teams remember to review those reports periodically, this will also help teams understand where their applications experience performance issues.
 
-["The Performance Inequality Gap," 2023](https://infrequently.org/2022/12/performance-baseline-2023/) suggests file size limits for HTML, CSS, and JavaScript, e.g. "~151KiB of HTML/CSS/fonts and ~300-350KiB of JavaScript (gzipped)". Using that report as a guide, we can determine reasonable file size limits and include them in our own performance budgets. VFS teams would use these baselines, along with the information about their application's real world performance provided by Datadog RUM and the Performance Report dashboard, to manage performance budgets for their applications.
+### Have VFS teams set file size limits tailored to their applications
+
+["The Performance Inequality Gap," 2023](https://infrequently.org/2022/12/performance-baseline-2023/) suggests file size limits for HTML, CSS, and JavaScript, for example "~151KiB of HTML/CSS/fonts and ~300-350KiB of JavaScript (gzipped)". Using that report as a guide, we can determine reasonable file size limits and include them in our own performance budgets. VFS teams would use these baselines, along with the information about their application's real world performance provided by Datadog RUM and the Performance Report dashboard, to manage performance budgets for their applications.
+
+### Leverage existing tools to reduce code duplcation
 
 As mentioned above, we can leverage our existing build tool, Webpack, to [prevent duplication](https://webpack.js.org/guides/code-splitting/#prevent-duplication) of code, removing the multiple copies of the same libraries in bundles. Webpack also provides options for [notifying teams of performance issues](https://webpack.js.org/configuration/performance/), another way to help teams understand performance and adopt a budget.
 
@@ -75,9 +85,13 @@ As mentioned above, we can leverage our existing build tool, Webpack, to [preven
 > * What are their strengths, weaknesses, risks? Why weren’t they chosen?
 > * Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
 
+### Adopt a hypermedia approach
+
 One alternative would be to adopt an hypermedia-centric approach and have `vets-api` generate HTML documents and "partials" in coordination with a lightweight hypertext-centric framework such as [htmx](https://htmx.org), a ~14KiB JavaScript library. This would shift a lot of logic to the server and minimize the amount of JavaScript, the major contributor to the performance issues facing VA.gov. This would represent a paradigm shift in how VA.gov applications are built, and require a significant investment in time and resources to adopt across all applications. This shift could be done incrementally, but still represents a major architectural change.
 
-Another alternative is to do nothing and leave everything the way it is. We could assume the Veterans will acquire more powerful, newer computers and get the fastest broadband speeds, making this less of an issue for them. We would also need to assume that our application won't grow significantly larger when we assume all Veterans are using the most powerful computers on the fastest networks.
+### Do nothing
+
+Another alternative is to do nothing and leave everything the way it is. We could assume the Veterans will acquire more powerful, newer computers and get the fastest broadband speeds, making this less of an issue for them. We would also need to assume that our applications won't grow larger and more bloated if we don't act.
 
 ## Diagrams
 
