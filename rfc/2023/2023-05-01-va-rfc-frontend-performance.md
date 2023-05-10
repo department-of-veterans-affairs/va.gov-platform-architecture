@@ -34,6 +34,8 @@ We can address many challenges to frontend performance on VA.gov today. Every pe
 
 Further digging into existing performance reports, it appears that most, if not all, pages have three JavaScript bundles, and each bundle has its own copy of React. It appears that **pages have multiple redundant copies of the same code libraries**. In part, this is due to pages including `web-components.entry.js` (508.752 KiB) and `vendor.entry.js` (349.064 KiB) in addition to an application-specific bundle. The tools we use today can [prevent this duplication](https://webpack.js.org/guides/code-splitting/#prevent-duplication).
 
+A sample of performance scores is available below under [Performance Scores](#performance-scores)
+
 ## Design
 
 > Explain the proposed design in enough detail so that a team member will fully understand the implementation. Include a diagram (in the `images` dir) as needed to convey your plans. Use active voice, present tense, and decisive language.
@@ -83,6 +85,60 @@ graph TD
     C --> D[vets-api]
     C --> F[fa:fa-chess-rook Kong]
 ```
+
+## Performance Scores
+
+The following table samples performance scores, as of 10 May 2023, from the [Frontend Performance Dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/):
+
+| label                             | performance | finalUrl                                                                                                                       | notes |
+|-----------------------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+| appeals                           | 18%         | https://www.va.gov/decision-reviews/board-appeal/request-board-appeal-form-10182                                               |       |
+| auth                              | 19%         | https://www.va.gov/auth/login/callback                                                                                         |       |
+| burials                           | 9%          | https://www.va.gov/burials-and-memorials/application/530                                                                       |       |
+| caregivers                        | 15%         | https://www.va.gov/family-member-benefits/apply-for-caregiver-assistance-form-10-10cg                                          |       |
+| check-in                          | 16%         | https://www.va.gov/health-care/appointment-check-in                                                                            |       |
+| claims-status                     | 6%          | https://www.va.gov/?next=%2Ftrack-claims                                                                                       |       |
+| coronavirus-research              | 14%         | https://www.va.gov/coronavirus-research/volunteer                                                                              |       |
+| coronavirus-screener              | 14%         | https://www.va.gov/covid19screen                                                                                               |       |
+| coronavirus-vaccination           | 23%         | https://www.va.gov/health-care/covid-19-vaccine/                                                                               |       |
+| coronavirus-vaccination-expansion | 15%         | https://www.va.gov/health-care/covid-19-vaccine/                                                                               |       |
+| debt-letters                      | 11%         | https://www.va.gov/manage-va-debt/request-debt-help-form-5655/                                                                 |       |
+| debt-letters                      | 16%         | https://www.va.gov/manage-va-debt/                                                                                             |       |
+| disability-benefits               | 14%         | https://www.va.gov/decision-reviews/higher-level-review/request-higher-level-review-form-20-0996                               |       |
+| disability-benefits               | 11%         | https://www.va.gov/disability/file-disability-claim-form-21-526ez                                                              |       |
+| disability-benefits               | 11%         | https://www.va.gov/view-change-dependents/add-remove-form-21-686c                                                              |       |
+| disability-benefits/2346          | 14%         | https://www.va.gov/health-care/order-hearing-aid-batteries-and-accessories/order-form-2346/                                    |       |
+| discharge-wizard                  | 24%         | https://www.va.gov/discharge-upgrade-instructions                                                                              |       |
+| edu-benefits                      | 15%         | https://www.va.gov/education/about-gi-bill-benefits/how-to-use-benefits/vettec-high-tech-program/apply-for-vettec-form-22-0994 |       |
+| edu-benefits                      | 11%         | https://www.va.gov/education/apply-for-education-benefits/application/1990                                                     |       |
+| edu-benefits                      | 12%         | https://www.va.gov/education/apply-for-education-benefits/application/1990E                                                    |       |
+| edu-benefits                      | 30%         | https://www.va.gov/education/other-va-education-benefits/national-call-to-service-program/                                     |       |
+| edu-benefits                      | 12%         | https://www.va.gov/education/apply-for-education-benefits/application/1995                                                     |       |
+| edu-benefits                      | 9%          | https://www.va.gov/education/apply-for-education-benefits/application/5490                                                     |       |
+| edu-benefits                      | 20%         | https://www.va.gov/education/apply-for-education-benefits/application/5495                                                     |       |
+| edu-benefits                      | 10%         | https://www.va.gov/education/opt-out-information-sharing/opt-out-form-0993                                                     |       |
+| edu-benefits                      | 16%         | https://www.va.gov/education/other-va-education-benefits/stem-scholarship/apply-for-scholarship-form-22-10203                  |       |
+| edu-benefits                      | 22%         | https://www.va.gov/education/other-va-education-benefits/                                                                      |       |
+| edu-benefits                      | 22%         | https://www.va.gov/education/submit-school-feedback                                                                            |       |
+| facility-locator                  | 17%         | https://www.va.gov/find-locations                                                                                              |       |
+| gi                                | 9%          | https://www.va.gov/education/gi-bill-comparison-tool/                                                                          |       |
+| hca                               | 10%         | https://www.va.gov/health-care/apply/application                                                                               |       |
+| homepage                          | 24%         | https://www.va.gov/                                                                                                            |       |
+| login                             | 8%          | https://www.va.gov/sign-in/                                                                                                    |       |
+| medical-copays                    | 14%         | https://www.va.gov/health-care/pay-copay-bill/                                                                                 |       |
+| pensions                          | 11%         | https://www.va.gov/pension/application/527EZ                                                                                   |       |
+| personalization                   | 7%          | https://www.va.gov/?next=%2Fview-change-dependents%2Fview                                                                      |       |
+| pre-need                          | 10%         | https://www.va.gov/burials-and-memorials/pre-need/form-10007-apply-for-eligibility                                             |       |
+| resources-and-support             | 15%         | https://www.va.gov/resources/                                                                                                  |       |
+| search                            | 26%         | https://www.va.gov/search/                                                                                                     |       |
+| static-pages                      | 10%         | https://www.va.gov/careers-employment/vocational-rehabilitation/apply-vre-form-28-1900                                         |       |
+| terms-and-conditions              | 12%         | https://www.va.gov/health-care/medical-information-terms-conditions/                                                           |       |
+| vaos                              | 7%          | https://www.va.gov/?next=%2Fhealth-care%2Fschedule-view-va-appointments%2Fappointments                                         |       |
+| verify                            | 4%          | https://www.va.gov/                                                                                                            |       |
+| vre                               | 9%          | https://www.va.gov/careers-employment/education-and-career-counseling/apply-career-guidance-form-28-8832                       |       |
+| yellow-ribbon                     | 20%         | https://www.va.gov/education/yellow-ribbon-participating-schools/                                                              |       |
+
+_Note_: The set of applications is limited by what is available on the performance dashboard, as well as by issues accessing the machine-readable versions of the reports. This is not an exhaustive accounting of all VA.gov Frontend applications, but a significant sample.
 
 ## References
 
