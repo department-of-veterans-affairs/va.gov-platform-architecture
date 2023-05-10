@@ -19,7 +19,7 @@ Example:
 > Explain the current state. What is the problem? What needs to happen? Provide enough background for someone new to the problem space to understand this decision. Use active voice, present tense, and decisive language.
 > Example: We need to choose how the website will render in the browser. There are several competing frameworks to choose from.
 
-Currently, VA.gov frontend pages perform poorly for a significant number of Veterans. In late 2022, 48.35% of users to va.gov were on relatively slow mobile devices (Source: Google Analytics, 7/26/22-8/01/22). A significant amount are also on slow third-party devices, such as library desktops, per [government research](https://docs.fcc.gov/public/attachments/DOC-357270A1.pdf). Automated reports on the [Frontend support dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) and in Datadog via [RUM's Core Web Vitals](https://docs.datadoghq.com/real_user_monitoring/browser/monitoring_page_performance/#core-web-vitals) show us that many pages on VA.gov perform poorly for Veterans. We need to optimize VA.gov frontend applications for better performance.
+VA.gov frontend pages perform poorly for a significant number of Veterans. As of late 2022, 48.35% of users to VA.gov use slower mobile devices (Source: Google Analytics, 7/26/22-8/01/22). A significant amount are also on slow third-party devices, such as library desktops, per [government research](https://docs.fcc.gov/public/attachments/DOC-357270A1.pdf). Automated reports on the [Frontend support dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) and in Datadog via [RUM's Core Web Vitals](https://docs.datadoghq.com/real_user_monitoring/browser/monitoring_page_performance/#core-web-vitals) show us that many pages on VA.gov perform poorly for Veterans. We need to optimize VA.gov frontend applications for better performance.
 
 The VA.gov Platform provides [few options for creating new frontend (FE) applications and features](https://depo-platform-documentation.scrollhelp.site/developer-docs/adding-applications-and-features). As the Frontend Support Dashboard shows, most applications are loading multiple large JavaScript bundles that impact performance by increasing page load times, even when the application does not use the code those bundles provide. The VA.gov Platform needs to support options for smaller frontend applications.
 
@@ -29,13 +29,13 @@ The VA.gov Platform provides [few options for creating new frontend (FE) applica
 >Which problem(s) does this solve? Why? Use active voice, present tense, and decisive language.
 > Example: Framework XYZ is a modern, well-known, web rendering framework. It is easy to learn, easy to use, and provides high-performance web rendering. etc
 
-## We can build smaller, faster and simpler applications using static site generation
+### We can build smaller, faster and simpler applications using static site generation
 
 Static-site generation techniques allow us to build smaller, faster applications by generating HTML and other assets at build time, minimizing HTML generation on user devices. We can add dynamic functionality selectively, and deliver smaller bundles of JavaScript. Server-side processing at build time and run time handle business logic and provide just enough data to our frontends only when they need it.
 
 ### Currently, static content is weighted down with unneeded assets
 
-Given that the VA.gov homepage, primarily uses static HTML content, consists of 4.88 MB of assets (HTML, CSS, JavaScript) (Accessed 24 April 2023) and includes three copies of React in different JavaScript bundles, there is plenty of opportunity for reducing overall page size. If we also [budget for performance](va-rfc-frontend-performance.md), we will have useful goals for application size.
+Given that the VA.gov homepage, primarily uses static HTML content, consists of 4.88 MB of assets (HTML, CSS, JavaScript) (Accessed 24 April 2023) and includes three copies of React in different JavaScript bundles, there is plenty of opportunity for reducing overall page size. If we also [budget for performance](2023-05-01-va-rfc-frontend-performance.md), we will have useful goals for application size.
 
 
 ## Design

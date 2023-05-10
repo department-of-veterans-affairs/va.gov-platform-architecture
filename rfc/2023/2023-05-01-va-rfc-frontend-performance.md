@@ -19,7 +19,7 @@ Example:
 > Explain the current state. What is the problem? What needs to happen? Provide enough background for someone new to the problem space to understand this decision. Use active voice, present tense, and decisive language.
 > Example: We need to choose how the website will render in the browser. There are several competing frameworks to choose from.
 
-VA.gov frontend pages perform poorly for a significant number of Veterans. As of late 2022, 48.35% of users to va.gov use slower mobile devices (Source: Google Analytics, 7/26/22-8/01/22). A significant amount are also on slow third-party devices, such as library desktops, per [government research](https://docs.fcc.gov/public/attachments/DOC-357270A1.pdf). Automated reports on the [Frontend support dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) and in Datadog via [RUM's Core Web Vitals](https://docs.datadoghq.com/real_user_monitoring/browser/monitoring_page_performance/#core-web-vitals) show us that many pages on VA.gov perform poorly for Veterans. We need to optimize VA.gov frontend applications for better performance.
+VA.gov frontend pages perform poorly for a significant number of Veterans. As of late 2022, 48.35% of users to VA.gov use slower mobile devices (Source: Google Analytics, 7/26/22-8/01/22). A significant amount are also on slow third-party devices, such as library desktops, per [government research](https://docs.fcc.gov/public/attachments/DOC-357270A1.pdf). Automated reports on the [Frontend support dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/) and in Datadog via [RUM's Core Web Vitals](https://docs.datadoghq.com/real_user_monitoring/browser/monitoring_page_performance/#core-web-vitals) show us that many pages on VA.gov perform poorly for Veterans. We need to optimize VA.gov frontend applications for better performance.
 
 Performance affects people's experience with websites, and poor performance can prevent people from using a website. For Veterans, this can affect whether they can access the services they need online. However, [industry research shows](https://infrequently.org/2022/12/performance-baseline-2023/) how we can budget for better, more equitable performance. We should follow this guidance and adopt practices that help us improve how our web applications perform for all Veterans.
 
@@ -88,6 +88,10 @@ As mentioned above, we can leverage our existing build tool, Webpack, to [preven
 ### Adopt a hypermedia approach
 
 One alternative would be to adopt an hypermedia-centric approach and have `vets-api` generate HTML documents and "partials" in coordination with a lightweight hypertext-centric framework such as [htmx](https://htmx.org), a ~14KiB JavaScript library. This would shift a lot of logic to the server and minimize the amount of JavaScript, the major contributor to the performance issues facing VA.gov. This would represent a paradigm shift in how VA.gov applications are built, and require a significant investment in time and resources to adopt across all applications. This shift could be done incrementally, but still represents a major architectural change.
+
+### Adopt a lightweight frontend approach
+
+As described in [RFC: The Platform shall provide a lightweight App path for VFS frontends](2023-05-01-va-rfc-lightweight-apps-paths.md), we can also improve performance by generating static HTML at build time rather than in the user's browser at run time. This approach focuses on performance first and allows application teams to just enough JavaScript to power their application. This approach is suited more for smaller applications than more complex form-driven applications, however. This approach should be one tool in our approach to performance, not the only tool.
 
 ### Do nothing
 
