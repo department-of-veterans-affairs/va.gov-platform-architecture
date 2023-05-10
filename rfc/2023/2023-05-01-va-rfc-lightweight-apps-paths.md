@@ -6,7 +6,7 @@ Example:
     - The website will be built using the XZY framework
 -->
 
-* Comment Deadline: `YYYY-MM-DD`
+* Comment Deadline: `2023-06-10`
 * Team Crew and Name: <!--e.g. Platform/AMT-->
 * Authors:
   * [@dcloud](https://github.com/dcloud)
