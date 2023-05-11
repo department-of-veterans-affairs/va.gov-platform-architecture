@@ -79,17 +79,6 @@ VFS and Platform engineers should also look into what tools might help existing 
 
 Rather than adopt a lightweight apps path based on existing tools, we could adopt a new framework that provides static page generation options, like Next.js. This would need to be done incrementally, since adopting this across `vets-website` would be a major shift and involve work across all VA.gov teams. Taking this approach would require engineers to become familiar with the best practices and pitfalls of another framework. There may be a significant population of engineers with this knowledge who could help develop expertise across the Platform and VFS teams. It would still be important to measure and budget for performance. This approach probably requires further exploration and could not be immediately adopted. An article by Vercel, the company behind Next.js, [outlines some of the techniques and challenges migrating from React to Next.js](https://vercel.com/blog/migrating-a-large-open-source-react-application-to-next-js-and-vercel).
 
-## Diagrams
-
-Try to visually represent the proposal using a [diagram](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). [Live editor](https://mermaid.live/)
-```mermaid
-graph TD
-    A[Public] -->|TIC| B(AWS)
-    B --> C{Reverse Proxy}
-    C --> D[vets-api]
-    C --> F[fa:fa-chess-rook Kong]
-```
-
 ## References
 
 <!--

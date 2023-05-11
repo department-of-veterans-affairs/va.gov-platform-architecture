@@ -97,17 +97,6 @@ As described in [RFC: The Platform shall provide a lightweight App path for VFS 
 
 Another alternative is to do nothing and leave everything the way it is. We could assume the Veterans will acquire more powerful, newer computers and get the fastest broadband speeds, making this less of an issue for them. We would also need to assume that our applications won't grow larger and more bloated if we don't act.
 
-## Diagrams
-
-Try to visually represent the proposal using a [diagram](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams). [Live editor](https://mermaid.live/)
-```mermaid
-graph TD
-    A[Public] -->|TIC| B(AWS)
-    B --> C{Reverse Proxy}
-    C --> D[vets-api]
-    C --> F[fa:fa-chess-rook Kong]
-```
-
 ## Performance Scores
 
 [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/) [scores performance](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8) by taking time measurements in areas such as "Largest Contentful Paint", "Time to Interactive", and "Total Blocking Time", then calculating a 1-100 score from a weighted average of those measurements. Those scores are coded in the ranges: "0 to 49 (red): Poor," "50 to 89 (orange): Needs Improvement," "90 to 100 (green): Good." **All VA.gov applications measured fall into the "0-49: Poor" range**.
