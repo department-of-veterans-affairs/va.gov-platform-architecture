@@ -91,7 +91,7 @@ One alternative would be to adopt an hypermedia-centric approach and have `vets-
 
 ### Adopt a lightweight frontend approach
 
-As described in [RFC: The Platform shall provide a lightweight App path for VFS frontends](2023-05-01-va-rfc-lightweight-apps-paths.md), we can also improve performance by generating static HTML at build time rather than in the user's browser at run time. This approach focuses on performance first and allows application teams to just enough JavaScript to power their application. This approach is suited more for smaller applications than more complex form-driven applications, however. This approach should be one tool in our approach to performance, not the only tool.
+As described in [RFC: The Platform shall provide a lightweight App path for VFS frontends](2023-05-01-va-rfc-lightweight-apps-paths.md), we can also improve performance by generating static HTML at build time rather than in the user's browser at run time. This approach focuses on performance first and allows application teams to just enough JavaScript to power their application. This approach is suited more for smaller applications than more complex form-driven applications, however. This approach should be one tool in our approach to performance, but not the only tool.
 
 ### Do nothing
 
@@ -110,7 +110,9 @@ graph TD
 
 ## Performance Scores
 
-Google Lighthouse [scores performance](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8) by taking time measurements in areas such as "Largest Contentful Paint", "Time to Interactive", and "Total Blocking Time", then calculating a 1-100 score from a weighted average of those measurements. Those scores are coded in the ranges: "0 to 49 (red): Poor," "50 to 89 (orange): Needs Improvement," "90 to 100 (green): Good." **All VA.gov applications measured fall into the "0-49: Poor" range**. That means that a Veteran could wait over 13 seconds for the homepage to become fully interactive.
+Google Lighthouse [scores performance](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8) by taking time measurements in areas such as "Largest Contentful Paint", "Time to Interactive", and "Total Blocking Time", then calculating a 1-100 score from a weighted average of those measurements. Those scores are coded in the ranges: "0 to 49 (red): Poor," "50 to 89 (orange): Needs Improvement," "90 to 100 (green): Good." **All VA.gov applications measured fall into the "0-49: Poor" range**.
+
+The ["Largest Contentful Paint (LCP)" metric](https://web.dev/lcp/) is measured in seconds, and a value of less than 2.5 seconds is "good", between 2.5 and 45 seconds is "needs improvement", and over 4 seconds is "poor". **A Veteran visiting the VA.gov homepage can experience a 4+ second wait for the largest contentful paint, and over 13 seconds for the homepage to become fully interactive**. This qualifies as a poor performance experience for Veterans.
 
 The following table samples performance scores, as of 10 May 2023, from the [Frontend Performance Dashboard](https://department-of-veterans-affairs.github.io/veteran-facing-services-tools/frontend-support-dashboard/lighthouse-performance-report/):
 

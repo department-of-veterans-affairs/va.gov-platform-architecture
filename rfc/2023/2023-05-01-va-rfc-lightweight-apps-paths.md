@@ -33,7 +33,7 @@ The VA.gov Platform provides [few options for creating new frontend (FE) applica
 
 Static-site generation techniques allow us to build smaller, faster applications by generating HTML and other assets at build time, minimizing HTML generation on user devices. We can add dynamic functionality selectively, and deliver smaller bundles of JavaScript. Server-side processing at build time and run time handle business logic and provide just enough data to our frontends only when they need it.
 
-### Currently, static content is weighted down with unneeded assets
+### Static content is weighed down with unneeded assets
 
 Given that the VA.gov homepage, primarily uses static HTML content, consists of 4.88 MB of assets (HTML, CSS, JavaScript) (Accessed 24 April 2023) and includes three copies of React in different JavaScript bundles, there is plenty of opportunity for reducing overall page size. If we also [budget for performance](2023-05-01-va-rfc-frontend-performance.md), we will have useful goals for application size.
 
@@ -63,7 +63,7 @@ VFS and Platform engineers should also look into what tools might help existing 
     - Platform and VFS teams can collaborate on best practices and update the Platform documentation to reflect those best practices. Those best practice could also be incorporated into issue templates and collab cycle reviews.
 - SSG will require lots of additional tools, creating its own complexity
     - `vets-website` already has support for ejs templates, and app entry points don't intrinsically have to use React, so we already have the tools we need
-    - Next.js comes up, and that's something that could be explored
+    - Next.js provides SSG tools for React applications, and that's something that could be explored further
 - We'll end up with "Not Invented Here" roll-your-own solutions
     - Platform docs, standardized templates, and the collab cycle should mitigate this
     - Various next-generation tools, e.g. Next.js, Svelte, Alpine.js, HTMX, could be evaluated and adopted
@@ -75,7 +75,9 @@ VFS and Platform engineers should also look into what tools might help existing 
 > * What are their strengths, weaknesses, risks? Why weren’t they chosen?
 > * Do not allow bias of a solution to show in this section, ensure each alternative has been considering seriously or do not list it in this section
 
-Rather than adopt a lightweight apps path based on existing tools, we could immediately adopt a new framework that provides static page generation options, like Next.js. Adopting this across `vets-website` would be a large shift, so doing this incrementally for isolated applications might be a good approach. Taking this approach would require engineers to become familiar with the best practices and pitfalls of another framework. There may be a significant population of engineers with this knowledge who could help develop expertise across the Platform and VFS teams. It would still be important to measure and budget for performance. This approach probably requires further exploration and could not be immediately adopted.
+### Incremental adoption of a new framework
+
+Rather than adopt a lightweight apps path based on existing tools, we could adopt a new framework that provides static page generation options, like Next.js. This would need to be done incrementally, since adopting this across `vets-website` would be a major shift and involve work across all VA.gov teams. Taking this approach would require engineers to become familiar with the best practices and pitfalls of another framework. There may be a significant population of engineers with this knowledge who could help develop expertise across the Platform and VFS teams. It would still be important to measure and budget for performance. This approach probably requires further exploration and could not be immediately adopted.
 
 ## Diagrams
 
