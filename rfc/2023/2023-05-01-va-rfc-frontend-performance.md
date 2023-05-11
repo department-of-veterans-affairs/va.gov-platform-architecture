@@ -28,7 +28,7 @@ Performance affects people's experience with websites, and poor performance can 
 >Which problem(s) does this solve? Why? Use active voice, present tense, and decisive language.
 > Example: Framework XYZ is a modern, well-known, web rendering framework. It is easy to learn, easy to use, and provides high-performance web rendering. etc
 
-Datadog and Google Lighthouse help us understand the Veteran experience with VA.gov by measuring frontend performance. The information provided can help teams identify how to improve website performance for Veterans using various devices and internet connection speeds. These measurements can also help teams define and adopt a budget for how much HTML, CSS and JavaScript should be served per application and per pageview.
+Datadog and [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/) help us understand the Veteran experience with VA.gov by measuring frontend performance. The information provided can help teams identify how to improve website performance for Veterans using various devices and internet connection speeds. These measurements can also help teams define and adopt a budget for how much HTML, CSS and JavaScript should be served per application and per pageview.
 
 ### Performance reports show large amounts of unused code, sometimes over 40% of an application, slowing page load times
 
@@ -110,7 +110,7 @@ graph TD
 
 ## Performance Scores
 
-Google Lighthouse [scores performance](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8) by taking time measurements in areas such as "Largest Contentful Paint", "Time to Interactive", and "Total Blocking Time", then calculating a 1-100 score from a weighted average of those measurements. Those scores are coded in the ranges: "0 to 49 (red): Poor," "50 to 89 (orange): Needs Improvement," "90 to 100 (green): Good." **All VA.gov applications measured fall into the "0-49: Poor" range**.
+[Google Lighthouse](https://developer.chrome.com/docs/lighthouse/) [scores performance](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8) by taking time measurements in areas such as "Largest Contentful Paint", "Time to Interactive", and "Total Blocking Time", then calculating a 1-100 score from a weighted average of those measurements. Those scores are coded in the ranges: "0 to 49 (red): Poor," "50 to 89 (orange): Needs Improvement," "90 to 100 (green): Good." **All VA.gov applications measured fall into the "0-49: Poor" range**.
 
 The ["Largest Contentful Paint (LCP)" metric](https://web.dev/lcp/) is measured in seconds, and a value of less than 2.5 seconds is "good", between 2.5 and 45 seconds is "needs improvement", and over 4 seconds is "poor". **A Veteran visiting the VA.gov homepage can experience a 4+ second wait for the largest contentful paint, and over 13 seconds for the homepage to become fully interactive**. This qualifies as a poor performance experience for Veterans.
 
@@ -175,7 +175,7 @@ When linking to other documents in this repository, ensure to link to their stat
 
 - [Core Web Vitals as a UX measure](https://web.dev/vitals/)
 - [Performance Budgets 101](https://web.dev/performance-budgets-101/)
-- [Lighthouse Performance Scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8)
+- [Google Lighthouse Performance Scoring](https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/#lighthouse-8)
 - [Webpack Performance Features](https://webpack.js.org/configuration/performance/)
 - [Designing for Performance: Performance is User Experience](https://designingforperformance.com/performance-is-ux/)
 - [The Performance Inequality Gap, 2023](https://infrequently.org/2022/12/performance-baseline-2023/)
