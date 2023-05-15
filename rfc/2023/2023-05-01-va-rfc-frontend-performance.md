@@ -91,7 +91,7 @@ One alternative would be to adopt an hypermedia-centric approach and have `vets-
 
 ### Adopt a lightweight frontend approach
 
-As described in [RFC: The Platform shall provide a lightweight App path for VFS frontends](2023-05-01-va-rfc-lightweight-apps-paths.md), we can also improve performance by generating static HTML at build time rather than in the user's browser at run time. This approach focuses on performance first and allows application teams to just enough JavaScript to power their application. This approach is suited more for smaller applications than more complex form-driven applications, however. This approach should be one tool in our approach to performance, but not the only tool.
+As described in [RFC: The Platform shall provide a lightweight App path for VFS frontends](2023-05-01-va-rfc-lightweight-apps-paths.md), we can also improve performance by generating static HTML at build time rather than in the user's browser at run time. This approach focuses on performance first and allows application teams to use just enough JavaScript to power their application. This approach is suited more for smaller applications than more complex form-driven applications, however. This approach should be one tool in our approach to performance, but not the only tool.
 
 ### Do nothing
 
