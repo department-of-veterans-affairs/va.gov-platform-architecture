@@ -33,6 +33,10 @@ The VA.gov Platform provides [few options for creating new frontend (FE) applica
 
 Static-site generation techniques allow us to build smaller, faster applications by generating HTML and other assets at build time, minimizing HTML generation on user devices. We can add dynamic functionality selectively, and deliver smaller bundles of JavaScript. Server-side processing at build time and run time handle business logic and provide just enough data to our frontends only when they need it.
 
+### Speed and simplicity of software development
+
+Beyond performance for the end user, the option to build static or server-side rendered (SSR) HTML page opens up work to engineers not deeply experienced with React. SSR code can also be simpler to understand and maintain in comparison to complex React applications.
+
 ### Static content is weighed down with unneeded assets
 
 Given that the VA.gov homepage, primarily uses static HTML content, consists of 4.88 MB of assets (HTML, CSS, JavaScript) (Accessed 24 April 2023) and includes three copies of React in different JavaScript bundles, there is plenty of opportunity for reducing overall page size. If we also [budget for performance](2023-05-01-va-rfc-frontend-performance.md), we will have useful goals for application size.
