@@ -95,7 +95,11 @@ As described in [RFC: The Platform shall provide a lightweight App path for VFS 
 
 ### Implement a content delivery network (CDN)
 
-This isn't an alternative as much as a complementary approach. A content delivery network (CDN) uses geographically distributed servers that can improve reliability and speed up delivery of data to veterans by using servers that are physically closer to the end users. CDNs can have other scalability and performance benefits when it comes to delivering static assets. This could be helpful in improving delivery, particularly if combined with approaches proposed above such as deduplication and file size limits.
+This isn't an alternative as much as a complementary approach. A content delivery network (CDN) uses geographically distributed servers that can improve reliability and speed up delivery of data to veterans by using servers that are physically closer to the end users. CDNs can have other scalability and performance benefits when it comes to delivering static assets. This could be helpful in improving delivery, particularly if combined with approaches proposed above such as de-duplication and file size limits.
+
+### Web optimizations
+
+An [RFC: Web optimizations for VA.gov](https://github.com/department-of-veterans-affairs/va.gov-team/issues/21595) proposed multiple changes to yield performance improvements, including enabling Brotli compression, enabling HTTP/2, and moving JavaScript jobs to Web Workers whenever possible. These technical changes could also complement the approaches proposed in this RFC: file size limits and de-duplication would provide smaller file sizes which could be compressed, reducing file size even further. These web optimizations could enhance the work of application teams utilizing a performance budget.
 
 ### Do nothing
 
