@@ -72,7 +72,7 @@ As mentioned above, we can leverage our existing build tool, Webpack, to [preven
 > * These are the things people will bring up in opposition to your idea or plans. Acknowledge them.
 
 - There are large assets on the page such as Google Analytics and Digital Voice scripts that we cannot optimize or remove. Performance budgets can and should acknowledge this.
-- Removing duplicate scripts can create dependencies between bundles. Given our Webpack configuration already injects "shared modules", this dependency is already expected, we're just missing the de-duplication step.
+- Removing duplicate scripts can create dependencies between bundles. Given our Webpack configuration already injects "shared modules", this dependency is already expected, we're just missing the de-duplication step. If we can make bundles more granular, this can lead to easier refactoring.
 - Applications may require lots of refactoring to reach a performance budget goal, or teams may simply not have a lot of time to work on performance. Budgets can be adopted gradually, and process created for customizing budgets and allowing exceptions when there are significant barriers to increasing performance.
 - Teams may need help improving performance. We can adopt a "we're all in this together" approach and empower teams to help each other. Contract and vendor boundaries can make this challenging, so the VA would need to lead adoption of such an approach and look for ways to promote _and_ enable collaboration.
 - This could be perceived as a Platform responsibility. If VFS teams are empowered to make or propose improvements, this work can and should be shared across VFS and Platform teams.
