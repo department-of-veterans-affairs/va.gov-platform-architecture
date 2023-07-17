@@ -60,7 +60,7 @@ Another step is to update the [Frontend Support Dashboard - Performance Report](
 
 ["The Performance Inequality Gap," 2023](https://infrequently.org/2022/12/performance-baseline-2023/) suggests file size limits for HTML, CSS, and JavaScript, for example "~151KiB of HTML/CSS/fonts and ~300-350KiB of JavaScript (gzipped)". Using that report as a guide, we can determine reasonable file size limits and include them in our own performance budgets. VFS teams would use these baselines, along with the information about their application's real world performance provided by Datadog RUM and the Performance Report dashboard, to manage performance budgets for their applications.
 
-### Leverage existing tools to reduce code duplcation
+### Leverage existing tools to reduce code duplication
 
 As mentioned above, we can leverage our existing build tool, Webpack, to [prevent duplication](https://webpack.js.org/guides/code-splitting/#prevent-duplication) of code, removing the multiple copies of the same libraries in bundles. Webpack also provides options for [notifying teams of performance issues](https://webpack.js.org/configuration/performance/), another way to help teams understand performance and adopt a budget.
 
@@ -92,6 +92,10 @@ One alternative would be to adopt an hypermedia-centric approach and have `vets-
 ### Adopt a lightweight frontend approach
 
 As described in [RFC: The Platform shall provide a lightweight App path for VFS frontends](2023-05-01-va-rfc-lightweight-apps-paths.md), we can also improve performance by generating static HTML at build time rather than in the user's browser at run time. This approach focuses on performance first and allows application teams to use just enough JavaScript to power their application. This approach is suited more for smaller applications than more complex form-driven applications, however. This approach should be one tool in our approach to performance, but not the only tool.
+
+### Implement a content delivery network (CDN)
+
+This isn't an alternative as much as a complementary approach. A content delivery network (CDN) uses geographically distributed servers that can improve reliability and speed up delivery of data to veterans by using servers that are physically closer to the end users. CDNs can have other scalability and performance benefits when it comes to delivering static assets. This could be helpful in improving delivery, particularly if combined with approaches proposed above such as deduplication and file size limits.
 
 ### Do nothing
 
