@@ -68,6 +68,7 @@ VFS and Platform engineers should also look into what tools might help existing 
 - SSG will require lots of additional tools, creating its own complexity
     - `vets-website` already has support for ejs templates, and app entry points don't intrinsically have to use React, so we already have the tools we need
     - Next.js provides SSG tools for React applications, and that's something that could be explored further
+    - `vets-api` already has the technology needed to generate and/or serve HTML and other assets. Serving HTML from a server-side application is a well-worn pattern that could mitigate complexity.
 - We'll end up with "Not Invented Here" roll-your-own solutions
     - Platform docs, standardized templates, and the collab cycle should mitigate this
     - Various next-generation tools, e.g. Next.js, Svelte, Alpine.js, HTMX, could be evaluated and adopted
